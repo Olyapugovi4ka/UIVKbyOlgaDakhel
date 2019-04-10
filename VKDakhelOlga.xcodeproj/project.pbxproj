@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */; };
 		FA6DEDAE225BC68F00443522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6DEDAD225BC68F00443522 /* Assets.xcassets */; };
+		FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08089225D019E00D3FC47 /* GroupCell.swift */; };
+		FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */; };
+		FAA0808F225D24FB00D3FC47 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808E225D24FB00D3FC47 /* Group.swift */; };
+		FAA08092225D285100D3FC47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08091225D285100D3FC47 /* User.swift */; };
 		FADCF62D225BC4E600D65E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF62C225BC4E600D65E87 /* AppDelegate.swift */; };
 		FADCF637225BC4E700D65E87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADCF635225BC4E700D65E87 /* LaunchScreen.storyboard */; };
-		FADCF651225BC54400D65E87 /* AllPeopleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF63F225BC54400D65E87 /* AllPeopleController.swift */; };
 		FADCF653225BC54400D65E87 /* AddFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF642225BC54400D65E87 /* AddFriendController.swift */; };
 		FADCF654225BC54400D65E87 /* AddGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF643225BC54400D65E87 /* AddGroupController.swift */; };
 		FADCF655225BC54400D65E87 /* FriendsPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF644225BC54400D65E87 /* FriendsPhotoController.swift */; };
@@ -18,17 +22,20 @@
 		FADCF657225BC54400D65E87 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF646225BC54400D65E87 /* MainScreenController.swift */; };
 		FADCF658225BC54400D65E87 /* MyFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF647225BC54400D65E87 /* MyFriendsController.swift */; };
 		FADCF659225BC54400D65E87 /* MyGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF648225BC54400D65E87 /* MyGroupsController.swift */; };
-		FADCF65A225BC54400D65E87 /* FriendsPhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF649225BC54400D65E87 /* FriendsPhotosController.swift */; };
 		FADCF65E225BC54400D65E87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADCF64F225BC54400D65E87 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
 		FA6DEDAD225BC68F00443522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/VK_OlgaDakhel/VK_OlgaDakhel/UI/Assets.xcassets; sourceTree = "<group>"; };
+		FAA08089225D019E00D3FC47 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		FAA0808E225D24FB00D3FC47 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		FAA08091225D285100D3FC47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FADCF629225BC4E600D65E87 /* VKDakhelOlga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKDakhelOlga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADCF62C225BC4E600D65E87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADCF636225BC4E700D65E87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADCF638225BC4E700D65E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FADCF63F225BC54400D65E87 /* AllPeopleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPeopleController.swift; sourceTree = "<group>"; };
 		FADCF642225BC54400D65E87 /* AddFriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendController.swift; sourceTree = "<group>"; };
 		FADCF643225BC54400D65E87 /* AddGroupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupController.swift; sourceTree = "<group>"; };
 		FADCF644225BC54400D65E87 /* FriendsPhotoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsPhotoController.swift; sourceTree = "<group>"; };
@@ -36,7 +43,6 @@
 		FADCF646225BC54400D65E87 /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		FADCF647225BC54400D65E87 /* MyFriendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendsController.swift; sourceTree = "<group>"; };
 		FADCF648225BC54400D65E87 /* MyGroupsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsController.swift; sourceTree = "<group>"; };
-		FADCF649225BC54400D65E87 /* FriendsPhotosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsPhotosController.swift; sourceTree = "<group>"; };
 		FADCF650225BC54400D65E87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,12 +60,11 @@
 		FA41E66D225BC7D0004E2856 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FADCF649225BC54400D65E87 /* FriendsPhotosController.swift */,
+				FAA0808D225D20E000D3FC47 /* Cells */,
 				FADCF648225BC54400D65E87 /* MyGroupsController.swift */,
 				FADCF647225BC54400D65E87 /* MyFriendsController.swift */,
 				FADCF646225BC54400D65E87 /* MainScreenController.swift */,
 				FADCF645225BC54400D65E87 /* LoginController.swift */,
-				FADCF63F225BC54400D65E87 /* AllPeopleController.swift */,
 				FADCF643225BC54400D65E87 /* AddGroupController.swift */,
 				FADCF644225BC54400D65E87 /* FriendsPhotoController.swift */,
 				FADCF642225BC54400D65E87 /* AddFriendController.swift */,
@@ -67,13 +72,32 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		FA41E66E225BC7ED004E2856 /* UI */ = {
+		FA41E66E225BC7ED004E2856 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				FADCF64F225BC54400D65E87 /* Main.storyboard */,
 				FADCF635225BC4E700D65E87 /* LaunchScreen.storyboard */,
 			);
-			path = UI;
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAA0808D225D20E000D3FC47 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAA08089225D019E00D3FC47 /* GroupCell.swift */,
+				FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */,
+				FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FAA08090225D25A500D3FC47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAA08091225D285100D3FC47 /* User.swift */,
+				FAA0808E225D24FB00D3FC47 /* Group.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FADCF620225BC4E600D65E87 = {
@@ -96,9 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
+				FAA08090225D25A500D3FC47 /* Model */,
 				FA41E66D225BC7D0004E2856 /* Controllers */,
 				FA6DEDAD225BC68F00443522 /* Assets.xcassets */,
-				FA41E66E225BC7ED004E2856 /* UI */,
+				FA41E66E225BC7ED004E2856 /* View */,
 				FADCF638225BC4E700D65E87 /* Info.plist */,
 			);
 			path = VKDakhelOlga;
@@ -176,14 +201,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADCF655225BC54400D65E87 /* FriendsPhotoController.swift in Sources */,
+				FAA08092225D285100D3FC47 /* User.swift in Sources */,
 				FADCF657225BC54400D65E87 /* MainScreenController.swift in Sources */,
+				FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */,
 				FADCF654225BC54400D65E87 /* AddGroupController.swift in Sources */,
-				FADCF65A225BC54400D65E87 /* FriendsPhotosController.swift in Sources */,
+				FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */,
 				FADCF653225BC54400D65E87 /* AddFriendController.swift in Sources */,
 				FADCF659225BC54400D65E87 /* MyGroupsController.swift in Sources */,
 				FADCF656225BC54400D65E87 /* LoginController.swift in Sources */,
 				FADCF658225BC54400D65E87 /* MyFriendsController.swift in Sources */,
-				FADCF651225BC54400D65E87 /* AllPeopleController.swift in Sources */,
+				FAA0808F225D24FB00D3FC47 /* Group.swift in Sources */,
+				FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */,
 				FADCF62D225BC4E600D65E87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

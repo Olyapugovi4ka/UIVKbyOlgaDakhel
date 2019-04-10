@@ -9,6 +9,10 @@
 import UIKit
 
 class MyFriendsController: UITableViewController {
+    
+    private var user: [User] = [
+        User(name: "Susan"),
+        User(name: "Serz")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,25 +26,21 @@ class MyFriendsController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+  
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return user.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
 
-        // Configure the cell...
-
+       cell.userLabel.text = user[indexPath.row].name
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -50,17 +50,15 @@ class MyFriendsController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+          user.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -77,14 +75,33 @@ class MyFriendsController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Friend Photo",
+        let photoVC = segue.destination as? FriendsPhotoController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            let userName = user[indexPath.row].name
+            photoVC.friendName = userName
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    @IBAction func addFriend(segue: UIStoryboardSegue){
+        if let addFriendController = segue.source as? AddFriendController,
+            let indexPath = addFriendController.tableView.indexPathForSelectedRow {
+            let friend = addFriendController.user[indexPath.row]
+            guard !user.contains(where: { (User) -> Bool in
+                return User.name == friend.name
+            }) else {return}
+            self.user.append(friend)
+            let newIndexPath = IndexPath(item:user.count-1, section: 0)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+        
+    }
+ 
 
 }

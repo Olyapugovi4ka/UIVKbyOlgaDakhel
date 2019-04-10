@@ -10,6 +10,13 @@ import UIKit
 
 class AddGroupController: UITableViewController {
 
+    public let group:[Group] = [
+        Group(name: "Music"),
+        Group(name: "Interior and Decor"),
+        Group(name: "Beauty"),
+        Group(name: "Knitting world")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,26 +29,20 @@ class AddGroupController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return group.count
     }
-
-    /*
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else {fatalError("Cell cannot be dequeued")}
+        
+        cell.GroupNameLabel.text = group[indexPath.row].name
+        
         return cell
     }
-    */
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
