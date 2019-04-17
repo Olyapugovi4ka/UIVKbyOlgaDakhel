@@ -1,14 +1,14 @@
 //
-//  AvatarView.swift
+//  LikeControl.swift
 //  VKDakhelOlga
 //
-//  Created by MacBook on 12/04/2019.
+//  Created by MacBook on 16/04/2019.
 //  Copyright © 2019 MacBook. All rights reserved.
 //
 
 import UIKit
 
-class AvatarView: UIView {
+class LikeControl: UIControl {
 
     /*
     // Only override draw() if you perform custom drawing.
