@@ -13,6 +13,8 @@
 		FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */; };
 		FAA0808F225D24FB00D3FC47 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808E225D24FB00D3FC47 /* Group.swift */; };
 		FAA08092225D285100D3FC47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08091225D285100D3FC47 /* User.swift */; };
+		FAAAE1A72264F4190009A984 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAE1A62264F4190009A984 /* ShadowView.swift */; };
+		FAAAE1AA2265F8F90009A984 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAE1A92265F8F90009A984 /* LikeControl.swift */; };
 		FADCF62D225BC4E600D65E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF62C225BC4E600D65E87 /* AppDelegate.swift */; };
 		FADCF637225BC4E700D65E87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADCF635225BC4E700D65E87 /* LaunchScreen.storyboard */; };
 		FADCF653225BC54400D65E87 /* AddFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF642225BC54400D65E87 /* AddFriendController.swift */; };
@@ -32,6 +34,8 @@
 		FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		FAA0808E225D24FB00D3FC47 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		FAA08091225D285100D3FC47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FAAAE1A62264F4190009A984 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		FAAAE1A92265F8F90009A984 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		FADCF629225BC4E600D65E87 /* VKDakhelOlga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKDakhelOlga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADCF62C225BC4E600D65E87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADCF636225BC4E700D65E87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 		FA41E66D225BC7D0004E2856 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAAAE1A92265F8F90009A984 /* LikeControl.swift */,
 				FAA0808D225D20E000D3FC47 /* Cells */,
 				FADCF648225BC54400D65E87 /* MyGroupsController.swift */,
 				FADCF647225BC54400D65E87 /* MyFriendsController.swift */,
@@ -100,6 +105,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FAAAE1A82264FA9E0009A984 /* Custom control */ = {
+			isa = PBXGroup;
+			children = (
+				FAAAE1A62264F4190009A984 /* ShadowView.swift */,
+			);
+			path = "Custom control";
+			sourceTree = "<group>";
+		};
 		FADCF620225BC4E600D65E87 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +132,7 @@
 		FADCF62B225BC4E600D65E87 /* VKDakhelOlga */ = {
 			isa = PBXGroup;
 			children = (
+				FAAAE1A82264FA9E0009A984 /* Custom control */,
 				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
 				FAA08090225D25A500D3FC47 /* Model */,
 				FA41E66D225BC7D0004E2856 /* Controllers */,
@@ -206,6 +220,8 @@
 				FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */,
 				FADCF654225BC54400D65E87 /* AddGroupController.swift in Sources */,
 				FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */,
+				FAAAE1A72264F4190009A984 /* ShadowView.swift in Sources */,
+				FAAAE1AA2265F8F90009A984 /* LikeControl.swift in Sources */,
 				FADCF653225BC54400D65E87 /* AddFriendController.swift in Sources */,
 				FADCF659225BC54400D65E87 /* MyGroupsController.swift in Sources */,
 				FADCF656225BC54400D65E87 /* LoginController.swift in Sources */,

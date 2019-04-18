@@ -11,8 +11,8 @@ import UIKit
 class MyFriendsController: UITableViewController {
     
     private var user: [User] = [
-        User(name: "Susan"),
-        User(name: "Serz")]
+        User(name: "Susan", avatarImage: UIImage(named: "Friends")),
+        User(name: "Serz", avatarImage: UIImage(named: "Friends"))]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,10 @@ class MyFriendsController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
 
        cell.userLabel.text = user[indexPath.row].name
+       // if let image = user[indexPath.row].avatarImage {
+       //     cell.avatarView.avatarImage = image
+       // }
+        
         return cell
     }
     

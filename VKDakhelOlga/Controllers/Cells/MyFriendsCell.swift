@@ -12,13 +12,9 @@ class MyFriendsCell: UITableViewCell {
     
     static let reuseId = "MyFriendCell"
     
-    @IBOutlet weak var UserImage: UIImageView!
+    @IBOutlet weak var avatarView: AvatarView!
     @IBOutlet weak var userLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     
 

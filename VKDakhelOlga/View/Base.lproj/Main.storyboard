@@ -150,37 +150,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyFriendCell" rowHeight="70" id="kq5-C5-qvg" customClass="MyFriendsCell" customModule="VKDakhelOlga" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyFriendCell" rowHeight="118" id="kq5-C5-qvg" customClass="MyFriendsCell" customModule="VKDakhelOlga" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="118"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kq5-C5-qvg" id="eTA-7E-LwV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="117.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Friend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPx-KB-Mfe">
-                                            <rect key="frame" x="86" y="24.333333333333329" width="312" height="21"/>
+                                            <rect key="frame" x="92" y="48.333333333333336" width="286" height="21.000000000000007"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="briefcase" translatesAutoresizingMaskIntoConstraints="NO" id="i7x-he-VCa">
-                                            <rect key="frame" x="36" y="15" width="40" height="40"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iM1-fr-m4O" customClass="AvatarView" customModule="VKDakhelOlga" customModuleProvider="target">
+                                            <rect key="frame" x="32" y="39" width="40" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="i7x-he-VCa" secondAttribute="height" multiplier="1:1" id="Qdz-qA-SXl"/>
-                                                <constraint firstAttribute="width" constant="40" id="gqO-LU-IsC"/>
+                                                <constraint firstAttribute="height" constant="40" id="aHP-Jk-S32"/>
+                                                <constraint firstAttribute="width" secondItem="iM1-fr-m4O" secondAttribute="height" multiplier="1:1" id="kf2-bj-fdD"/>
                                             </constraints>
-                                        </imageView>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                    <color key="value" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="DPx-KB-Mfe" firstAttribute="leading" secondItem="i7x-he-VCa" secondAttribute="trailing" constant="10" id="EYz-eo-vqO"/>
-                                        <constraint firstItem="i7x-he-VCa" firstAttribute="centerY" secondItem="eTA-7E-LwV" secondAttribute="centerY" id="ZMD-xd-KzV"/>
-                                        <constraint firstItem="i7x-he-VCa" firstAttribute="leading" secondItem="eTA-7E-LwV" secondAttribute="leadingMargin" constant="16" id="jCZ-Nh-m0v"/>
-                                        <constraint firstItem="DPx-KB-Mfe" firstAttribute="centerY" secondItem="eTA-7E-LwV" secondAttribute="centerY" id="wLs-Yo-eDf"/>
-                                        <constraint firstAttribute="trailing" secondItem="DPx-KB-Mfe" secondAttribute="trailing" constant="16" id="yqu-lt-2dg"/>
+                                        <constraint firstItem="iM1-fr-m4O" firstAttribute="centerY" secondItem="eTA-7E-LwV" secondAttribute="centerY" id="9pu-uL-gXL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="DPx-KB-Mfe" secondAttribute="trailing" constant="16" id="IIj-i8-ibe"/>
+                                        <constraint firstItem="DPx-KB-Mfe" firstAttribute="leading" secondItem="iM1-fr-m4O" secondAttribute="trailing" constant="20" id="YRN-xZ-OXT"/>
+                                        <constraint firstItem="DPx-KB-Mfe" firstAttribute="centerY" secondItem="eTA-7E-LwV" secondAttribute="centerY" id="qLY-E9-aZ2"/>
+                                        <constraint firstItem="iM1-fr-m4O" firstAttribute="leading" secondItem="eTA-7E-LwV" secondAttribute="leadingMargin" constant="12" id="vuk-z8-jn6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="UserImage" destination="i7x-he-VCa" id="bLj-TW-P2q"/>
                                     <outlet property="userLabel" destination="DPx-KB-Mfe" id="jEu-9C-luK"/>
                                     <segue destination="HTU-H0-2XM" kind="show" identifier="Friend Photo" id="xmB-FL-N6T"/>
                                 </connections>
@@ -242,7 +247,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="UserImage" destination="xxB-n4-sPP" id="FHn-f7-qv5"/>
+                                    <outlet property="userImage" destination="xxB-n4-sPP" id="FHn-f7-qv5"/>
                                     <outlet property="userLabel" destination="2r4-eB-Kp3" id="l05-rn-2XP"/>
                                     <segue destination="gqb-H0-PmO" kind="unwind" unwindAction="addFriendWithSegue:" id="GyR-HG-HqY"/>
                                 </connections>
@@ -349,14 +354,25 @@
                                                 <constraint firstAttribute="width" secondItem="arw-og-e3k" secondAttribute="height" multiplier="1:1" id="hK0-cf-4UW"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PR-8M-WOX" customClass="LikeControl" customModule="VKDakhelOlga" customModuleProvider="target">
+                                            <rect key="frame" x="84" y="81" width="40" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="PoF-Kp-PFp"/>
+                                                <constraint firstAttribute="height" constant="40" id="wNU-PY-Hjx"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9PR-8M-WOX" secondAttribute="bottom" id="IMp-TZ-y0e"/>
+                                    <constraint firstAttribute="trailing" secondItem="9PR-8M-WOX" secondAttribute="trailing" id="cx2-XY-NRb"/>
                                     <constraint firstItem="arw-og-e3k" firstAttribute="centerY" secondItem="ZkX-CQ-zZ7" secondAttribute="centerY" id="o5Q-fX-tjh"/>
                                     <constraint firstItem="arw-og-e3k" firstAttribute="centerX" secondItem="ZkX-CQ-zZ7" secondAttribute="centerX" id="oaM-zJ-Hqt"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="iconImageView" destination="arw-og-e3k" id="Cx4-gB-vmr"/>
+                                    <outlet property="likeControl" destination="9PR-8M-WOX" id="u24-QW-5XC"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -471,7 +487,7 @@
         <scene sceneID="zSi-Gh-iJc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ctt-p9-5a7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="Friends" largeContentSizeImage="Friends" selectedImage="Friends" id="qLh-03-64q">
+                    <tabBarItem key="tabBarItem" title="Friends" image="Friends" selectedImage="Friends" id="qLh-03-64q">
                         <color key="badgeColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
                     <toolbarItems/>
