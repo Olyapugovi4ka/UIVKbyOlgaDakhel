@@ -33,7 +33,7 @@ class LikeControl: UIControl {
         addSubview(heartImageView)
         heartImageView.image = UIImage(named: "heart_empty")
         addSubview(likesCount)
-        likesCount.text = String(countValue)
+        likesCount.text = "\(String(countValue))"
     }
     
     override func layoutSubviews() {
