@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */; };
-		FA6DEDAE225BC68F00443522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6DEDAD225BC68F00443522 /* Assets.xcassets */; };
 		FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74AB89226B404D00CAFDF5 /* GradientView.swift */; };
 		FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08089225D019E00D3FC47 /* GroupCell.swift */; };
 		FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */; };
 		FAA0808F225D24FB00D3FC47 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808E225D24FB00D3FC47 /* Group.swift */; };
 		FAA08092225D285100D3FC47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08091225D285100D3FC47 /* User.swift */; };
+		FAA746DA226FB08D00AC7C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA746D9226FB08D00AC7C1F /* Assets.xcassets */; };
 		FAAAE1A72264F4190009A984 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAE1A62264F4190009A984 /* ShadowView.swift */; };
 		FAAAE1AA2265F8F90009A984 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAE1A92265F8F90009A984 /* LikeControl.swift */; };
 		FADCF62D225BC4E600D65E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF62C225BC4E600D65E87 /* AppDelegate.swift */; };
@@ -30,12 +30,12 @@
 
 /* Begin PBXFileReference section */
 		FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
-		FA6DEDAD225BC68F00443522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA74AB89226B404D00CAFDF5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FAA08089225D019E00D3FC47 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		FAA0808E225D24FB00D3FC47 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		FAA08091225D285100D3FC47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FAA746D9226FB08D00AC7C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		FAAAE1A62264F4190009A984 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		FAAAE1A92265F8F90009A984 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		FADCF629225BC4E600D65E87 /* VKDakhelOlga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKDakhelOlga.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +82,7 @@
 		FA41E66E225BC7ED004E2856 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAA746D9226FB08D00AC7C1F /* Assets.xcassets */,
 				FA74AB89226B404D00CAFDF5 /* GradientView.swift */,
 				FADCF64F225BC54400D65E87 /* Main.storyboard */,
 				FADCF635225BC4E700D65E87 /* LaunchScreen.storyboard */,
@@ -139,7 +140,6 @@
 				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
 				FAA08090225D25A500D3FC47 /* Model */,
 				FA41E66D225BC7D0004E2856 /* Controllers */,
-				FA6DEDAD225BC68F00443522 /* Assets.xcassets */,
 				FA41E66E225BC7ED004E2856 /* View */,
 				FADCF638225BC4E700D65E87 /* Info.plist */,
 			);
@@ -178,6 +178,7 @@
 				TargetAttributes = {
 					FADCF628225BC4E600D65E87 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -205,8 +206,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADCF65E225BC54400D65E87 /* Main.storyboard in Resources */,
+				FAA746DA226FB08D00AC7C1F /* Assets.xcassets in Resources */,
 				FADCF637225BC4E700D65E87 /* LaunchScreen.storyboard in Resources */,
-				FA6DEDAE225BC68F00443522 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +388,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.VKDakhelOlga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -405,7 +406,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.VKDakhelOlga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

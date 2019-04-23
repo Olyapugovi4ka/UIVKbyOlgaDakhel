@@ -8,26 +8,23 @@
 
 import UIKit
 
-class MyFriendsController: UITableViewController {
+class MyFriendsController: UITableViewController, UISearchBarDelegate {
     
-    private var users: [User] = [
+    @IBOutlet weak var SearchBar: UISearchBar!
+    var users: [User] = [
         User(name: "Susan", avatarImage: UIImage(named: "Friends")),
         User(name: "Serz", avatarImage: UIImage(named: "Friends"))]
     
     var firstLettersSectionTitles = [String]()
     var  allFriendsDictionary = [String: [User]]()
-
+    
+    var filterUsers = [User]()
+    var searching = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sortedSections()
@@ -56,14 +53,20 @@ class MyFriendsController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if searching {
+            return 1
+        }
         return firstLettersSectionTitles.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-       let userNameKey = firstLettersSectionTitles[section]
-        if let userValues = allFriendsDictionary[userNameKey] {
+        if searching {
+            return filterUsers.count
+        } else {
+            let userNameKey = firstLettersSectionTitles[section]
+            if let userValues = allFriendsDictionary[userNameKey] {
             return userValues.count
+            }
         }
         return 0
     }
@@ -71,33 +74,31 @@ class MyFriendsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
-        let userNameKey = firstLettersSectionTitles[indexPath.section]
-        if let userValues = allFriendsDictionary[userNameKey] {
-            
+        if searching {
+            cell.userLabel.text = filterUsers[indexPath.row].name
+        } else {
+            let userNameKey = firstLettersSectionTitles[indexPath.section]
+            if let userValues = allFriendsDictionary[userNameKey] {
             cell.userLabel.text = userValues[indexPath.row].name
-            
+            }
         }
         
         return cell
 
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if searching {
+            return nil
+        }
         return firstLettersSectionTitles[section]
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        if searching {
+            return nil
+        }
         return firstLettersSectionTitles
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -106,23 +107,6 @@ class MyFriendsController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
@@ -149,6 +133,11 @@ class MyFriendsController: UITableViewController {
             tableView.reloadData()
         }
         
+    }
+    private func searchUser (_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterUsers = users.filter({$0.name.prefix(searchText.count) == searchText})
+        searching = true
+        tableView.reloadData()
     }
  
 
