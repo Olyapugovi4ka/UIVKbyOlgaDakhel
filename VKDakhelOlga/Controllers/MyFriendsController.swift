@@ -10,12 +10,17 @@ import UIKit
 
 class MyFriendsController: UITableViewController {
     
-    private var user: [User] = [
+    private var users: [User] = [
         User(name: "Susan", avatarImage: UIImage(named: "Friends")),
         User(name: "Serz", avatarImage: UIImage(named: "Friends"))]
+    
+    var firstLettersSectionTitles = [String]()
+    var  allFriendsDictionary = [String: [User]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,26 +28,65 @@ class MyFriendsController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        sortedSections()
+        
+    }
+    
+    private func sortedSections() {
+        firstLettersSectionTitles = []
+        allFriendsDictionary = [:]
+        
+        for user in users {
+            let userNameKey = String(user.name.prefix(1))
+            if var userValue = allFriendsDictionary[userNameKey] {
+                userValue.append(user)
+                allFriendsDictionary[userNameKey] = userValue
+            } else {
+                allFriendsDictionary[userNameKey] = [user]
+            }
+        }
+        
+        firstLettersSectionTitles = [String](allFriendsDictionary.keys)
+        firstLettersSectionTitles = firstLettersSectionTitles.sorted(by: {$0 < $1})
+        
+    }
 
     // MARK: - Table view data source
 
-  
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return firstLettersSectionTitles.count
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return user.count
+       let userNameKey = firstLettersSectionTitles[section]
+        if let userValues = allFriendsDictionary[userNameKey] {
+            return userValues.count
+        }
+        return 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
-
-       cell.userLabel.text = user[indexPath.row].name
-       // if let image = user[indexPath.row].avatarImage {
-       //     cell.avatarView.avatarImage = image
-       // }
+        let userNameKey = firstLettersSectionTitles[indexPath.section]
+        if let userValues = allFriendsDictionary[userNameKey] {
+            
+            cell.userLabel.text = userValues[indexPath.row].name
+            
+        }
         
         return cell
+
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return firstLettersSectionTitles[section]
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return firstLettersSectionTitles
     }
     
 
@@ -58,7 +102,7 @@ class MyFriendsController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-          user.remove(at: indexPath.row)
+          users.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -87,7 +131,7 @@ class MyFriendsController: UITableViewController {
         if segue.identifier == "Friend Photo",
         let photoVC = segue.destination as? FriendsPhotoController,
             let indexPath = tableView.indexPathForSelectedRow {
-            let userName = user[indexPath.row].name
+            let userName = users[indexPath.row].name
             photoVC.friendName = userName
         }
         // Get the new view controller using segue.destination.
@@ -96,13 +140,13 @@ class MyFriendsController: UITableViewController {
     @IBAction func addFriend(segue: UIStoryboardSegue){
         if let addFriendController = segue.source as? AddFriendController,
             let indexPath = addFriendController.tableView.indexPathForSelectedRow {
-            let friend = addFriendController.user[indexPath.row]
-            guard !user.contains(where: { (User) -> Bool in
+            let friend = addFriendController.users[indexPath.row]
+            guard !users.contains(where: { (User) -> Bool in
                 return User.name == friend.name
             }) else {return}
-            self.user.append(friend)
-            let newIndexPath = IndexPath(item:user.count-1, section: 0)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            self.users.append(friend)
+            sortedSections()
+            tableView.reloadData()
         }
         
     }

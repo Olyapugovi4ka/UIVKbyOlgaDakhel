@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bu1-C7-hyw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bu1-C7-hyw">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -149,9 +149,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="WiP-tb-YH2">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyFriendCell" rowHeight="118" id="kq5-C5-qvg" customClass="MyFriendsCell" customModule="VKDakhelOlga" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="118"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="118"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kq5-C5-qvg" id="eTA-7E-LwV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="117.66666666666667"/>
@@ -225,29 +230,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-eB-Kp3">
-                                            <rect key="frame" x="66" y="24.333333333333329" width="312" height="21"/>
+                                            <rect key="frame" x="92" y="24.333333333333329" width="286" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="briefcase" translatesAutoresizingMaskIntoConstraints="NO" id="xxB-n4-sPP">
-                                            <rect key="frame" x="16" y="15" width="40" height="40"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBT-zM-eNV" customClass="AvatarView" customModule="VKDakhelOlga" customModuleProvider="target">
+                                            <rect key="frame" x="32" y="15" width="40" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="3N3-YI-be3"/>
-                                                <constraint firstAttribute="width" secondItem="xxB-n4-sPP" secondAttribute="height" multiplier="1:1" id="TN5-p5-QoU"/>
+                                                <constraint firstAttribute="width" secondItem="HBT-zM-eNV" secondAttribute="height" multiplier="1:1" id="T6c-am-EwA"/>
+                                                <constraint firstAttribute="height" constant="40" id="vBy-WJ-fDm"/>
                                             </constraints>
-                                        </imageView>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="2r4-eB-Kp3" firstAttribute="leading" secondItem="xxB-n4-sPP" secondAttribute="trailing" constant="10" id="1hi-dS-dm6"/>
+                                        <constraint firstItem="HBT-zM-eNV" firstAttribute="centerY" secondItem="QS5-nI-V0Z" secondAttribute="centerY" id="1dT-gF-UaT"/>
                                         <constraint firstItem="2r4-eB-Kp3" firstAttribute="centerY" secondItem="QS5-nI-V0Z" secondAttribute="centerY" id="IlN-f5-yQB"/>
+                                        <constraint firstItem="2r4-eB-Kp3" firstAttribute="leading" secondItem="HBT-zM-eNV" secondAttribute="trailing" constant="20" id="dYu-A0-YQ8"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="2r4-eB-Kp3" secondAttribute="trailing" constant="16" id="dq8-tj-i8Q"/>
-                                        <constraint firstItem="xxB-n4-sPP" firstAttribute="leading" secondItem="QS5-nI-V0Z" secondAttribute="leading" constant="16" id="sla-YU-i1O"/>
-                                        <constraint firstItem="xxB-n4-sPP" firstAttribute="centerY" secondItem="QS5-nI-V0Z" secondAttribute="centerY" id="zKC-Vl-M4e"/>
+                                        <constraint firstItem="HBT-zM-eNV" firstAttribute="leading" secondItem="QS5-nI-V0Z" secondAttribute="leadingMargin" constant="12" id="gnF-nU-dxl"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="userImage" destination="xxB-n4-sPP" id="FHn-f7-qv5"/>
                                     <outlet property="userLabel" destination="2r4-eB-Kp3" id="l05-rn-2XP"/>
                                     <segue destination="gqb-H0-PmO" kind="unwind" unwindAction="addFriendWithSegue:" id="GyR-HG-HqY"/>
                                 </connections>
@@ -286,7 +291,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="art" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-6e-PV3">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Groups" translatesAutoresizingMaskIntoConstraints="NO" id="EXl-6e-PV3">
                                             <rect key="frame" x="36" y="15" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="p9e-CR-iwT"/>
@@ -408,7 +413,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="art" translatesAutoresizingMaskIntoConstraints="NO" id="H6w-VN-cz2">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Groups" translatesAutoresizingMaskIntoConstraints="NO" id="H6w-VN-cz2">
                                             <rect key="frame" x="36" y="15" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="NWd-vr-ULm"/>
@@ -506,11 +511,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Friends" width="37.5" height="37.5"/>
-        <image name="Groups" width="30" height="30"/>
-        <image name="art" width="64" height="64"/>
-        <image name="backgroung" width="768" height="576"/>
-        <image name="briefcase" width="64" height="64"/>
-        <image name="icon" width="150.24000549316406" height="132.24000549316406"/>
+        <image name="Friends" width="50" height="50"/>
+        <image name="Groups" width="40" height="40"/>
+        <image name="backgroung" width="1024" height="768"/>
+        <image name="icon" width="626" height="551"/>
     </resources>
 </document>

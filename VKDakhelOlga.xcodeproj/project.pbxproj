@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */; };
 		FA6DEDAE225BC68F00443522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6DEDAD225BC68F00443522 /* Assets.xcassets */; };
+		FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74AB89226B404D00CAFDF5 /* GradientView.swift */; };
 		FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08089225D019E00D3FC47 /* GroupCell.swift */; };
 		FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */; };
 		FAA0808F225D24FB00D3FC47 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808E225D24FB00D3FC47 /* Group.swift */; };
@@ -29,7 +30,8 @@
 
 /* Begin PBXFileReference section */
 		FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
-		FA6DEDAD225BC68F00443522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/VK_OlgaDakhel/VK_OlgaDakhel/UI/Assets.xcassets; sourceTree = "<group>"; };
+		FA6DEDAD225BC68F00443522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA74AB89226B404D00CAFDF5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FAA08089225D019E00D3FC47 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		FAA0808E225D24FB00D3FC47 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		FA41E66E225BC7ED004E2856 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA74AB89226B404D00CAFDF5 /* GradientView.swift */,
 				FADCF64F225BC54400D65E87 /* Main.storyboard */,
 				FADCF635225BC4E700D65E87 /* LaunchScreen.storyboard */,
 			);
@@ -220,6 +223,7 @@
 				FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */,
 				FADCF654225BC54400D65E87 /* AddGroupController.swift in Sources */,
 				FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */,
+				FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */,
 				FAAAE1A72264F4190009A984 /* ShadowView.swift in Sources */,
 				FAAAE1AA2265F8F90009A984 /* LikeControl.swift in Sources */,
 				FADCF653225BC54400D65E87 /* AddFriendController.swift in Sources */,

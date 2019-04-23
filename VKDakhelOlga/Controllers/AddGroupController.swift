@@ -10,38 +10,45 @@ import UIKit
 
 class AddGroupController: UITableViewController {
 
-    public let group:[Group] = [
+    public let groups:[Group] = [
         Group(name: "Music"),
         Group(name: "Interior and Decor"),
         Group(name: "Beauty"),
         Group(name: "Knitting world")
     ]
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+ 
+   
 
-    // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return group.count
+       
+            return groups.count
+      
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else {fatalError("Cell cannot be dequeued")}
-        
-        cell.GroupNameLabel.text = group[indexPath.row].name
-        
-        return cell
-    }
+       
+            cell.GroupNameLabel.text = groups[indexPath.row].name
+            return cell
+        }
+}
+     
+    
     
     /*
     // Override to support conditional editing of the table view.
@@ -88,4 +95,4 @@ class AddGroupController: UITableViewController {
     }
     */
 
-}
+
