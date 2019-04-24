@@ -134,11 +134,16 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
         }
         
     }
-    private func searchUser (_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterUsers = users.filter({$0.name.prefix(searchText.count) == searchText})
+    func searchBar (_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //filterUsers.removeAll()
+        filterUsers = users.filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         tableView.reloadData()
     }
- 
-
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
 }
