@@ -10,42 +10,47 @@ import UIKit
 
 class AddFriendController: UITableViewController {
     
-    public let user:[User] = [
-        User(name: "Alex"),
-        User(name: "Mikhail"),
-        User(name: "Kate"),
-        User(name: "Marina"),
-        User(name: "Leo")
+    public let users:[User] = [
+        User(name: "Alex", avatarImage: UIImage(named: "Friends")),
+        User(name: "Mikhail", avatarImage: UIImage(named: "Friends")),
+        User(name: "Kate", avatarImage: UIImage(named: "Friends")),
+        User(name: "Marina", avatarImage: UIImage(named: "Friends")),
+        User(name: "Leo", avatarImage: UIImage(named: "Friends"))
     ]
     
+   
     @IBOutlet weak var peopleNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     // MARK: - Table view data source
+    
 
         override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
-            return user.count
+            
+                return users.count
+           
         }
         
         
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
-            
-            cell.userLabel.text = user[indexPath.row].name
-            
+           
+            cell.userLabel.text = users[indexPath.row].name
             return cell
         }
-
+    
 
     /*
     // Override to support conditional editing of the table view.

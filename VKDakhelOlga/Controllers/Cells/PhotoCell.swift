@@ -12,7 +12,7 @@ class PhotoCell: UICollectionViewCell {
     
     static let reuseId = "PhotoCell"
     
-    @IBOutlet var iconImageView: UIImageView!
-  
+    @IBOutlet var iconImageView: UIImageView!  
+    @IBOutlet var likeControl: LikeControl!
     
 }

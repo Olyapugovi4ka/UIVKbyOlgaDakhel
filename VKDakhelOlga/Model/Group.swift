@@ -6,7 +6,7 @@
 //  Copyright © 2019 MacBook. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Group {
     let name: String
