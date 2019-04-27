@@ -9,6 +9,6 @@
 import UIKit
 
 struct User {
-    let name: String
+    let userName: String
     let avatarImage: UIImage?
 }

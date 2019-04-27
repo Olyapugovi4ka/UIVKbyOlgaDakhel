@@ -12,14 +12,15 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var SearchBar: UISearchBar!
     var users: [User] = [
-        User(name: "Susan", avatarImage: UIImage(named: "Friends")),
-        User(name: "Serz", avatarImage: UIImage(named: "Friends"))]
+        User(userName: "Susan", avatarImage: UIImage(named: "Friends")),
+        User(userName: "Serz", avatarImage: UIImage(named: "Friends"))]
     
     var firstLettersSectionTitles = [String]()
     var  allFriendsDictionary = [String: [User]]()
     
     var filterUsers = [User]()
     var searching = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +37,7 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
         allFriendsDictionary = [:]
         
         for user in users {
-            let userNameKey = String(user.name.prefix(1))
+            let userNameKey = String(user.userName.prefix(1))
             if var userValue = allFriendsDictionary[userNameKey] {
                 userValue.append(user)
                 allFriendsDictionary[userNameKey] = userValue
@@ -75,11 +76,11 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
         if searching {
-            cell.userLabel.text = filterUsers[indexPath.row].name
+            cell.userLabel.text = filterUsers[indexPath.row].userName
         } else {
             let userNameKey = firstLettersSectionTitles[indexPath.section]
             if let userValues = allFriendsDictionary[userNameKey] {
-            cell.userLabel.text = userValues[indexPath.row].name
+            cell.userLabel.text = userValues[indexPath.row].userName
             }
         }
         
@@ -115,7 +116,7 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
         if segue.identifier == "Friend Photo",
         let photoVC = segue.destination as? FriendsPhotoController,
             let indexPath = tableView.indexPathForSelectedRow {
-            let userName = users[indexPath.row].name
+            let userName = users[indexPath.row].userName
             photoVC.friendName = userName
         }
         // Get the new view controller using segue.destination.
@@ -126,7 +127,7 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
             let indexPath = addFriendController.tableView.indexPathForSelectedRow {
             let friend = addFriendController.users[indexPath.row]
             guard !users.contains(where: { (User) -> Bool in
-                return User.name == friend.name
+                return User.userName == friend.userName
             }) else {return}
             self.users.append(friend)
             sortedSections()
@@ -135,8 +136,7 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
         
     }
     func searchBar (_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //filterUsers.removeAll()
-        filterUsers = users.filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        filterUsers = users.filter({$0.userName.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         tableView.reloadData()
     }

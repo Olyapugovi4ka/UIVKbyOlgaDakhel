@@ -11,11 +11,11 @@ import UIKit
 class AddFriendController: UITableViewController {
     
     public let users:[User] = [
-        User(name: "Alex", avatarImage: UIImage(named: "Friends")),
-        User(name: "Mikhail", avatarImage: UIImage(named: "Friends")),
-        User(name: "Kate", avatarImage: UIImage(named: "Friends")),
-        User(name: "Marina", avatarImage: UIImage(named: "Friends")),
-        User(name: "Leo", avatarImage: UIImage(named: "Friends"))
+        User(userName: "Alex", avatarImage: UIImage(named: "Friends")),
+        User(userName: "Mikhail", avatarImage: UIImage(named: "Friends")),
+        User(userName: "Kate", avatarImage: UIImage(named: "Friends")),
+        User(userName: "Marina", avatarImage: UIImage(named: "Friends")),
+        User(userName: "Leo", avatarImage: UIImage(named: "Friends"))
     ]
     
    
@@ -47,7 +47,7 @@ class AddFriendController: UITableViewController {
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
            
-            cell.userLabel.text = users[indexPath.row].name
+            cell.userLabel.text = users[indexPath.row].userName
             return cell
         }
     
