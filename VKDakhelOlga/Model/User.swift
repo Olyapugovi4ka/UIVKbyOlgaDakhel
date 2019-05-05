@@ -10,5 +10,5 @@ import UIKit
 
 struct User {
     let userName: String
-    let avatarImage: UIImage?
+    let avatarImage: [UIImage?]
 }

@@ -10,8 +10,8 @@ import UIKit
 
 struct News {
     let userName: String
-    let avatarImage: UIImage
+    let avatarImage: UIImage?
     let newsText: String
     let newsPhoto: UIImage?
-    var newsStack: UIStackView
+    //var newsStack: UIStackView
 }

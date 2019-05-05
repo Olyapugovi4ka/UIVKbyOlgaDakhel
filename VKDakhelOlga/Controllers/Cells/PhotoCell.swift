@@ -12,7 +12,33 @@ class PhotoCell: UICollectionViewCell {
     
     static let reuseId = "PhotoCell"
     
-    @IBOutlet var iconImageView: UIImageView!  
+    @IBOutlet var photoInPhotoCell: UIImageView!  
     @IBOutlet var likeControl: LikeControl!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+      
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(photoTapped))
+        self.photoInPhotoCell.addGestureRecognizer(tapGR)
+        self.photoInPhotoCell.isUserInteractionEnabled = true
+
+    }
+    
+    @objc func photoTapped() {
+    
+       let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0.7
+        animation.toValue = 1
+        animation.stiffness = 200
+        animation.mass = 2
+        animation.duration = 2
+        animation.beginTime = CACurrentMediaTime()
+        animation.fillMode = CAMediaTimingFillMode.backwards
+        
+        self.photoInPhotoCell.layer.add(animation, forKey: nil)
+    }
+        
+    
+
+
 }

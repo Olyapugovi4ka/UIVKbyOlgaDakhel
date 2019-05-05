@@ -57,8 +57,18 @@ class LikeControl: UIControl {
     @objc func likeTapped(){
         isLiked.toggle()
         heartImageView.image = isLiked ? UIImage(named: "heart_filled") : UIImage(named: "heart_empty")
-        likesCount.text = isLiked ? "1" : "0"
         likesCount.textColor = isLiked ? .red : .black
+        if isLiked == true {
+            UIView.transition(with: likesCount, duration: 1, options: .transitionCrossDissolve, animations: {
+                self.likesCount.text = "1"
+            })
+            
+        } else {
+                UIView.transition(with: likesCount, duration: 1, options: .transitionCrossDissolve, animations: {
+                    self.likesCount.text = "0"})
+
+            
+        }
     
             
             

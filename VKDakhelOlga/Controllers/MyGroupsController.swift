@@ -24,6 +24,8 @@ class MyGroupsController: UITableViewController {
     var allGroupsDictionary = [String: [Group]]() // for sorting
     
     private var filteredGroups = [Group]() // For searcBar
+    
+    
   
 
     override func viewDidLoad() {
@@ -35,11 +37,14 @@ class MyGroupsController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        sortedSections()
+        sortGroups()
+        let pointView = Indicator()
+        view.addSubview(pointView)
+        pointView.frame = CGRect(x: 100, y: 300, width: 100, height: 50)
     }
     
     // MARK: function for forming sections
-    private func sortedSections() {
+    private func sortGroups() {
         
         firstLettersSectionTitles = []
         allGroupsDictionary = [:]
@@ -62,6 +67,7 @@ class MyGroupsController: UITableViewController {
         filteredGroups = groups.filter{ group in
             return group.name.lowercased().contains(text.lowercased())
         }
+        sortGroups()
         tableView.reloadData()
     }
     
@@ -119,7 +125,7 @@ class MyGroupsController: UITableViewController {
             }) else {return}
             self.groups.append(newGroup)
             filteredGroups = groups
-            self.sortedSections()
+            self.sortGroups()
             tableView.reloadData()
         }
         
@@ -131,6 +137,7 @@ extension MyGroupsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             filteredGroups = groups
+            sortGroups()
             tableView.reloadData()
             return
         }

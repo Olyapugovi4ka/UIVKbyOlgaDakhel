@@ -12,8 +12,8 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var SearchBar: UISearchBar!
     var users: [User] = [
-        User(userName: "Susan", avatarImage: UIImage(named: "Friends")),
-        User(userName: "Serz", avatarImage: UIImage(named: "Friends"))]
+        User(userName: "Susan", avatarImage: [UIImage(named: "Friends")]),
+        User(userName: "Serz", avatarImage: [UIImage(named: "Friends")])]
     
     var firstLettersSectionTitles = [String]()
     var  allFriendsDictionary = [String: [User]]()
@@ -29,6 +29,17 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sortedSections()
+        
+        let dotsView = LoadingDotsView()
+        view.addSubview(dotsView)
+        dotsView.frame = CGRect(x: 100, y: 300, width: 30, height: 10)
+        dotsView.startAnimating()
+        
+        let points = Indicator()
+        view.addSubview(points)
+        points.frame = CGRect(x: 200, y: 300, width: 30, height: 10)
+       
+       // dotsView.stopAnimating()
         
     }
     
@@ -118,6 +129,8 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
             let indexPath = tableView.indexPathForSelectedRow {
             let userName = users[indexPath.row].userName
             photoVC.friendName = userName
+            let photos = users[indexPath.row].avatarImage
+            photoVC.photoInFriendsPhotoController = photos as! [UIImage]
         }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

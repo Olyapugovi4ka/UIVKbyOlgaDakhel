@@ -11,11 +11,11 @@ import UIKit
 class AddFriendController: UITableViewController {
     
     public let users:[User] = [
-        User(userName: "Alex", avatarImage: UIImage(named: "Friends")),
-        User(userName: "Mikhail", avatarImage: UIImage(named: "Friends")),
-        User(userName: "Kate", avatarImage: UIImage(named: "Friends")),
-        User(userName: "Marina", avatarImage: UIImage(named: "Friends")),
-        User(userName: "Leo", avatarImage: UIImage(named: "Friends"))
+        User(userName: "Alex", avatarImage: [UIImage(named: "Friends")]),
+        User(userName: "Mikhail", avatarImage: [UIImage(named: "Friends")]),
+        User(userName: "Kate", avatarImage: [UIImage(named: "Friends")]),
+        User(userName: "Marina", avatarImage: [UIImage(named: "Friends")]),
+        User(userName: "Leo", avatarImage: [UIImage(named: "Friends")])
     ]
     
    

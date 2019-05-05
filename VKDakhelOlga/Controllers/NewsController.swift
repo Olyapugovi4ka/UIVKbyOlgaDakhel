@@ -10,7 +10,9 @@ import UIKit
 
 class NewsController: UITableViewController {
     
-    let news = [News]()
+    let news:[News] = [News(userName: "Marina", avatarImage: UIImage(named: "Friends"), newsText: "Hellow", newsPhoto: UIImage(named: "flame"))]
+    
+   
 
     // MARK: - Table view data source
 
