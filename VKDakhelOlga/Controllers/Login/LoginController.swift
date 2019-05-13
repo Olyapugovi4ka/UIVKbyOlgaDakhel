@@ -14,15 +14,18 @@ class LoginController: UIViewController {
     @IBOutlet weak var usernameInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    //MARK:Animator
+    private let transitionAnimator = Animator()
+    
     //MARK: Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print (#function)
 
-        // Do any additional setup after loading the view.
     }
-    
+     //MARK: Controller Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -30,12 +33,16 @@ class LoginController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+     //MARK: Controller Lifecycle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        //MARK: User's tap
         let tapGR = UITapGestureRecognizer( target: self, action: #selector(hideKeyBoard))
         scrollView.addGestureRecognizer(tapGR)
     }
+    
+     //MARK: Controller Lifecycle
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -43,6 +50,7 @@ class LoginController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+     //MARK: Controller Lifecycle
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
@@ -55,16 +63,14 @@ class LoginController: UIViewController {
         print (#function)
     }
     
+    //MARK:
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
     }
     
-    //MARK: - Actions
     
-    @IBAction func loginButtonPress(_ sender: Any) {
-
-        }
     //MARK: Private API
+    //MARK: Keyboard ON
     @objc private func keyboardWasShown(notification: Notification) {
         let info = notification.userInfo as NSDictionary?
         let keyboardSize = (info?.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -74,16 +80,22 @@ class LoginController: UIViewController {
         scrollView.scrollIndicatorInsets = contentsInsets
     }
     
+    //MARK: Keyboard OFF
     @objc private func keyboardWasHidden(notification: Notification) {
         let contentsInsets = UIEdgeInsets.zero
         
         scrollView.contentInset = contentsInsets
         scrollView.scrollIndicatorInsets = contentsInsets
     }
+    
+    //MARK: How to hide keyboard
     @objc private func hideKeyBoard() {
         scrollView.endEditing(true)
     }
+    
+    //MARK: Segue from button to main screen
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
         guard identifier == "Show Main Screen"
             else {
                 return true
@@ -96,6 +108,8 @@ class LoginController: UIViewController {
                     return false
                     }
     }
+    
+    //MARK: Alert for error
     private func showLoginError() {
         let loginAlert = UIAlertController(title: "Error", message: "Login/password is incorrect", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default) { _ in
@@ -104,17 +118,36 @@ class LoginController: UIViewController {
         loginAlert.addAction(action)
         present(loginAlert, animated: true)
     }
+    
+    //MARK: - Actions
+    @IBAction func loginButtonPress(_ sender: Any) {
+               // let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainScreenController")
+              // destination.transitioningDelegate = self
+               // present(destination, animated: true)
+        
+        if usernameInput.text == "",
+            passwordInput.text == "" {
+            performSegue(withIdentifier: "Show Main Screen", sender: sender)
+        } else {
+            showLoginError()
+        }
+        
     }
+   
+}
+//MARK: Transition protocol
+extension LoginController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return transitionAnimator
+    }
+       
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return transitionAnimator
+    }
+}
     
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 

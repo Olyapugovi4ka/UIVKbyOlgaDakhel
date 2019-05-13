@@ -9,11 +9,24 @@
 import UIKit
 
 class PhotoCell: UICollectionViewCell {
+    private var delegate: GoTo!
     
     static let reuseId = "PhotoCell"
     
-    @IBOutlet var photoInPhotoCell: UIImageView!  
+    @IBOutlet var photoInPhotoCell: UIImageView!
     @IBOutlet var likeControl: LikeControl!
+        
+    
+    
+   // var photo: Photo? {
+    //    didSet{
+      //      if let image = photo?.name {
+      //          photoInPhotoCell.image = UIImage(named: image)
+       //     }
+            
+       // }
+   // }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,11 +47,17 @@ class PhotoCell: UICollectionViewCell {
         animation.duration = 2
         animation.beginTime = CACurrentMediaTime()
         animation.fillMode = CAMediaTimingFillMode.backwards
+     
+    
         
         self.photoInPhotoCell.layer.add(animation, forKey: nil)
+        
     }
         
     
 
 
+}
+protocol GoTo {
+    func goTo()
 }

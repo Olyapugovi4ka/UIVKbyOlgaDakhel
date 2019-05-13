@@ -8,42 +8,39 @@
 
 import UIKit
 
-class MyFriendsController: UITableViewController, UISearchBarDelegate {
+class MyFriendsController: UITableViewController {
     
-    @IBOutlet weak var SearchBar: UISearchBar!
-    var users: [User] = [
-        User(userName: "Susan", avatarImage: [UIImage(named: "Friends")]),
-        User(userName: "Serz", avatarImage: [UIImage(named: "Friends")])]
+    // MARK: Array of Users(under models)
+    public var users:[User] = [
+        User(userName: "Alex", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
+        User(userName: "Mikhail", avatarName: "art", photos: [Photo(name: "art", numberOfLikes: 0)])
+    ]
     
+    // MARK: Sections
     var firstLettersSectionTitles = [String]()
     var  allFriendsDictionary = [String: [User]]()
-    
-    var filterUsers = [User]()
-    var searching = false
-    
+   
+    //MARK: System
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+   //MARK: Controller Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        sortedSections()
         
+        sortUsers()
         let dotsView = LoadingDotsView()
         view.addSubview(dotsView)
         dotsView.frame = CGRect(x: 100, y: 300, width: 30, height: 10)
         dotsView.startAnimating()
-        
-        let points = Indicator()
-        view.addSubview(points)
-        points.frame = CGRect(x: 200, y: 300, width: 30, height: 10)
-       
        // dotsView.stopAnimating()
-        
     }
     
-    private func sortedSections() {
+    //MARK: Sections
+    private func sortUsers() {
+        
         firstLettersSectionTitles = []
         allFriendsDictionary = [:]
         
@@ -63,79 +60,86 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
     }
 
     // MARK: - Table view data source
-
+    //MARK: Count of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if searching {
-            return 1
-        }
         return firstLettersSectionTitles.count
+        
     }
-
+    //MARK: Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
-            return filterUsers.count
-        } else {
             let userNameKey = firstLettersSectionTitles[section]
             if let userValues = allFriendsDictionary[userNameKey] {
             return userValues.count
             }
-        }
         return 0
     }
-
     
+    // MARK: Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
-        if searching {
-            cell.userLabel.text = filterUsers[indexPath.row].userName
-        } else {
             let userNameKey = firstLettersSectionTitles[indexPath.section]
             if let userValues = allFriendsDictionary[userNameKey] {
             cell.userLabel.text = userValues[indexPath.row].userName
-            }
+                if let roundPhotoName = userValues[indexPath.row].avatarName {
+                    cell.avatarView.avatarImage = UIImage(named:roundPhotoName)!
+                }
         }
-        
         return cell
-
     }
+    
+    //MARK: Title of header of section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if searching {
-            return nil
-        }
         return firstLettersSectionTitles[section]
     }
     
+    //MARK: Titles of sections
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        if searching {
-            return nil
-        }
         return firstLettersSectionTitles
     }
     
-    // Override to support editing the table view.
+    //MARK: For deleting
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
-          users.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+        let user = users.remove(at: indexPath.row)
+           // users[indexPath.section].remove(at: indexPath.row)
+       //tableView.deleteRows(at: [indexPath], with: .fade)
+        if let index = users.firstIndex(where: {$0.userName == user.userName}) {
+            users.remove(at: index)
+            }
+            
         }
+        sortUsers()
+        tableView.reloadData()
     }
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    // MARK: Show photos of friend
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Friend Photo",
-        let photoVC = segue.destination as? FriendsPhotoController,
-            let indexPath = tableView.indexPathForSelectedRow {
-            let userName = users[indexPath.row].userName
-            photoVC.friendName = userName
-            let photos = users[indexPath.row].avatarImage
-            photoVC.photoInFriendsPhotoController = photos as! [UIImage]
+            let photoVC = segue.destination as? FriendsPhotoController {
+            if let selectedCell = sender as? MyFriendsCell {
+                let indexPath = tableView.indexPath(for: selectedCell)!
+        
+                let userName = users[indexPath.row].userName
+                photoVC.friendName = userName
+                if let photos = users[indexPath.row].photos {
+                    photoVC.photosInFriendsPhotoController = photos
+                }
+            }
+            
         }
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        print(cell?.detailTextLabel?.text ?? "nil")
+        }
+    
+    //MARK: Adding new friend
     @IBAction func addFriend(segue: UIStoryboardSegue){
+        
         if let addFriendController = segue.source as? AddFriendController,
             let indexPath = addFriendController.tableView.indexPathForSelectedRow {
             let friend = addFriendController.users[indexPath.row]
@@ -143,20 +147,11 @@ class MyFriendsController: UITableViewController, UISearchBarDelegate {
                 return User.userName == friend.userName
             }) else {return}
             self.users.append(friend)
-            sortedSections()
+            self.sortUsers()
             tableView.reloadData()
         }
         
     }
-    func searchBar (_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterUsers = users.filter({$0.userName.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        searching = true
-        tableView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchBar.text = ""
-        tableView.reloadData()
-    }
+
+
 }

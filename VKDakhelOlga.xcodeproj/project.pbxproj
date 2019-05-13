@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A552285D04E0037461E /* CustomSegue.swift */; };
+		FA3F8A582285D5350037461E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A572285D5350037461E /* CustomNavigationController.swift */; };
 		FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */; };
 		FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74AB89226B404D00CAFDF5 /* GradientView.swift */; };
 		FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08089225D019E00D3FC47 /* GroupCell.swift */; };
@@ -26,6 +28,8 @@
 		FAB788A52271FF3F00FA0708 /* NewsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB788A42271FF3F00FA0708 /* NewsImageCell.swift */; };
 		FAB788A72271FF5D00FA0708 /* NewsControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB788A62271FF5D00FA0708 /* NewsControlCell.swift */; };
 		FAB788A9227479F700FA0708 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB788A8227479F600FA0708 /* News.swift */; };
+		FAD3C2D422821916001E1504 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3C2D322821916001E1504 /* Animator.swift */; };
+		FAD3C2EB2284535E001E1504 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3C2EA2284535E001E1504 /* Photo.swift */; };
 		FADCF62D225BC4E600D65E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF62C225BC4E600D65E87 /* AppDelegate.swift */; };
 		FADCF637225BC4E700D65E87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADCF635225BC4E700D65E87 /* LaunchScreen.storyboard */; };
 		FADCF653225BC54400D65E87 /* AddFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF642225BC54400D65E87 /* AddFriendController.swift */; };
@@ -39,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA3F8A552285D04E0037461E /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
+		FA3F8A572285D5350037461E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
 		FA74AB89226B404D00CAFDF5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FAA08089225D019E00D3FC47 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
@@ -58,6 +64,8 @@
 		FAB788A42271FF3F00FA0708 /* NewsImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageCell.swift; sourceTree = "<group>"; };
 		FAB788A62271FF5D00FA0708 /* NewsControlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsControlCell.swift; sourceTree = "<group>"; };
 		FAB788A8227479F600FA0708 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		FAD3C2D322821916001E1504 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		FAD3C2EA2284535E001E1504 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		FADCF629225BC4E600D65E87 /* VKDakhelOlga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKDakhelOlga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADCF62C225BC4E600D65E87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADCF636225BC4E700D65E87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,17 +94,14 @@
 		FA41E66D225BC7D0004E2856 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FAB47506227B1C9C00EE585C /* BigPhotoController.swift */,
-				FAB7889E2271FADD00FA0708 /* NewsController.swift */,
-				FAAAE1A92265F8F90009A984 /* LikeControl.swift */,
-				FAA0808D225D20E000D3FC47 /* Cells */,
-				FADCF648225BC54400D65E87 /* MyGroupsController.swift */,
-				FADCF647225BC54400D65E87 /* MyFriendsController.swift */,
-				FADCF646225BC54400D65E87 /* MainScreenController.swift */,
-				FADCF645225BC54400D65E87 /* LoginController.swift */,
-				FADCF643225BC54400D65E87 /* AddGroupController.swift */,
-				FADCF644225BC54400D65E87 /* FriendsPhotoController.swift */,
-				FADCF642225BC54400D65E87 /* AddFriendController.swift */,
+				FAD3C2E62284241A001E1504 /* Login */,
+				FAD3C2E722842422001E1504 /* Main Screen */,
+				FAD3C2D72284218B001E1504 /* News */,
+				FAD3C2DE2284228D001E1504 /* Groups */,
+				FAD3C2DD2284228A001E1504 /* MyFriends */,
+				FAD3C2DF22842292001E1504 /* Little Photo */,
+				FAD3C2D522842006001E1504 /* Big Photo */,
+				FAAAE1A82264FA9E0009A984 /* Custom control */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,31 +110,16 @@
 			isa = PBXGroup;
 			children = (
 				FAA746D9226FB08D00AC7C1F /* Assets.xcassets */,
-				FA74AB89226B404D00CAFDF5 /* GradientView.swift */,
 				FADCF64F225BC54400D65E87 /* Main.storyboard */,
 				FADCF635225BC4E700D65E87 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		FAA0808D225D20E000D3FC47 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				FAB47508227B1EAA00EE585C /* BigPhotoCell.swift */,
-				FAB788A02271FEE500FA0708 /* NewsHeaderCell.swift */,
-				FAB788A42271FF3F00FA0708 /* NewsImageCell.swift */,
-				FAB788A62271FF5D00FA0708 /* NewsControlCell.swift */,
-				FAB788A22271FF0400FA0708 /* NewsTextCell.swift */,
-				FAA08089225D019E00D3FC47 /* GroupCell.swift */,
-				FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */,
-				FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		FAA08090225D25A500D3FC47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAD3C2EA2284535E001E1504 /* Photo.swift */,
 				FAA08091225D285100D3FC47 /* User.swift */,
 				FAA0808E225D24FB00D3FC47 /* Group.swift */,
 				FAB788A8227479F600FA0708 /* News.swift */,
@@ -140,9 +130,178 @@
 		FAAAE1A82264FA9E0009A984 /* Custom control */ = {
 			isa = PBXGroup;
 			children = (
+				FA3F8A572285D5350037461E /* CustomNavigationController.swift */,
+				FA3F8A552285D04E0037461E /* CustomSegue.swift */,
+				FAD3C2D322821916001E1504 /* Animator.swift */,
 				FAAAE1A62264F4190009A984 /* ShadowView.swift */,
+				FAAAE1A92265F8F90009A984 /* LikeControl.swift */,
+				FA74AB89226B404D00CAFDF5 /* GradientView.swift */,
+				FAB47502227AF66900EE585C /* LoadingDotsView.swift */,
+				FAB4750022778D5300EE585C /* Indicator.swift */,
 			);
 			path = "Custom control";
+			sourceTree = "<group>";
+		};
+		FAD3C2D522842006001E1504 /* Big Photo */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2DB2284224A001E1504 /* Controller */,
+				FAD3C2DC22842258001E1504 /* Cell */,
+			);
+			path = "Big Photo";
+			sourceTree = "<group>";
+		};
+		FAD3C2D72284218B001E1504 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2DA22842231001E1504 /* Controller */,
+				FAD3C2D9228421BC001E1504 /* Cells */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		FAD3C2D9228421BC001E1504 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAB788A02271FEE500FA0708 /* NewsHeaderCell.swift */,
+				FAB788A42271FF3F00FA0708 /* NewsImageCell.swift */,
+				FAB788A62271FF5D00FA0708 /* NewsControlCell.swift */,
+				FAB788A22271FF0400FA0708 /* NewsTextCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FAD3C2DA22842231001E1504 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7889E2271FADD00FA0708 /* NewsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAD3C2DB2284224A001E1504 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAB47506227B1C9C00EE585C /* BigPhotoController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAD3C2DC22842258001E1504 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FAB47508227B1EAA00EE585C /* BigPhotoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FAD3C2DD2284228A001E1504 /* MyFriends */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2E1228422A9001E1504 /* Controllers */,
+				FAD3C2E2228422B5001E1504 /* Cell */,
+			);
+			path = MyFriends;
+			sourceTree = "<group>";
+		};
+		FAD3C2DE2284228D001E1504 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2E022842295001E1504 /* Controllers */,
+				FAD3C2E322842317001E1504 /* Cell */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		FAD3C2DF22842292001E1504 /* Little Photo */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2E422842365001E1504 /* Controller */,
+				FAD3C2E5228423BC001E1504 /* Cell */,
+			);
+			path = "Little Photo";
+			sourceTree = "<group>";
+		};
+		FAD3C2E022842295001E1504 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FADCF643225BC54400D65E87 /* AddGroupController.swift */,
+				FADCF648225BC54400D65E87 /* MyGroupsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FAD3C2E1228422A9001E1504 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FADCF647225BC54400D65E87 /* MyFriendsController.swift */,
+				FADCF642225BC54400D65E87 /* AddFriendController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FAD3C2E2228422B5001E1504 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FAD3C2E322842317001E1504 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FAA08089225D019E00D3FC47 /* GroupCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FAD3C2E422842365001E1504 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FADCF644225BC54400D65E87 /* FriendsPhotoController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAD3C2E5228423BC001E1504 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FAD3C2E62284241A001E1504 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2E822842452001E1504 /* Controller */,
+				FADCF645225BC54400D65E87 /* LoginController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FAD3C2E722842422001E1504 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2E922842483001E1504 /* Controller */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		FAD3C2E822842452001E1504 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAD3C2E922842483001E1504 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FADCF646225BC54400D65E87 /* MainScreenController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		FADCF620225BC4E600D65E87 = {
@@ -164,10 +323,7 @@
 		FADCF62B225BC4E600D65E87 /* VKDakhelOlga */ = {
 			isa = PBXGroup;
 			children = (
-				FAAAE1A82264FA9E0009A984 /* Custom control */,
 				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
-				FAB47502227AF66900EE585C /* LoadingDotsView.swift */,
-				FAB4750022778D5300EE585C /* Indicator.swift */,
 				FAA08090225D25A500D3FC47 /* Model */,
 				FA41E66D225BC7D0004E2856 /* Controllers */,
 				FA41E66E225BC7ED004E2856 /* View */,
@@ -248,21 +404,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD3C2EB2284535E001E1504 /* Photo.swift in Sources */,
 				FAB47507227B1C9C00EE585C /* BigPhotoController.swift in Sources */,
 				FADCF655225BC54400D65E87 /* FriendsPhotoController.swift in Sources */,
 				FAA08092225D285100D3FC47 /* User.swift in Sources */,
 				FAB7889F2271FADD00FA0708 /* NewsController.swift in Sources */,
 				FADCF657225BC54400D65E87 /* MainScreenController.swift in Sources */,
+				FA3F8A582285D5350037461E /* CustomNavigationController.swift in Sources */,
 				FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */,
 				FADCF654225BC54400D65E87 /* AddGroupController.swift in Sources */,
 				FAB788A9227479F700FA0708 /* News.swift in Sources */,
 				FAB4750122778D5300EE585C /* Indicator.swift in Sources */,
 				FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */,
+				FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */,
 				FAB788A32271FF0400FA0708 /* NewsTextCell.swift in Sources */,
 				FAB47509227B1EAA00EE585C /* BigPhotoCell.swift in Sources */,
 				FAB788A72271FF5D00FA0708 /* NewsControlCell.swift in Sources */,
 				FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */,
 				FAAAE1A72264F4190009A984 /* ShadowView.swift in Sources */,
+				FAD3C2D422821916001E1504 /* Animator.swift in Sources */,
 				FAB788A52271FF3F00FA0708 /* NewsImageCell.swift in Sources */,
 				FAAAE1AA2265F8F90009A984 /* LikeControl.swift in Sources */,
 				FADCF653225BC54400D65E87 /* AddFriendController.swift in Sources */,

@@ -10,99 +10,60 @@ import UIKit
 
 class MyGroupsController: UITableViewController {
     
+    // MARK: SearchBar
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
         }
     }
-    
+     // MARK: Array of Users(under models)
     private var groups:[Group] = [
-        Group(name:"The Swift Developers"),
-        Group(name: "Vandrouki")]
-    
-    var firstLettersSectionTitles = [String]() //for sorting
-    var allGroupsDictionary = [String: [Group]]() // for sorting
-    
-    private var filteredGroups = [Group]() // For searcBar
+        Group(name:"The Swift Developers", avatarName: "art"),
+        Group(name: "Vandrouki", avatarName: "bookshelf")]
     
     
-  
-
+    
+    // MARK: SearchBar
+    private var filteredGroups = [Group]()
+    
+    //MARK: Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //MARK:SearchBar
         filteredGroups = groups
+    
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        sortGroups()
-        let pointView = Indicator()
-        view.addSubview(pointView)
-        pointView.frame = CGRect(x: 100, y: 300, width: 100, height: 50)
-    }
-    
-    // MARK: function for forming sections
-    private func sortGroups() {
-        
-        firstLettersSectionTitles = []
-        allGroupsDictionary = [:]
-        
-        for group in filteredGroups {
-            let groupNameKey = String(group.name.prefix(1))
-            if var newGroup = allGroupsDictionary[groupNameKey] {
-                newGroup.append(group)
-                allGroupsDictionary[groupNameKey] = newGroup
-            } else {
-                allGroupsDictionary[groupNameKey] = [group]
-            }
-        }
-        firstLettersSectionTitles = [String](allGroupsDictionary.keys)
-        firstLettersSectionTitles = firstLettersSectionTitles.sorted(by: {$0 < $1})
-        
-    }
-    // MARK: function for searchBar
+    // MARK: SearchBar
     private func filterGroups (with text: String) {
         filteredGroups = groups.filter{ group in
             return group.name.lowercased().contains(text.lowercased())
         }
-        sortGroups()
+       
         tableView.reloadData()
     }
     
     
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return firstLettersSectionTitles.count
-    }
-    
+    //MARK: Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-       let groupNameKey = firstLettersSectionTitles[section]
-        if let newGroup = allGroupsDictionary[groupNameKey]{
-      return newGroup.count
-        }
-        return 0
+       
+      return filteredGroups.count
+    
     }
     
+    //MARK: Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else {fatalError("Cell cannot be dequeued")}
-        let groupNameKey = firstLettersSectionTitles[indexPath.section]
-        if let newGroup = allGroupsDictionary[groupNameKey] {
-           cell.GroupNameLabel.text = newGroup[indexPath.row].name
+        cell.GroupNameLabel.text = filteredGroups[indexPath.row].name
+        if let roundPhotoName = filteredGroups[indexPath.row].avatarName {
+            cell.groupImage.avatarImage = UIImage(named:roundPhotoName)!
         }
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return firstLettersSectionTitles[section]
-    }
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return firstLettersSectionTitles
-    }
     
-    //MARK: FOR DELETING
+    
+    //MARK: For deleting
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -114,7 +75,9 @@ class MyGroupsController: UITableViewController {
         }
         
     }
-    //MARK: ADDINNG NEW ITEM
+    // MARK: Navigation
+    
+    //MARK: Adding new group
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         
         if let addGroupController = segue.source as? AddGroupController,
@@ -125,19 +88,18 @@ class MyGroupsController: UITableViewController {
             }) else {return}
             self.groups.append(newGroup)
             filteredGroups = groups
-            self.sortGroups()
             tableView.reloadData()
         }
         
     }
     
 }
+//MARK: SearchBar
 extension MyGroupsController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             filteredGroups = groups
-            sortGroups()
             tableView.reloadData()
             return
         }

@@ -6,12 +6,12 @@
 //  Copyright © 2019 MacBook. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct News {
-    let userName: String
-    let avatarImage: UIImage?
+    
+    let user: User
     let newsText: String
-    let newsPhoto: UIImage?
+    let newsPhoto: Photo?
     //var newsStack: UIStackView
 }

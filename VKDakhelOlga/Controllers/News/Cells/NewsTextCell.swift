@@ -1,5 +1,5 @@
 //
-//  NewsHeaderCell.swift
+//  NewsTextCell.swift
 //  VKDakhelOlga
 //
 //  Created by MacBook on 25/04/2019.
@@ -8,14 +8,20 @@
 
 import UIKit
 
-class NewsHeaderCell: UITableViewCell {
+class NewsTextCell: UITableViewCell {
     
-      static let reusedId = "NewsHeaderCell"
+      static let reusedId = "NewsTextCell"
+
+    @IBOutlet weak var textField: UITextView!
     
-    
-    @IBOutlet weak var avatarView: AvatarView!
-    @IBOutlet weak var userLabel: UILabel!
-   
+    var news: News? {
+        didSet {
+            if let text = news?.newsText {
+                textField.text = text
+            }
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

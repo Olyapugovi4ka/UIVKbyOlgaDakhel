@@ -10,35 +10,55 @@ import UIKit
 
 class NewsController: UITableViewController {
     
-    let news:[News] = [News(userName: "Marina", avatarImage: UIImage(named: "Friends"), newsText: "Hellow", newsPhoto: UIImage(named: "flame"))]
+    let news:[News] = [News(user: User(userName: "John", avatarName: "flame", photos: nil), newsText: "Hellow everybody", newsPhoto: Photo(name: "bookshelf", numberOfLikes: 0))]
     
    
 
     // MARK: - Table view data source
-
+    
+    //MARK: Count of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return news.count
     }
 
+    //MARK: Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+       
         return 4
     }
+    
+    //MARK: Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row{
+        //MARK: First row
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsHeaderCell", for: indexPath) as! NewsHeaderCell
+            cell.userLabel.text = news[indexPath.row].user.userName
+            if let image = news[indexPath.row].user.avatarName{
+                cell.avatarView.avatarImage = UIImage(named: image)!
+            }
             return cell
+        //MARK: Second row
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTextCell", for: indexPath) as! NewsTextCell
+           // if let text = news[indexPath.row].newsText {
+               // cell.textField.text = news[indexPath.row].newsText
+            
             return cell
+            //MARK: Third row
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsImageCell", for: indexPath) as! NewsImageCell
+               // if let image = news[indexPath.row].newsPhoto?.name {
+                 //   cell.newsImage.image = UIImage(named: image)!
+                
+            //}
             return cell
+            //MARK: Forth row
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsControlCell", for: indexPath) as! NewsControlCell
             return cell
+            //MARK: Other cases
         default:
             return UITableViewCell()
         }

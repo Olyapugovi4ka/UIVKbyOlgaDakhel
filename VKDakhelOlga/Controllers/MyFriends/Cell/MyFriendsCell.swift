@@ -12,8 +12,17 @@ class MyFriendsCell: UITableViewCell {
     
     static let reuseId = "MyFriendCell"
     
+    //MARK: Outlets
     @IBOutlet weak var avatarView: AvatarView!
     @IBOutlet weak var userLabel: UILabel!
+    
+    //var user: User? {
+    //    didSet{
+     //       if let avatar = user?.avatarName {
+      //          avatarView.avatarImage =  UIImage(named: avatar)!
+       //     }
+       // }
+   // }
     
 
     

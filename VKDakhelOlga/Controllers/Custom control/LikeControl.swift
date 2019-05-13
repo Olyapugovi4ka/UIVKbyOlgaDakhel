@@ -10,11 +10,13 @@ import UIKit
 
 class LikeControl: UIControl {
     
+    //MARK: Status
     public var isLiked: Bool = false
+    
     let heartImageView = UIImageView()
     var likesCount = UILabel()
     
-    
+    // MARK: Required inits
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -26,6 +28,7 @@ class LikeControl: UIControl {
         setupView()
     }
     
+    //MARK: Create image and label
     private func setupView() {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
         heartImageView.isUserInteractionEnabled = true
@@ -36,6 +39,7 @@ class LikeControl: UIControl {
         likesCount.text = "0"
     }
     
+    // MARH: Place of being
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -66,22 +70,11 @@ class LikeControl: UIControl {
         } else {
                 UIView.transition(with: likesCount, duration: 1, options: .transitionCrossDissolve, animations: {
                     self.likesCount.text = "0"})
-
             
         }
     
-            
-            
         sendActions(for: .valueChanged)
         
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }

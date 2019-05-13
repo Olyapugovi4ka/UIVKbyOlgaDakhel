@@ -14,4 +14,6 @@ class BigPhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var photoInBigPhotoCell: UIImageView!
     
+    
+    
 }

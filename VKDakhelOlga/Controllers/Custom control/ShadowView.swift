@@ -67,10 +67,10 @@ class AvatarView: UIView {
     @IBInspectable var shadowColor: UIColor = .green
     @IBInspectable var shadowRadius: CGFloat = 7
     @IBInspectable var shadowOpacity: Float = 0.75
-    @IBInspectable var avatarImage: UIImage = UIImage(named: "Friends")! {
+     var avatarImage: UIImage = UIImage(named: "art")! {
         didSet {
-            clippedImageView.image = avatarImage
-        }
+           clippedImageView.image = avatarImage
+       }
     }
     let shadowView = ShadowView()
     let clippedImageView = ClippedView(frame: .zero)

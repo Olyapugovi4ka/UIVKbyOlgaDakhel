@@ -9,7 +9,8 @@
 import UIKit
 
 class BigPhotoController: UIViewController {
-    public var photoInBigPhotoController:[UIImage] = []
+    
+    public var photosInBigPhotoController = [Photo]()
     public var startIndex: Int = 0
 
     override func viewDidLoad() {
@@ -24,11 +25,12 @@ class BigPhotoController: UIViewController {
 }
 extension BigPhotoController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection secion: Int) -> Int {
-        return photoInBigPhotoController.count
+        return photosInBigPhotoController.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BigPhotoCell", for: indexPath) as! BigPhotoCell
-        cell.photoInBigPhotoCell.image = photoInBigPhotoController[indexPath.item]
+        let image = photosInBigPhotoController[indexPath.item].name
+        cell.photoInBigPhotoCell.image = UIImage(named:image)
         return cell
     }
 }

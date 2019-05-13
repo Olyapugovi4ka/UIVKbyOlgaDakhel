@@ -11,14 +11,14 @@ import UIKit
 class GroupCell: UITableViewCell {
     
     static let reuseId = "GroupCell"
-
-    @IBOutlet weak var GroupNameLabel: UILabel!
     
-    @IBOutlet weak var GroupImage: UIImageView!
+    //MARK: Outlets
+    @IBOutlet weak var GroupNameLabel: UILabel!
+    @IBOutlet weak var groupImage: AvatarView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       
     }
 
 
