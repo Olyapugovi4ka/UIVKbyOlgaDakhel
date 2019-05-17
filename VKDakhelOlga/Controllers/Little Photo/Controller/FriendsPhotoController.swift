@@ -17,7 +17,7 @@ class FriendsPhotoController: UICollectionViewController {
     
    
     //MARK: Array of photos
-    public var  photosInFriendsPhotoController : [Photo]? = []
+    public var  photosInFriendsPhotoController : [Photo] = []
         
 
  //MARK: Controller Lifecycle
@@ -32,7 +32,7 @@ class FriendsPhotoController: UICollectionViewController {
    
     //MARK: Count of items
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photosInFriendsPhotoController!.count
+        return photosInFriendsPhotoController.count
     }
 
     //MARK: Cell
@@ -40,7 +40,7 @@ class FriendsPhotoController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseId, for: indexPath) as? PhotoCell else {fatalError()}
         cell.likeControl.addTarget(self, action: #selector(cellLikePressed(_:)), for: .valueChanged)
         
-        let newPhoto = photosInFriendsPhotoController![indexPath.item].name
+        let newPhoto = photosInFriendsPhotoController[indexPath.item].name
             cell.photoInPhotoCell.image = UIImage(named: newPhoto)
         return cell
         }
@@ -55,8 +55,8 @@ class FriendsPhotoController: UICollectionViewController {
         if segue.identifier == "ShowBigPhoto",
             let bigPhotoViewController = segue.destination as? BigPhotoController,
             let index = collectionView.indexPathsForSelectedItems?.first?.item {
-                bigPhotoViewController.startIndex = index
-                bigPhotoViewController.photosInBigPhotoController = photosInFriendsPhotoController!
+            bigPhotoViewController.currentIndex = index
+            bigPhotoViewController.photosInBigPhotoController = photosInFriendsPhotoController
             }
         }
 }

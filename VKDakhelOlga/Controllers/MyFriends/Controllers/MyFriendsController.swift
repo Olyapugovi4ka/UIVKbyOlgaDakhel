@@ -12,8 +12,10 @@ class MyFriendsController: UITableViewController {
     
     // MARK: Array of Users(under models)
     public var users:[User] = [
-        User(userName: "Alex", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
-        User(userName: "Mikhail", avatarName: "art", photos: [Photo(name: "art", numberOfLikes: 0)])
+        User(userName: "Alex", avatarName: "Friends", photos: [Photo(name: "Alex", numberOfLikes: 0),Photo(name: "Alex1", numberOfLikes: 0)
+            ]),
+        User(userName: "Mikhail", avatarName: "art", photos: [Photo(name: "Mikhail", numberOfLikes: 0),
+             Photo(name: "Mikhail1", numberOfLikes: 0)])
     ]
     
     // MARK: Sections
@@ -121,14 +123,15 @@ class MyFriendsController: UITableViewController {
             let photoVC = segue.destination as? FriendsPhotoController {
             if let selectedCell = sender as? MyFriendsCell {
                 let indexPath = tableView.indexPath(for: selectedCell)!
-        
-                let userName = users[indexPath.row].userName
-                photoVC.friendName = userName
-                if let photos = users[indexPath.row].photos {
-                    photoVC.photosInFriendsPhotoController = photos
-                }
+                let userNameKey = firstLettersSectionTitles[indexPath.section]
+                    if let userValues = allFriendsDictionary[userNameKey] {
+                        let userName = userValues[indexPath.row].userName
+                        photoVC.friendName = userName
+                        if let photos = userValues[indexPath.row].photos {
+                            photoVC.photosInFriendsPhotoController = photos
+                        }
+                    }
             }
-            
         }
     }
     

@@ -48,7 +48,7 @@ class Indicator:UIView {
         animation1.toValue = 1
         animation1.beginTime = CACurrentMediaTime()
         animation1.duration = 0.5
-        point1.add(animation1, forKey: nil)
+        point1.add(animation1, forKey: "firstDotBlinking")
         
         let animation2 = CABasicAnimation(keyPath: "alpha")
         animation2.fromValue = 0.5
@@ -66,7 +66,14 @@ class Indicator:UIView {
 
     }
 
-
+    public func start() {
+        indicate()
+    }
+    
+    public func stop() {
+        //        self.layer.removeAnimation(forKey: "firstDotBlinking")
+        layer.removeAllAnimations()
+    }
     
     
 

@@ -14,13 +14,13 @@ class NewsTextCell: UITableViewCell {
 
     @IBOutlet weak var textField: UITextView!
     
-    var news: News? {
-        didSet {
-            if let text = news?.newsText {
-                textField.text = text
-            }
-        }
-    }
+//    var news: News? {
+//        didSet {
+//            if let text = news?.newsText {
+//                textField.text = text
+//            }
+//        }
+//    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

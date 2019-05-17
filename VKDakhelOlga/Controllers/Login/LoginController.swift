@@ -15,8 +15,6 @@ class LoginController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    //MARK:Animator
-    private let transitionAnimator = Animator()
     
     //MARK: Controller Lifecycle
     override func viewDidLoad() {
@@ -121,31 +119,12 @@ class LoginController: UIViewController {
     
     //MARK: - Actions
     @IBAction func loginButtonPress(_ sender: Any) {
-               // let destination = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainScreenController")
-              // destination.transitioningDelegate = self
-               // present(destination, animated: true)
         
-        if usernameInput.text == "",
-            passwordInput.text == "" {
-            performSegue(withIdentifier: "Show Main Screen", sender: sender)
-        } else {
-            showLoginError()
-        }
-        
-    }
    
 }
-//MARK: Transition protocol
-extension LoginController: UIViewControllerTransitioningDelegate {
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return transitionAnimator
-    }
-       
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return transitionAnimator
-    }
+
 }
-    
+
 
     
 

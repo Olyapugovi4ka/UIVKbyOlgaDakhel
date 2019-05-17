@@ -15,7 +15,7 @@ class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
 
 class CustomNavigationController: UINavigationController, UINavigationControllerDelegate {
     
-    let transitionAnimator = Animator()
+   
     let interactiveTransition = CustomInteractiveTransition()
     
     override func viewDidLoad() {

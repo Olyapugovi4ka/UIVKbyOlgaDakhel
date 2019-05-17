@@ -15,7 +15,7 @@ class AddFriendController: UITableViewController {
         User(userName: "Alex", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
         User(userName: "Mikhail", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
         User(userName: "Kate", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
-        User(userName: "Marina", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
+        User(userName: "Marina", avatarName: "Marina", photos: [Photo(name: "Marina", numberOfLikes: 0), Photo(name: "Marina1", numberOfLikes: 0)]),
         User(userName: "Leo", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)])
     ]
     
