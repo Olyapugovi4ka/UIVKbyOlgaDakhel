@@ -6,8 +6,9 @@
 //  Copyright © 2019 MacBook. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Group {
     let name: String
+    var avatarName: String?
 }

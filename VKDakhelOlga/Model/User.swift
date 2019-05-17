@@ -6,9 +6,10 @@
 //  Copyright © 2019 MacBook. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct User {
-    let name: String
-    let avatarImage: UIImage?
+    var userName: String
+    var avatarName: String?
+    var photos: [Photo]?
 }
