@@ -31,7 +31,11 @@ class MyGroupsController: UITableViewController {
         super.viewDidLoad()
         //MARK:SearchBar
         filteredGroups = groups
-    
+        if let token = Account.shared.token,
+            let userId = Account.shared.userId {
+        NetworkingService().loadGroups(token:token, userId: userId)
+        }
+        
     }
     
     // MARK: SearchBar
@@ -100,6 +104,12 @@ extension MyGroupsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             filteredGroups = groups
+            
+            //MARK: - Request - search groups
+            if let token = Account.shared.token{
+                NetworkingService().loadSearcGroups(token: token, q: searchText)
+            }
+            
             tableView.reloadData()
             return
         }

@@ -24,6 +24,14 @@ class FriendsPhotoController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = friendName
+       
+        //MARK: - Request - photos of user
+        if let token = Account.shared.token,
+            let userId = Account.shared.userId {
+            NetworkingService().loadPhotos(token: token, userId: userId)
+        }
+        
+        
     }
     //MARK: Count of sections
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

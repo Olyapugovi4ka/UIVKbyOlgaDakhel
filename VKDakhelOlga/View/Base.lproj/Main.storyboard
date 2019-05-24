@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bu1-C7-hyw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s8J-Xd-mfJ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--LoginVK Controller-->
+        <scene sceneID="Soi-89-5eh">
+            <objects>
+                <viewController id="s8J-Xd-mfJ" customClass="LoginVKController" customModule="VKDakhelOlga" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ede-Vb-JMl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAr-Tg-7dH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8X8-cQ-9F6" firstAttribute="bottom" secondItem="LAr-Tg-7dH" secondAttribute="bottom" id="ivV-w1-ZZx"/>
+                            <constraint firstItem="LAr-Tg-7dH" firstAttribute="top" secondItem="8X8-cQ-9F6" secondAttribute="top" id="qKe-ZE-ZH2"/>
+                            <constraint firstItem="LAr-Tg-7dH" firstAttribute="leading" secondItem="8X8-cQ-9F6" secondAttribute="leading" id="scD-UJ-fyh"/>
+                            <constraint firstItem="8X8-cQ-9F6" firstAttribute="trailing" secondItem="LAr-Tg-7dH" secondAttribute="trailing" id="yuL-BT-c1s"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8X8-cQ-9F6"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="LAr-Tg-7dH" id="1Ca-ui-chy"/>
+                        <segue destination="6Hu-Qo-bfN" kind="show" identifier="ShowMainScreen" id="0hF-Zv-sjj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kcb-ut-giX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="-1094"/>
+        </scene>
         <!--Login Controller-->
         <scene sceneID="wXJ-hC-UIT">
             <objects>
@@ -86,7 +121,6 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPress:" destination="bu1-C7-hyw" eventType="touchUpInside" id="YN5-dj-xuk"/>
-                                            <segue destination="6Hu-Qo-bfN" kind="presentation" identifier="Show Main Screen" customClass="CustomSegue" customModule="VKDakhelOlga" customModuleProvider="target" id="zJO-Ax-N6N"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -139,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31o-XO-tZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="327.536231884058" y="-1094.1964285714284"/>
+            <point key="canvasLocation" x="-1642" y="-1257"/>
         </scene>
         <!--My Friends Controller-->
         <scene sceneID="oLu-fq-rSn">
