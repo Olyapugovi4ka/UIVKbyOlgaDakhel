@@ -8,16 +8,20 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-struct Photo {
+class Photo: Object{
     
     //MARK: - Properties
-    var userId: Int
-    var name: String
-    var numberOfLikes: Int
+    @objc dynamic var photoId:Int = 0
+    @objc dynamic var userId: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var numberOfLikes: Int = 0
     
     //MARK: - Initialisation
-    init(_ json: JSON){
+    convenience init(_ json: JSON){
+        self.init()
+        self.photoId = json["id"].intValue
         self.userId = json["owner_id"].intValue
         self.name = json["sizes"][3]["url"].stringValue
         self.numberOfLikes = json["likes"]["count"].intValue

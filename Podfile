@@ -10,5 +10,6 @@ pod 'Alamofire', '~> 4.8.2'
 
 
     pod 'SwiftyJSON', '~> 5.0.0'
+    pod 'RealmSwift', '~> 3.16.1'
 
 end
