@@ -10,13 +10,16 @@ import UIKit
 
 class AddFriendController: UITableViewController {
     
+    //MARK: - Service for requests
+    let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    
     // MARK: Array of Users(under models)
     public let users:[User] = [
-        User(userName: "Alex", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
-        User(userName: "Mikhail", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
-        User(userName: "Kate", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
-        User(userName: "Marina", avatarName: "Marina", photos: [Photo(name: "Marina", numberOfLikes: 0), Photo(name: "Marina1", numberOfLikes: 0)]),
-        User(userName: "Leo", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)])
+//        User(userName: "Alex", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
+//        User(userName: "Mikhail", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
+//        User(userName: "Kate", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)]),
+//        User(userName: "Marina", avatarName: "Marina", photos: [Photo(name: "Marina", numberOfLikes: 0), Photo(name: "Marina1", numberOfLikes: 0)]),
+//        User(userName: "Leo", avatarName: "Friends", photos: [Photo(name: "Friends", numberOfLikes: 0)])
     ]
     
    //MARK: Controller Lifecycle
@@ -36,9 +39,9 @@ class AddFriendController: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
            
             cell.userLabel.text = users[indexPath.row].userName
-            if let roundPhotoName = users[indexPath.row].avatarName {
-                cell.avatarView.avatarImage = UIImage(named:roundPhotoName)!
-            }
+            let roundPhotoName = users[indexPath.row].avatarName
+            cell.avatarView.avatarImage = UIImage(named:roundPhotoName)!
+            
             return cell
         }
     

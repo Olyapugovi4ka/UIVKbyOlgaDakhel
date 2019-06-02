@@ -7,9 +7,20 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-struct User {
-    var userName: String
-    var avatarName: String?
+class User {
+    
+    //MARK: - Properties
+    let userId: Int
+    let userName:String
+    let avatarName: String
     var photos: [Photo]?
+    
+    //MARK: - Initialisation
+    init(_ json: JSON){
+        self.userId = json["id"].intValue
+        self.userName = (json["first_name"].stringValue + " " + json["last_name"].stringValue)
+        self.avatarName = json["photo_200_orig"].stringValue
+    }
 }

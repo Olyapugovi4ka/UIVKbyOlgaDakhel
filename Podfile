@@ -6,5 +6,9 @@ target 'VKDakhelOlga' do
   use_frameworks!
 pod 'Alamofire', '~> 4.8.2'
   # Pods for VKDakhelOlga
+  pod 'Kingfisher', '~> 5.5.0'
+
+
+    pod 'SwiftyJSON', '~> 5.0.0'
 
 end

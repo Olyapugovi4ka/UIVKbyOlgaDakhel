@@ -7,20 +7,24 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GroupCell: UITableViewCell {
     
     static let reuseId = "GroupCell"
     
     //MARK: Outlets
-    @IBOutlet weak var GroupNameLabel: UILabel!
+    @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupImage: AvatarView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-       
+    public func configer (with group: Group) {
+        
+        groupNameLabel.text = group.name
+        
+        if let imageString = group.avatarName,
+            let imageUrl = URL(string: imageString){
+            groupImage.clippedImageView.kf.setImage(with: imageUrl)
+        }        
     }
-
-
 }
 

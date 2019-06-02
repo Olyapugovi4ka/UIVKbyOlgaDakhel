@@ -13,6 +13,7 @@
 		FA3F8A582285D5350037461E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A572285D5350037461E /* CustomNavigationController.swift */; };
 		FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */; };
 		FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74AB89226B404D00CAFDF5 /* GradientView.swift */; };
+		FA96441322A1A1EF001212D9 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96441222A1A1EF001212D9 /* UIViewController+Ext.swift */; };
 		FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08089225D019E00D3FC47 /* GroupCell.swift */; };
 		FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */; };
 		FAA0808F225D24FB00D3FC47 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808E225D24FB00D3FC47 /* Group.swift */; };
@@ -45,6 +46,7 @@
 		FADCF658225BC54400D65E87 /* MyFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF647225BC54400D65E87 /* MyFriendsController.swift */; };
 		FADCF659225BC54400D65E87 /* MyGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF648225BC54400D65E87 /* MyGroupsController.swift */; };
 		FADCF65E225BC54400D65E87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADCF64F225BC54400D65E87 /* Main.storyboard */; };
+		FAF4C14E22982497006BF734 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4C14D22982497006BF734 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,7 @@
 		FA3F8A572285D5350037461E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
 		FA74AB89226B404D00CAFDF5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		FA96441222A1A1EF001212D9 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		FAA08089225D019E00D3FC47 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		FAA0808E225D24FB00D3FC47 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 		FADCF647225BC54400D65E87 /* MyFriendsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendsController.swift; sourceTree = "<group>"; };
 		FADCF648225BC54400D65E87 /* MyGroupsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGroupsController.swift; sourceTree = "<group>"; };
 		FADCF650225BC54400D65E87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAF4C14D22982497006BF734 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF4C14E22982497006BF734 /* SwiftyJSON.framework in Frameworks */,
 				FABA3F7E22945B4000F8D420 /* Alamofire.framework in Frameworks */,
 				FABA3F7C229410BC00F8D420 /* WebKit.framework in Frameworks */,
 				7B9EC859EA8DDA6A7BCE3F84 /* Pods_VKDakhelOlga.framework in Frameworks */,
@@ -126,6 +131,7 @@
 		FA41E66D225BC7D0004E2856 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA96441222A1A1EF001212D9 /* UIViewController+Ext.swift */,
 				FAD3C2E62284241A001E1504 /* Login */,
 				FAD3C2E722842422001E1504 /* Main Screen */,
 				FAD3C2D72284218B001E1504 /* News */,
@@ -177,6 +183,7 @@
 		FABA3F7A229410BB00F8D420 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAF4C14D22982497006BF734 /* SwiftyJSON.framework */,
 				FABA3F7D22945B4000F8D420 /* Alamofire.framework */,
 				FABA3F7B229410BC00F8D420 /* WebKit.framework */,
 				AB83B282861BBDA4EA0DA635 /* Pods_VKDakhelOlga.framework */,
@@ -472,12 +479,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VKDakhelOlga/Pods-VKDakhelOlga-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -505,6 +516,7 @@
 				FAB788A9227479F700FA0708 /* News.swift in Sources */,
 				FAB4750122778D5300EE585C /* Indicator.swift in Sources */,
 				FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */,
+				FA96441322A1A1EF001212D9 /* UIViewController+Ext.swift in Sources */,
 				FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */,
 				FAB788A32271FF0400FA0708 /* NewsTextCell.swift in Sources */,
 				FABA3F792294101900F8D420 /* LoginVKController.swift in Sources */,

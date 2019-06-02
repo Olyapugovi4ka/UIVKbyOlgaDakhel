@@ -8,29 +8,43 @@
 
 import UIKit
 
+
 class MyFriendsController: UITableViewController {
     
+    //MARK: - Service for requests
+    let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    
     // MARK: Array of Users(under models)
-    public var users:[User] = [
-        User(userName: "Alex", avatarName: "Friends", photos: [Photo(name: "Alex", numberOfLikes: 0),Photo(name: "Alex1", numberOfLikes: 0)
-            ]),
-        User(userName: "Mikhail", avatarName: "art", photos: [Photo(name: "Mikhail", numberOfLikes: 0),
-             Photo(name: "Mikhail1", numberOfLikes: 0)])
-    ]
+    public var users:[User] = []
     
     // MARK: Sections
     var firstLettersSectionTitles = [String]()
     var  allFriendsDictionary = [String: [User]]()
    
-    //MARK: System
+    //MARK: - Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //MARK: - Server request
+        networkingService.loadFriends { [weak self] responce in
+            guard let self = self else { return }
+            switch responce {
+            case .success(let users):
+                self.users = users
+                self.sortUsers()
+                self.tableView.reloadData()
+            case .failure(let error):
+                self.show(error)
+            }
+        }
+        
         
     }
     
    //MARK: Controller Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         
         sortUsers()
         let dotsView = LoadingDotsView()
@@ -81,11 +95,13 @@ class MyFriendsController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
             let userNameKey = firstLettersSectionTitles[indexPath.section]
             if let userValues = allFriendsDictionary[userNameKey] {
-            cell.userLabel.text = userValues[indexPath.row].userName
-                if let roundPhotoName = userValues[indexPath.row].avatarName {
-                    cell.avatarView.avatarImage = UIImage(named:roundPhotoName)!
-                }
-        }
+                let user = userValues[indexPath.row]
+                cell.configer(with: user)
+//            cell.userLabel.text = userValues[indexPath.row].userName
+//                 let roundPhotoName = userValues[indexPath.row].avatarName
+//                    cell.avatarView.avatarImage = UIImage(named:roundPhotoName)!
+//
+     }
         return cell
     }
     
@@ -127,6 +143,8 @@ class MyFriendsController: UITableViewController {
                     if let userValues = allFriendsDictionary[userNameKey] {
                         let userName = userValues[indexPath.row].userName
                         photoVC.friendName = userName
+                        let userId = userValues[indexPath.row].userId
+                        photoVC.userId = userId
                         if let photos = userValues[indexPath.row].photos {
                             photoVC.photosInFriendsPhotoController = photos
                         }
