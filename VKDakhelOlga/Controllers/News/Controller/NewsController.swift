@@ -10,7 +10,9 @@ import UIKit
 
 class NewsController: UITableViewController {
     
-    let news:[News] = [News(user: User(userName: "John", avatarName: "flame", photos: nil), newsText: "Hellow everybody", newsPhoto: Photo(name: "News", numberOfLikes: 0))]
+    let news:[News] = [
+//        News(user: User(userName: "John", avatarName: "flame", photos: nil), newsText: "Hellow everybody", newsPhoto: Photo(name: "News", numberOfLikes: 0))
+    ]
     
    
 
@@ -35,9 +37,9 @@ class NewsController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsHeaderCell", for: indexPath) as! NewsHeaderCell
             cell.userLabel.text = news[indexPath.row].user.userName
-            if let image = news[indexPath.row].user.avatarName{
-                cell.avatarView.avatarImage = UIImage(named: image)!
-            }
+            let image = news[indexPath.row].user.avatarName
+            cell.avatarView.avatarImage = UIImage(named: image)!
+            
             return cell
         //MARK: Second row
         case 1:

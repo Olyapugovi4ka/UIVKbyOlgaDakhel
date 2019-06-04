@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MyFriendsCell: UITableViewCell {
     
@@ -16,15 +17,16 @@ class MyFriendsCell: UITableViewCell {
     @IBOutlet weak var avatarView: AvatarView!
     @IBOutlet weak var userLabel: UILabel!
     
-    //var user: User? {
-    //    didSet{
-     //       if let avatar = user?.avatarName {
-      //          avatarView.avatarImage =  UIImage(named: avatar)!
-       //     }
-       // }
-   // }
+    public func configer ( with user: User) {
     
-
+        userLabel.text = user.userName
+        
+        let imageString = user.avatarName
+        let imageURL = URL(string: imageString)
+        avatarView.clippedImageView.kf.setImage(with: imageURL)
+        
+        
+    }
     
 
 }

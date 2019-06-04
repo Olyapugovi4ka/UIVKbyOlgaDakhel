@@ -17,16 +17,15 @@ class PhotoCell: UICollectionViewCell {
     @IBOutlet var likeControl: LikeControl!
         
     
-    
-   // var photo: Photo? {
-    //    didSet{
-      //      if let image = photo?.name {
-      //          photoInPhotoCell.image = UIImage(named: image)
-       //     }
-            
-       // }
-   // }
-
+    public func configer (with photo: Photo) {
+        let countOfLikes = String(photo.numberOfLikes)
+        likeControl.likesCount.text = countOfLikes
+        
+        let imageString = photo.name
+        let imageUrl = URL(string: imageString)
+        photoInPhotoCell.kf.setImage(with: imageUrl)
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

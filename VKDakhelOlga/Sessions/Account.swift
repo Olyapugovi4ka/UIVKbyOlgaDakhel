@@ -8,9 +8,10 @@
 
 import Foundation
 class Account {
+    private init() {}
     public static let shared = Account()
     var token: String?
     var userId: Int?
-    private init() {}
+    
     
 }

@@ -9,6 +9,9 @@
 import UIKit
 
 class MyGroupsController: UITableViewController {
+ 
+    //MARK: - Service for requests
+    let networkingService = NetworkingService(token: Account.shared.token ?? "")
     
     // MARK: SearchBar
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -17,21 +20,33 @@ class MyGroupsController: UITableViewController {
         }
     }
      // MARK: Array of Users(under models)
-    private var groups:[Group] = [
-        Group(name:"The Swift Developers", avatarName: "art"),
-        Group(name: "Vandrouki", avatarName: "bookshelf")]
+    private var groups:[Group] = []
     
     
     
     // MARK: SearchBar
     private var filteredGroups = [Group]()
     
-    //MARK: Controller Lifecycle
+    //MARK: - Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //MARK:SearchBar
         filteredGroups = groups
-    
+       
+        //MARK: - Server request
+        networkingService.loadGroups {[weak self] responce in
+            guard let self = self else { return }
+            switch responce {
+            case .success(let groups):
+                self.filteredGroups = groups
+                self.tableView.reloadData()
+            case .failure(let error):
+                self.show(error)
+            }
+        }
+        
+        
     }
     
     // MARK: SearchBar
@@ -54,10 +69,8 @@ class MyGroupsController: UITableViewController {
     //MARK: Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else {fatalError("Cell cannot be dequeued")}
-        cell.GroupNameLabel.text = filteredGroups[indexPath.row].name
-        if let roundPhotoName = filteredGroups[indexPath.row].avatarName {
-            cell.groupImage.avatarImage = UIImage(named:roundPhotoName)!
-        }
+        let group = filteredGroups[indexPath.row]
+       cell.configer(with: group)
         return cell
     }
     
@@ -100,6 +113,11 @@ extension MyGroupsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             filteredGroups = groups
+            
+            //MARK: - Request - search groups
+           
+             //   networkingService.loadSearchGroups(query: searchText)
+            
             tableView.reloadData()
             return
         }
