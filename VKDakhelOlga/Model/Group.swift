@@ -10,17 +10,24 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
+@objcMembers
 class Group: Object {
     
     //MARK: - Properties
-   @objc dynamic var name: String = ""
-  @objc dynamic  var avatarName: String?
+    dynamic var id: Int = 0
+    dynamic var name: String = ""
+    dynamic  var avatarName: String?
     
     //MARK: - Initialisation
     convenience init(_ json:JSON){
         self.init()
+        self.id = json["id"].intValue
         self.name = json["name"].stringValue
         self.avatarName = json["photo_200"].stringValue
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
 

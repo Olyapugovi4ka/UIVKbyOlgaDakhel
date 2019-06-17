@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class MyFriendsController: UITableViewController {
@@ -15,28 +16,44 @@ class MyFriendsController: UITableViewController {
     let networkingService = NetworkingService(token: Account.shared.token ?? "")
     
     // MARK: Array of Users(under models)
-    public var users:[User] = []
+    public var users: Results<User> = try! RealmProvider.get(User.self)
     
     // MARK: Sections
     var firstLettersSectionTitles = [String]()
     var  allFriendsDictionary = [String: [User]]()
+    
+    var notificationToken: NotificationToken?
    
     //MARK: - Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        notificationToken = users.observe{ [weak self]  change in
+            switch change {
+            case .initial:
+                break
+            case . update:
+                self?.tableView.reloadData()
+            case .error(let error):
+                self?.show(error)
+            }
+        }
+         
         //MARK: - Server request
         networkingService.loadFriends { [weak self] responce in
             guard let self = self else { return }
             switch responce {
             case .success(let users):
-                self.users = users
+                try! RealmProvider.save(items: users)
+               // print(realm.configuration.fileURL!)
+               // self.users = users
                 self.sortUsers()
                 self.tableView.reloadData()
             case .failure(let error):
                 self.show(error)
             }
         }
+
         
         
     }
@@ -47,10 +64,10 @@ class MyFriendsController: UITableViewController {
         
         
         sortUsers()
-        let dotsView = LoadingDotsView()
-        view.addSubview(dotsView)
-        dotsView.frame = CGRect(x: 100, y: 300, width: 30, height: 10)
-        dotsView.startAnimating()
+//        let dotsView = LoadingDotsView()
+//        view.addSubview(dotsView)
+//        dotsView.frame = CGRect(x: 100, y: 300, width: 30, height: 10)
+//        dotsView.startAnimating()
        // dotsView.stopAnimating()
     }
     
@@ -101,7 +118,7 @@ class MyFriendsController: UITableViewController {
 //                 let roundPhotoName = userValues[indexPath.row].avatarName
 //                    cell.avatarView.avatarImage = UIImage(named:roundPhotoName)!
 //
-     }
+    }
         return cell
     }
     
@@ -119,12 +136,12 @@ class MyFriendsController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-        let user = users.remove(at: indexPath.row)
-           // users[indexPath.section].remove(at: indexPath.row)
-       //tableView.deleteRows(at: [indexPath], with: .fade)
-        if let index = users.firstIndex(where: {$0.userName == user.userName}) {
-            users.remove(at: index)
-            }
+//        let user = users.remove(at: indexPath.row)
+//           // users[indexPath.section].remove(at: indexPath.row)
+//       //tableView.deleteRows(at: [indexPath], with: .fade)
+//        if let index = users.firstIndex(where: {$0.userName == user.userName}) {
+//            users.remove(at: index)
+//            }
             
         }
         sortUsers()
@@ -145,9 +162,8 @@ class MyFriendsController: UITableViewController {
                         photoVC.friendName = userName
                         let userId = userValues[indexPath.row].userId
                         photoVC.userId = userId
-                        if let photos = userValues[indexPath.row].photos {
-                            photoVC.photosInFriendsPhotoController = photos
-                        }
+                       // let photos = userValues[indexPath.row].photos
+                       // photoVC.photosInFriendsPhotoController = photos
                     }
             }
         }
@@ -159,20 +175,20 @@ class MyFriendsController: UITableViewController {
         }
     
     //MARK: Adding new friend
-    @IBAction func addFriend(segue: UIStoryboardSegue){
-        
-        if let addFriendController = segue.source as? AddFriendController,
-            let indexPath = addFriendController.tableView.indexPathForSelectedRow {
-            let friend = addFriendController.users[indexPath.row]
-            guard !users.contains(where: { (User) -> Bool in
-                return User.userName == friend.userName
-            }) else {return}
-            self.users.append(friend)
-            self.sortUsers()
-            tableView.reloadData()
-        }
-        
-    }
+//    @IBAction func addFriend(segue: UIStoryboardSegue){
+//
+//        if let addFriendController = segue.source as? AddFriendController,
+//            let indexPath = addFriendController.tableView.indexPathForSelectedRow {
+//            let friend = addFriendController.users[indexPath.row]
+//            guard !users.contains(where: { (User) -> Bool in
+//                return User.userName == friend.userName
+//            }) else {return}
+//            self.users.append(friend)
+//            self.sortUsers()
+//            tableView.reloadData()
+//        }
+//
+//    }
 
 
 }

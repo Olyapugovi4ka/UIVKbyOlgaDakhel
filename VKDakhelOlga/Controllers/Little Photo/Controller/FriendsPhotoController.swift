@@ -8,8 +8,7 @@
 
 import UIKit
 import Kingfisher
-
-//private let reuseIdentifier = "Cell"
+import RealmSwift
 
 class FriendsPhotoController: UICollectionViewController {
     
@@ -18,30 +17,57 @@ class FriendsPhotoController: UICollectionViewController {
     public var userId : Int = 0
     
     //MARK: - Service for requests
-    let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    private let networkingService = NetworkingService(token: Account.shared.token ?? "")
     
    
     //MARK: Array of photos
-    public var  photosInFriendsPhotoController : [Photo] = []
+    public lazy var  photosInFriendsPhotoController : Results<Photo> = try! RealmProvider.get(Photo.self).filter("userId == %@", userId)
+    
+    //MARK: - Observer
+    private var notificationToken: NotificationToken?
         
 
  //MARK: Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = friendName
        
         //MARK: - Request - photos of user
         networkingService.loadPhotos(userId) { response in
             switch response {
             case.success(let photos):
-                self.photosInFriendsPhotoController = photos
-                self.collectionView.reloadData()
+                guard let realm = try? Realm(),
+                    let user = realm.object(ofType: User.self, forPrimaryKey: self.userId) else { fatalError("Realm is not available") }
+                
+                try? realm.write {
+                    realm.add(photos, update: .modified)
+                    user.photos.append(objectsIn: photos)
+                }
             case.failure(let error):
                 print(error.localizedDescription)
             }
         }
         
+        //MARK: - Observer
+        notificationToken = photosInFriendsPhotoController.observe { [weak self] change in
+            guard let self = self else { return }
+            switch change {
+            case .initial:
+                print("notification token was initialized")
+                self.collectionView.reloadData()
+            case .update:
+                self.collectionView.reloadData()
+            case .error(let error):
+                self.show(error)
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
+        notificationToken?.invalidate()
     }
     //MARK: Count of sections
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

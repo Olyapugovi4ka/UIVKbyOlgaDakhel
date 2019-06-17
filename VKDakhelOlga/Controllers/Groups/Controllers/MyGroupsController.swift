@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MyGroupsController: UITableViewController {
  
     //MARK: - Service for requests
     let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    
+    //MARK: - Observer
+    var notificationToken: NotificationToken?
     
     // MARK: SearchBar
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -19,44 +23,53 @@ class MyGroupsController: UITableViewController {
             searchBar.delegate = self
         }
     }
-     // MARK: Array of Users(under models)
-    private var groups:[Group] = []
     
-    
+     // MARK: Array of Groupss(under models)
+    private var filteredGroups: Results<Group> = try! RealmProvider.get(Group.self)
     
     // MARK: SearchBar
-    private var filteredGroups = [Group]()
+   //private var filteredGroups:[Group] = []
+    
     
     //MARK: - Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //MARK:SearchBar
-        filteredGroups = groups
+       // filteredGroups = groups
        
         //MARK: - Server request
         networkingService.loadGroups {[weak self] responce in
             guard let self = self else { return }
             switch responce {
             case .success(let groups):
-                self.filteredGroups = groups
-                self.tableView.reloadData()
+                try! RealmProvider.save(items: groups)
             case .failure(let error):
                 self.show(error)
             }
         }
         
+        notificationToken = filteredGroups.observe { change in
+            switch change {
+            case .initial:
+                break
+            case .update:
+                self.tableView.reloadData()
+            case .error(let error):
+                self.show(error)
+            }
+        }
         
     }
     
     // MARK: SearchBar
-    private func filterGroups (with text: String) {
-        filteredGroups = groups.filter{ group in
-            return group.name.lowercased().contains(text.lowercased())
-        }
-       
-        tableView.reloadData()
-    }
+//    private func filterGroups (with text: String) {
+//        filteredGroups = groups.filter{ group in
+//            return group.name.lowercased().contains(text.lowercased())
+//        }
+//
+//        tableView.reloadData()
+//    }
     
     
     //MARK: Count of rows
@@ -80,39 +93,38 @@ class MyGroupsController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            let group = filteredGroups.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            if let index = groups.firstIndex(where: {$0.name == group.name}){
-            groups.remove(at:index)
-            }
+            let group = filteredGroups[indexPath.row]
+            try! RealmProvider.delete(items: group)
         }
-        
+    }
+    
+    
     }
     // MARK: Navigation
     
     //MARK: Adding new group
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
-        
-        if let addGroupController = segue.source as? AddGroupController,
-            let indexPath = addGroupController.tableView.indexPathForSelectedRow {
-            let newGroup = addGroupController.groups[indexPath.row]
-            guard !groups.contains(where: { (Group) -> Bool in
-                return Group.name == newGroup.name
-            }) else {return}
-            self.groups.append(newGroup)
-            filteredGroups = groups
-            tableView.reloadData()
-        }
-        
-    }
+//    @IBAction func addGroup(segue: UIStoryboardSegue) {
+//
+//        if let addGroupController = segue.source as? AddGroupController,
+//            let indexPath = addGroupController.tableView.indexPathForSelectedRow {
+//            let newGroup = addGroupController.groups[indexPath.row]
+//            guard !groups.contains(where: { (Group) -> Bool in
+//                return Group.name == newGroup.name
+//            }) else {return}
+//            self.groups.append(newGroup)
+//            filteredGroups = groups
+//            tableView.reloadData()
+//        }
+//
+   // }
     
-}
+//}
 //MARK: SearchBar
 extension MyGroupsController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            filteredGroups = groups
+            //filteredGroups = groups
             
             //MARK: - Request - search groups
            
@@ -121,7 +133,7 @@ extension MyGroupsController: UISearchBarDelegate {
             tableView.reloadData()
             return
         }
-        filterGroups(with: searchText)
+        //filterGroups(with: searchText)
     }
     
 }

@@ -10,13 +10,14 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
+@objcMembers
 class User: Object{
     
     //MARK: - Properties
-    @objc dynamic var userId: Int = 0
-    @objc dynamic var userName:String = ""
-    @objc dynamic var avatarName: String = ""
-    @objc dynamic var photos: [Photo]?
+    dynamic var userId: Int = 0
+    dynamic var userName:String = ""
+    dynamic var avatarName: String = ""
+     var photos = List<Photo>()
     
     //MARK: - Initialisation
    convenience init(_ json: JSON){
@@ -24,5 +25,9 @@ class User: Object{
         self.userId = json["id"].intValue
         self.userName = (json["first_name"].stringValue + " " + json["last_name"].stringValue)
         self.avatarName = json["photo_200_orig"].stringValue
+    }
+    
+    override static func primaryKey() -> String? {
+        return "userId"
     }
 }
