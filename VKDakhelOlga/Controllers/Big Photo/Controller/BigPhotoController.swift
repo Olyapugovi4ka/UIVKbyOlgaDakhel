@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class BigPhotoController: UIViewController {
     
     @IBOutlet var activeImageView: UIImageView!
     
-    public var photosInBigPhotoController = [Photo]()
+    public var photosInBigPhotoController : Results<Photo> = try! Realm().objects(Photo.self)
     public var currentIndex: Int = 0
     
     private lazy var scaleTrasform: CGAffineTransform = {

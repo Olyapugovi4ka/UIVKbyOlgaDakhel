@@ -13,10 +13,12 @@ import RealmSwift
 class Photo: Object{
     
     //MARK: - Properties
-    @objc dynamic var photoId:Int = 0
+    @objc dynamic var photoId:Int = -1
     @objc dynamic var userId: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var numberOfLikes: Int = 0
+    
+    let owner = LinkingObjects(fromType: User.self, property: "photos")
     
     //MARK: - Initialisation
     convenience init(_ json: JSON){
@@ -27,5 +29,7 @@ class Photo: Object{
         self.numberOfLikes = json["likes"]["count"].intValue
     }
         
-  
+    override static func primaryKey() -> String? {
+        return "photoId"
+    }
 }

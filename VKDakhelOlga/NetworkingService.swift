@@ -21,6 +21,8 @@ class NetworkingService{
     }()
     private let baseUrl = "https://api.vk.com"
     private let token: String
+    private var activeRequest: DataRequest?
+    
     init(token:String) {
         self.token = token
     }
@@ -74,7 +76,7 @@ class NetworkingService{
     
     //MARK: - Photos of user
     func loadPhotos(_ userId: Int, completion: ((Swift.Result <[Photo], Error>) -> Void)? = nil){
-        guard let token = Account.shared.token else { return }
+        //guard let token = Account.shared.token else { return }
         let path = "/method/photos.getAll"
         let params: Parameters = [
             "access_token" : token,
@@ -96,13 +98,14 @@ class NetworkingService{
     //MARK:
     func loadSearchGroups (query queryString: String, completion: @escaping (Swift.Result <[Group], Error>) -> Void) {
         guard let token = Account.shared.token else { return }
+        activeRequest?.cancel()
         let path = "/method/groups.search"
         let params: Parameters = [
             "access_token" : token,
             "q" : queryString,
             "v":"5.95"]
         
-        NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
+        activeRequest = NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
             switch response.result{
             case.success(let value):
                 let json = JSON(value)

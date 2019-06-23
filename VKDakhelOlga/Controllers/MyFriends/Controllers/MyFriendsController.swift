@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class MyFriendsController: UITableViewController {
@@ -14,13 +15,26 @@ class MyFriendsController: UITableViewController {
     //MARK: - Service for requests
     let networkingService = NetworkingService(token: Account.shared.token ?? "")
     
-    // MARK: Array of Users(under models)
-    public var users:[User] = []
+    // MARK: - Array of Users(under models)
+    public var users: Results<User> = try! RealmProvider.get(User.self)
     
-    // MARK: Sections
-    var firstLettersSectionTitles = [String]()
-    var  allFriendsDictionary = [String: [User]]()
-   
+    // MARK: - Sections
+    fileprivate var firstLettersSectionTitles = [String]()
+    fileprivate var  allFriendsDictionary = [String:Results<User>]()
+    
+    //MARK: - Array fo users, after using SearchBar
+    fileprivate var searchedUsers = [User]()
+    
+    //MARK: - Outlet for SerchBar
+    @IBOutlet var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
+    
+    //MARK: - Notification token
+    var notificationToken: NotificationToken?
+    
     //MARK: - Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,78 +44,98 @@ class MyFriendsController: UITableViewController {
             guard let self = self else { return }
             switch responce {
             case .success(let users):
-                self.users = users
-                self.sortUsers()
+                try! RealmProvider.save(items: users)
+                //self.users = users
+                self.firstLettersSectionTitles = self.sortUsers(self.users)
                 self.tableView.reloadData()
             case .failure(let error):
                 self.show(error)
             }
         }
         
-        
+        notificationToken = users.observe{ [weak self]  change in
+            switch change {
+            case .initial:
+                self?.tableView.reloadData()
+            case . update:
+                self?.tableView.reloadData()
+            case .error(let error):
+                self?.show(error)
+            }
+        }
+//        firstLettersSectionTitles = []
+//        allFriendsDictionary = [:]
     }
     
-   //MARK: Controller Lifecycle
+   //MARK: - Controller Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        sortUsers()
-        let dotsView = LoadingDotsView()
-        view.addSubview(dotsView)
-        dotsView.frame = CGRect(x: 100, y: 300, width: 30, height: 10)
-        dotsView.startAnimating()
-       // dotsView.stopAnimating()
     }
     
-    //MARK: Sections
-    private func sortUsers() {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //MARK: Invalidation of notification token
+        notificationToken?.invalidate()
+    }
+    
+    
+    //MARK: - Sections
+    private func sortUsers(_ users: Results<User>) -> [String] {
         
         firstLettersSectionTitles = []
-        allFriendsDictionary = [:]
+       // allFriendsDictionary = [:]
         
         for user in users {
             let userNameKey = String(user.userName.prefix(1))
-            if var userValue = allFriendsDictionary[userNameKey] {
-                userValue.append(user)
-                allFriendsDictionary[userNameKey] = userValue
-            } else {
-                allFriendsDictionary[userNameKey] = [user]
+            if !firstLettersSectionTitles.contains(userNameKey){
+                firstLettersSectionTitles.append(userNameKey)
             }
+            
+           //firstLettersSectionTitles = [String](allFriendsDictionary.keys)
+       
         }
-        
-        firstLettersSectionTitles = [String](allFriendsDictionary.keys)
-        firstLettersSectionTitles = firstLettersSectionTitles.sorted(by: {$0 < $1})
-        
+        //firstLettersSectionTitles = [String](allFriendsDictionary.keys)
+        return  firstLettersSectionTitles.sorted(by: {$0 < $1})
     }
-
-    // MARK: - Table view data source
-    //MARK: Count of sections
+    
+    //MARK: - Table view data source
+    //MARK: - Count of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return firstLettersSectionTitles.count
         
     }
-    //MARK: Count of rows
+    //MARK: -Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            let userNameKey = firstLettersSectionTitles[section]
-            if let userValues = allFriendsDictionary[userNameKey] {
-            return userValues.count
-            }
-        return 0
+        
+        let userNameKey = String(firstLettersSectionTitles[section])
+        let predicate = NSPredicate(format:"userName BEGINSWITH %@", userNameKey )
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            let sectionUsers = users.filter(predicate).filter("userName CONTAINS[cd] %@",searchText)
+            return sectionUsers.count
+        } else {
+            let sectionUsers = users.filter(predicate)
+            return sectionUsers.count
+        }
     }
     
     // MARK: Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsCell.reuseId, for: indexPath) as? MyFriendsCell else {fatalError("Cell cannot be dequeued")}
-            let userNameKey = firstLettersSectionTitles[indexPath.section]
-            if let userValues = allFriendsDictionary[userNameKey] {
-                let user = userValues[indexPath.row]
-                cell.configer(with: user)
-//            cell.userLabel.text = userValues[indexPath.row].userName
-//                 let roundPhotoName = userValues[indexPath.row].avatarName
-//                    cell.avatarView.avatarImage = UIImage(named:roundPhotoName)!
-//
-     }
+        let userNameKey = firstLettersSectionTitles[indexPath.section]
+        let userValues: Results<User> = {
+            if let searchText = searchBar.text, !searchText.isEmpty {
+                return users.filter("userName BEGINSWITH %@", userNameKey)
+                    .filter("userName CONTAINS[cd] %@",searchText)
+            } else {
+                return users.filter("userName BEGINSWITH %@", userNameKey)
+            }
+        }()
+        
+        let user = userValues[indexPath.row]
+        cell.configer(with: user)
+        
         return cell
     }
     
@@ -119,16 +153,9 @@ class MyFriendsController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-        let user = users.remove(at: indexPath.row)
-           // users[indexPath.section].remove(at: indexPath.row)
-       //tableView.deleteRows(at: [indexPath], with: .fade)
-        if let index = users.firstIndex(where: {$0.userName == user.userName}) {
-            users.remove(at: index)
-            }
-            
+            let user = users[indexPath.row]
+            try! RealmProvider.delete(items: user)
         }
-        sortUsers()
-        tableView.reloadData()
     }
     
     // MARK: - Navigation
@@ -136,43 +163,68 @@ class MyFriendsController: UITableViewController {
     // MARK: Show photos of friend
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Friend Photo",
-            let photoVC = segue.destination as? FriendsPhotoController {
-            if let selectedCell = sender as? MyFriendsCell {
-                let indexPath = tableView.indexPath(for: selectedCell)!
-                let userNameKey = firstLettersSectionTitles[indexPath.section]
-                    if let userValues = allFriendsDictionary[userNameKey] {
-                        let userName = userValues[indexPath.row].userName
-                        photoVC.friendName = userName
-                        let userId = userValues[indexPath.row].userId
-                        photoVC.userId = userId
-                        if let photos = userValues[indexPath.row].photos {
-                            photoVC.photosInFriendsPhotoController = photos
-                        }
-                    }
-            }
+            let photoVC = segue.destination as? FriendsPhotoController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            let string = firstLettersSectionTitles[indexPath.section]
+            let user = allFriendsDictionary[string]!
+//            let dictionary = allFriendsDictionary
+//             firstLettersSectionTitles = [String](dictionary.keys)
+//            let userNameKey = firstLettersSectionTitles[indexPath.section]
+//
+//            if let users = dictionary[userNameKey] {
+//
+            let userName = user[indexPath.row].userName
+            photoVC.friendName = userName
+            
+            let userId = user[indexPath.row].userId
+            photoVC.userId = userId
+            //}
         }
-    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    }
+        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         print(cell?.detailTextLabel?.text ?? "nil")
         }
     
     //MARK: Adding new friend
-    @IBAction func addFriend(segue: UIStoryboardSegue){
+//    @IBAction func addFriend(segue: UIStoryboardSegue){
+//
+//        if let addFriendController = segue.source as? AddFriendController,
+//            let indexPath = addFriendController.tableView.indexPathForSelectedRow {
+//            let friend = addFriendController.users[indexPath.row]
+//            guard !users.contains(where: { (User) -> Bool in
+//                return User.userName == friend.userName
+//            }) else {return}
+//            self.users.append(friend)
+//            self.sortUsers()
+//            tableView.reloadData()
+//        }
+//
+//    }
+
+//    let dotsView = LoadingDotsView()
+//    view.addSubview(dotsView)
+//    dotsView.frame = CGRect(x: 100, y: 300, width: 30, height: 10)
+//    dotsView.startAnimating()
+//    dotsView.stopAnimating()
+}
+
+//MARK: SearchBar
+extension MyFriendsController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if let addFriendController = segue.source as? AddFriendController,
-            let indexPath = addFriendController.tableView.indexPathForSelectedRow {
-            let friend = addFriendController.users[indexPath.row]
-            guard !users.contains(where: { (User) -> Bool in
-                return User.userName == friend.userName
-            }) else {return}
-            self.users.append(friend)
-            self.sortUsers()
+        if searchText.isEmpty {
+            searchedUsers = Array(users)
+            firstLettersSectionTitles = sortUsers(self.users)
             tableView.reloadData()
+            return
         }
-        
+        let filteredUsers = self.users.filter("name CONTAINS[cd]'\(searchText)")
+        firstLettersSectionTitles = sortUsers(filteredUsers)
+        tableView.reloadData()
     }
-
-
+    
 }
