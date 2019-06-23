@@ -24,11 +24,12 @@ class MyGroupsController: UITableViewController {
         }
     }
     
-     // MARK: Array of Groupss(under models)
-    private var filteredGroups: Results<Group> = try! RealmProvider.get(Group.self)
+     // MARK: Array of Groups(under models)
+    private var groups: Results<Group> = try! RealmProvider.get(Group.self)
     
-    // MARK: SearchBar
-   //private var filteredGroups:[Group] = []
+    
+    // MARK: Arrat of filterd groups for SearchBar
+    private var filteredGroups: Results<Group> = try! RealmProvider.get(Group.self)
     
     
     //MARK: - Controller Lifecycle
@@ -36,8 +37,8 @@ class MyGroupsController: UITableViewController {
         super.viewDidLoad()
         
         //MARK:SearchBar
-       // filteredGroups = groups
-       
+        filteredGroups = groups
+        
         //MARK: - Server request
         networkingService.loadGroups {[weak self] responce in
             guard let self = self else { return }
@@ -52,25 +53,21 @@ class MyGroupsController: UITableViewController {
         notificationToken = filteredGroups.observe { change in
             switch change {
             case .initial:
-                break
+                self.tableView.reloadData()
             case .update:
                 self.tableView.reloadData()
             case .error(let error):
                 self.show(error)
             }
         }
-        
     }
     
-    // MARK: SearchBar
-//    private func filterGroups (with text: String) {
-//        filteredGroups = groups.filter{ group in
-//            return group.name.lowercased().contains(text.lowercased())
-//        }
-//
-//        tableView.reloadData()
-//    }
-    
+    // MARK: Invalidation of notification token
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        notificationToken?.invalidate()
+    }
     
     //MARK: Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,8 +84,6 @@ class MyGroupsController: UITableViewController {
         return cell
     }
     
-    
-    
     //MARK: For deleting
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -99,10 +94,27 @@ class MyGroupsController: UITableViewController {
     }
     
     
-    }
-    // MARK: Navigation
+}
+
+//MARK: SearchBar
+extension MyGroupsController: UISearchBarDelegate {
     
-    //MARK: Adding new group
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        if searchText.isEmpty {
+            filteredGroups = groups
+            tableView.reloadData()
+            return
+        }
+        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("name CONTAINS[c]'\(searchText)")
+        filteredGroups = searchingGroups
+        tableView.reloadData()
+    }
+    
+}
+// MARK: Navigation
+
+//MARK: Adding new group
 //    @IBAction func addGroup(segue: UIStoryboardSegue) {
 //
 //        if let addGroupController = segue.source as? AddGroupController,
@@ -116,24 +128,6 @@ class MyGroupsController: UITableViewController {
 //            tableView.reloadData()
 //        }
 //
-   // }
-    
+// }
+
 //}
-//MARK: SearchBar
-extension MyGroupsController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            //filteredGroups = groups
-            
-            //MARK: - Request - search groups
-           
-             //   networkingService.loadSearchGroups(query: searchText)
-            
-            tableView.reloadData()
-            return
-        }
-        //filterGroups(with: searchText)
-    }
-    
-}

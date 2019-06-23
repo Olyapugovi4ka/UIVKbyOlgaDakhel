@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/Login/Controller/LoginVKController.swift"
-            timestampString = "581183227.1132669"
+            timestampString = "582829968.974788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.762168"
+            timestampString = "582884481.4245991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.762762"
+            timestampString = "582884481.424795"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -58,7 +58,7 @@
                   moduleName = "VKDakhelOlga"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/NetworkingService.swift"
-                  timestampString = "582486111.9823"
+                  timestampString = "582972092.386781"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "78"
@@ -73,7 +73,7 @@
                   moduleName = "VKDakhelOlga"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/NetworkingService.swift"
-                  timestampString = "582486112.001134"
+                  timestampString = "582972092.392954"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "80"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.763127"
+            timestampString = "582884481.424946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
@@ -105,24 +105,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VKDakhelOlga/Controllers/Groups/Controllers/MyGroupsController.swift"
-            timestampString = "582486111.7637759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.764359"
+            timestampString = "582884481.42502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -138,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.764896"
+            timestampString = "582884481.425114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -154,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.7656111"
+            timestampString = "582884481.425182"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
@@ -170,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.7661361"
+            timestampString = "582884481.425303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -186,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.766655"
+            timestampString = "582884481.425403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
@@ -202,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.767351"
+            timestampString = "582884481.42548"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
@@ -250,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.7679729"
+            timestampString = "582884481.425566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
@@ -266,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/Groups/Controllers/AddGroupController.swift"
-            timestampString = "582486111.768561"
+            timestampString = "582972091.3431261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/Groups/Controllers/AddGroupController.swift"
-            timestampString = "582486111.769394"
+            timestampString = "582972091.344735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/Groups/Controllers/AddGroupController.swift"
-            timestampString = "582486111.770185"
+            timestampString = "582972091.344842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.770678"
+            timestampString = "582884481.425972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -362,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.771484"
+            timestampString = "582884481.426031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -378,7 +362,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.772069"
+            timestampString = "582884481.426105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -394,7 +378,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.772681"
+            timestampString = "582884481.426165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -410,7 +394,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.773183"
+            timestampString = "582884481.4262429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -458,7 +442,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.7736911"
+            timestampString = "582884481.426338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -586,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/Groups/Controllers/MyGroupsController.swift"
-            timestampString = "582486111.774737"
+            timestampString = "582972091.3453749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -650,11 +634,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "582486111.77554"
+            timestampString = "582972091.345546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -698,7 +682,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.77614"
+            timestampString = "582884481.43124"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -714,12 +698,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "582486111.7766449"
+            timestampString = "582972091.350578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "sortUsers()"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "sortUsers(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -730,11 +714,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "582486111.777468"
+            timestampString = "582972091.351276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "MyFriendsController"
             landmarkType = "3">
          </BreakpointContent>
@@ -762,7 +746,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Model/User.swift"
-            timestampString = "582479571.995874"
+            timestampString = "582829477.563167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -810,7 +794,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Model/User.swift"
-            timestampString = "582479571.995961"
+            timestampString = "582829477.563406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -826,7 +810,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Model/User.swift"
-            timestampString = "582479571.996027"
+            timestampString = "582829477.563525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
@@ -842,7 +826,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Model/User.swift"
-            timestampString = "582479571.996137"
+            timestampString = "582829477.56363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -938,7 +922,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/Little Photo/Controller/FriendsPhotoController.swift"
-            timestampString = "582486111.779152"
+            timestampString = "582972091.352276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -954,7 +938,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.782286"
+            timestampString = "582884481.4335589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -1018,7 +1002,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/NetworkingService.swift"
-            timestampString = "582486111.783195"
+            timestampString = "582884481.433731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -1034,12 +1018,124 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/Groups/Controllers/MyGroupsController.swift"
-            timestampString = "582486111.7836241"
+            timestampString = "582972091.35251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/RealmProvider.swift"
+            timestampString = "582831675.764353"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "save(items:configuration:update:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static VKDakhelOlga.RealmProvider.save&lt;A where A: RealmSwift.Object&gt;(items: Swift.Array&lt;A&gt;, configuration: RealmSwift.Realm.Configuration, update: RealmSwift.Realm.UpdatePolicy) throws -&gt; ()"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/RealmProvider.swift"
+                  timestampString = "582831675.996657"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "251">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static VKDakhelOlga.RealmProvider.save&lt;A where A: RealmSwift.Object&gt;(items: Swift.Array&lt;A&gt;, configuration: RealmSwift.Realm.Configuration, update: RealmSwift.Realm.UpdatePolicy) throws -&gt; ()"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/RealmProvider.swift"
+                  timestampString = "582831676.000369"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "1259">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/Little Photo/Controller/FriendsPhotoController.swift"
+            timestampString = "582972091.361454"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKDakhelOlga.FriendsPhotoController.viewDidLoad() -&gt; ()"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/Little%20Photo/Controller/FriendsPhotoController.swift"
+                  timestampString = "582972092.452651"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "207">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;VKDakhelOlga.Photo&gt;, Swift.Error&gt;) -&gt; () in VKDakhelOlga.FriendsPhotoController.viewDidLoad() -&gt; ()"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/Little%20Photo/Controller/FriendsPhotoController.swift"
+                  timestampString = "582972092.457372"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "134">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "582972091.361528"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1049,44 +1145,204 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VKDakhelOlga/RealmProvider.swift"
-            timestampString = "582486111.799367"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "582972091.361928"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "save(items:configuration:update:)"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "582972091.362378"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static VKDakhelOlga.RealmProvider.save&lt;A where A: RealmSwift.Object&gt;(items: Swift.Array&lt;A&gt;, configuration: RealmSwift.Realm.Configuration, update: RealmSwift.Realm.UpdatePolicy) throws -&gt; ()"
+                  symbolName = "VKDakhelOlga.MyFriendsController.viewDidLoad() -&gt; ()"
                   moduleName = "VKDakhelOlga"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/RealmProvider.swift"
-                  timestampString = "582486112.211804"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+                  timestampString = "582972092.483078"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "251">
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "91">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static VKDakhelOlga.RealmProvider.save&lt;A where A: RealmSwift.Object&gt;(items: Swift.Array&lt;A&gt;, configuration: RealmSwift.Realm.Configuration, update: RealmSwift.Realm.UpdatePolicy) throws -&gt; ()"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;VKDakhelOlga.User&gt;, Swift.Error&gt;) -&gt; () in VKDakhelOlga.MyFriendsController.viewDidLoad() -&gt; ()"
                   moduleName = "VKDakhelOlga"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/RealmProvider.swift"
-                  timestampString = "582486112.228352"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+                  timestampString = "582972092.487059"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "1259">
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "169">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "582972091.362776"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "582972091.363227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "582972091.363705"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "sortUsers(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "582972091.364068"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "sortUsers(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKDakhelOlga.MyFriendsController.(sortUsers in _7757D9F41478F8711BEAE0AED93BE6AA)(RealmSwift.Results&lt;VKDakhelOlga.User&gt;) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+                  timestampString = "582972092.522606"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "1002">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.String) -&gt; Swift.Bool in VKDakhelOlga.MyFriendsController.(sortUsers in _7757D9F41478F8711BEAE0AED93BE6AA)(RealmSwift.Results&lt;VKDakhelOlga.User&gt;) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+                  timestampString = "582972092.526093"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "582972091.3644609"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "sortUsers(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKDakhelOlga.MyFriendsController.(sortUsers in _7757D9F41478F8711BEAE0AED93BE6AA)(RealmSwift.Results&lt;VKDakhelOlga.User&gt;) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+                  timestampString = "582972092.534927"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "1002">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.String) -&gt; Swift.Bool in VKDakhelOlga.MyFriendsController.(sortUsers in _7757D9F41478F8711BEAE0AED93BE6AA)(RealmSwift.Results&lt;VKDakhelOlga.User&gt;) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Desktop/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+                  timestampString = "582972092.540104"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "35">
                </Location>
             </Locations>
          </BreakpointContent>

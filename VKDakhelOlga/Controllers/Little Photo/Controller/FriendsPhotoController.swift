@@ -37,13 +37,7 @@ class FriendsPhotoController: UICollectionViewController {
         networkingService.loadPhotos(userId) { response in
             switch response {
             case.success(let photos):
-                guard let realm = try? Realm(),
-                    let user = realm.object(ofType: User.self, forPrimaryKey: self.userId) else { fatalError("Realm is not available") }
-                
-                try? realm.write {
-                    realm.add(photos, update: .modified)
-                    user.photos.append(objectsIn: photos)
-                }
+                try? RealmProvider.save(items: photos)
             case.failure(let error):
                 print(error.localizedDescription)
             }

@@ -48,15 +48,6 @@ class AddGroupController: UITableViewController {
         notificationToken?.invalidate()
     }
     
-    // MARK: SearchBar
-//    private func filterGroups (with text: String) {
-//        filteredGroups = groups.filter{ group in
-//            return group.name.lowercased().contains(text.lowercased())
-//        }
-//
-//        tableView.reloadData()
-//    }
-    
     
     //MARK: Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
