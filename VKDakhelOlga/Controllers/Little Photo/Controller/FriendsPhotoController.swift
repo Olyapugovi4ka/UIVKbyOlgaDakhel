@@ -92,8 +92,8 @@ class FriendsPhotoController: UICollectionViewController {
         if segue.identifier == "ShowBigPhoto",
             let bigPhotoViewController = segue.destination as? BigPhotoController,
             let index = collectionView.indexPathsForSelectedItems?.first?.item {
-            bigPhotoViewController.currentIndex = index
-            bigPhotoViewController.photosInBigPhotoController = photosInFriendsPhotoController
+            bigPhotoViewController.photoId = index
+            //bigPhotoViewController.photosInBigPhotoController = photosInFriendsPhotoController
             }
         }
 }

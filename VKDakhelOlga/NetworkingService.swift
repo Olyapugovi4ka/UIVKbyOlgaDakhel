@@ -117,5 +117,27 @@ class NetworkingService{
             
         }
     }
-    
+    func loadNews(completion: @escaping (Swift.Result<[News],Error>) -> Void) {
+        guard let token = Account.shared.token else { return }
+        
+        let path = "/method/newsfeed.get"
+        let params: Parameters = [
+            "access_token" : token,
+            "fields": "post, photo",
+            "extended": 1,
+            "v":"5.95"]
+        
+        NetworkingService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
+            switch response.result {
+            case.success(let value):
+                let json = JSON(value)
+                print(json)
+                let news = json["response"]["items"].arrayValue.map {News($0)}
+                completion(.success (news))
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
 }

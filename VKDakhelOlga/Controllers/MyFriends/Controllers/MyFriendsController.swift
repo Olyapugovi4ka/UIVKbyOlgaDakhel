@@ -165,20 +165,22 @@ class MyFriendsController: UITableViewController {
         if segue.identifier == "Friend Photo",
             let photoVC = segue.destination as? FriendsPhotoController,
             let indexPath = tableView.indexPathForSelectedRow {
-            let string = firstLettersSectionTitles[indexPath.section]
-            let user = allFriendsDictionary[string]!
-//            let dictionary = allFriendsDictionary
-//             firstLettersSectionTitles = [String](dictionary.keys)
-//            let userNameKey = firstLettersSectionTitles[indexPath.section]
-//
-//            if let users = dictionary[userNameKey] {
-//
-            let userName = user[indexPath.row].userName
+            let userNameKey = firstLettersSectionTitles[indexPath.section]
+            let userValues: Results<User> = {
+                if let searchText = searchBar.text, !searchText.isEmpty {
+                    return users.filter("userName BEGINSWITH %@", userNameKey)
+                        .filter("userName CONTAINS[cd] %@",searchText)
+                } else {
+                    return users.filter("userName BEGINSWITH %@", userNameKey)
+                }
+            }()
+
+            let userName = userValues[indexPath.row].userName
             photoVC.friendName = userName
             
-            let userId = user[indexPath.row].userId
+            let userId = userValues[indexPath.row].userId
             photoVC.userId = userId
-            //}
+            
         }
     
     

@@ -13,8 +13,10 @@ class BigPhotoController: UIViewController {
     
     @IBOutlet var activeImageView: UIImageView!
     
-    public var photosInBigPhotoController : Results<Photo> = try! Realm().objects(Photo.self)
-    public var currentIndex: Int = 0
+    public var photoId: Int = 0
+    
+    public lazy var photosInBigPhotoController : Results<Photo> = try! RealmProvider.get(Photo.self).filter("photoId == %@", photoId)
+    
     
     private lazy var scaleTrasform: CGAffineTransform = {
         return CGAffineTransform(scaleX: 0.8, y: 0.8)
@@ -39,7 +41,7 @@ class BigPhotoController: UIViewController {
         rightSwipeGR.direction = .right
         activeImageView.addGestureRecognizer(rightSwipeGR)
         
-        let image = UIImage(named: photosInBigPhotoController[currentIndex].name)
+        let image = UIImage(named: photosInBigPhotoController[photoId].name)
         activeImageView.image = image
         activeImageView.backgroundColor = UIColor.lightGray
     }
@@ -51,7 +53,7 @@ class BigPhotoController: UIViewController {
     //        }
     
     @objc func swipedLeft() {
-        guard currentIndex < photosInBigPhotoController.count - 1 else { return }
+        guard photoId < photosInBigPhotoController.count - 1 else { return }
         
         UIView.animateKeyframes(withDuration: animationDuration, delay: 0, options: .calculationModeCubicPaced, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0,
@@ -63,15 +65,15 @@ class BigPhotoController: UIViewController {
                                 self.activeImageView.transform = self.scaleTrasform.concatenating(self.goLeftTrasform)
             })
         }) { _ in
-            self.currentIndex += 1
-            let image = UIImage(named: self.photosInBigPhotoController[self.currentIndex].name)
+            self.photoId += 1
+            let image = UIImage(named: self.photosInBigPhotoController[self.photoId].name)
             self.activeImageView.image = image
             self.activeImageView.transform = .identity
         }
     }
     
     @objc func swipedRight() {
-        guard currentIndex >= 1 else { return }
+        guard photoId >= 1 else { return }
         
         UIView.animateKeyframes(withDuration: animationDuration, delay: 0, options: .calculationModeCubicPaced, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0,
@@ -83,8 +85,8 @@ class BigPhotoController: UIViewController {
                                 self.activeImageView.transform = self.scaleTrasform.concatenating(self.goRightTrasform)
             })
         }) { _ in
-            self.currentIndex -= 1
-            let image = UIImage(named: self.photosInBigPhotoController[self.currentIndex].name)
+            self.photoId -= 1
+            let image = UIImage(named: self.photosInBigPhotoController[self.photoId].name)
             self.activeImageView.image = image
             self.activeImageView.transform = .identity
         }

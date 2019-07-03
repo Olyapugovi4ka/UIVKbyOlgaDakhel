@@ -7,32 +7,25 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class NewsHeaderCell: UITableViewCell {
     
-      static let reusedId = "NewsHeaderCell"
+    static let reusedId = "NewsHeaderCell"
     
     
     @IBOutlet weak var avatarView: AvatarView!
     @IBOutlet weak var userLabel: UILabel!
     
-    var user: User? {
-        didSet{
-            if  let image = user?.avatarName {
-            avatarView.avatarImage = UIImage(named: image)!
-            }
-        }
-    }
-   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    public func configer ( with user: User) {
+        
+        userLabel.text = user.userName
+        
+        let imageString = user.avatarName
+        let imageURL = URL(string: imageString)
+        avatarView.clippedImageView.kf.setImage(with: imageURL)
+        
     }
 
 }
