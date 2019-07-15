@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/AppDelegate.swift"
-            timestampString = "582971569.026883"
+            timestampString = "584783640.615352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"
@@ -611,11 +611,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/Little Photo/Controller/FriendsPhotoController.swift"
-            timestampString = "583676739.523548"
+            timestampString = "584530144.462639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -819,27 +819,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/News/Controller/NewsController.swift"
-            timestampString = "583676916.377532"
+            timestampString = "584454175.777835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VKDakhelOlga/Controllers/News/Controller/NewsController.swift"
-            timestampString = "583676916.378065"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
