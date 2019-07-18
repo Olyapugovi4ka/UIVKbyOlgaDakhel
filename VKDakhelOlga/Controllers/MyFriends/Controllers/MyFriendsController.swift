@@ -39,20 +39,27 @@ class MyFriendsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK: - Server request
-        networkingService.loadFriends { [weak self] responce in
-            guard let self = self else { return }
-            switch responce {
-            case .success(let users):
-                try! RealmProvider.save(items: users)
-                //self.users = users
-                self.firstLettersSectionTitles = self.sortUsers(self.users)
-                self.tableView.reloadData()
-            case .failure(let error):
-                self.show(error)
-            }
-        }
+        let fetchDataOperation = FetchDataOperation(request: )
+        let parseOperation = ParseDataOperation()
+        parseOperation.addDependency(fetchDataOperation)
+        let persistOperation = PersistDataOperation()
+        persistOperation.addDependency(parseOperation)
         
+        
+        //MARK: - Server request
+//        networkingService.loadFriends { [weak self] responce in
+//            guard let self = self else { return }
+//            switch responce {
+//            case .success(let users):
+//                try! RealmProvider.save(items: users)
+//                //self.users = users
+//                self.firstLettersSectionTitles = self.sortUsers(self.users)
+//                self.tableView.reloadData()
+//            case .failure(let error):
+//                self.show(error)
+//            }
+//        }
+//
         notificationToken = users.observe{ [weak self]  change in
             switch change {
             case .initial:

@@ -11,6 +11,8 @@
 		FA117368228EFB7E0011F1E4 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA117367228EFB7E0011F1E4 /* Account.swift */; };
 		FA2D07D322DB177200556520 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D222DB177200556520 /* FetchData.swift */; };
 		FA2D07D622DB1A6A00556520 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D522DB1A6A00556520 /* AsyncOperation.swift */; };
+		FA2D07D822DB22ED00556520 /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D722DB22ED00556520 /* ParseOperation.swift */; };
+		FA2D07DA22DB327600556520 /* PersistOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D922DB327600556520 /* PersistOperation.swift */; };
 		FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A552285D04E0037461E /* CustomSegue.swift */; };
 		FA3F8A582285D5350037461E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A572285D5350037461E /* CustomNavigationController.swift */; };
 		FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */; };
@@ -63,6 +65,8 @@
 		FA117367228EFB7E0011F1E4 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		FA2D07D222DB177200556520 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchData.swift; path = ../FetchData.swift; sourceTree = "<group>"; };
 		FA2D07D522DB1A6A00556520 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncOperation.swift; path = VKDakhelOlga/AsyncOperation.swift; sourceTree = SOURCE_ROOT; };
+		FA2D07D722DB22ED00556520 /* ParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
+		FA2D07D922DB327600556520 /* PersistOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistOperation.swift; sourceTree = "<group>"; };
 		FA3F8A552285D04E0037461E /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		FA3F8A572285D5350037461E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 			children = (
 				FA2D07D522DB1A6A00556520 /* AsyncOperation.swift */,
 				FA2D07D222DB177200556520 /* FetchData.swift */,
+				FA2D07D722DB22ED00556520 /* ParseOperation.swift */,
+				FA2D07D922DB327600556520 /* PersistOperation.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -536,12 +542,14 @@
 				FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */,
 				FADCF654225BC54400D65E87 /* AddGroupController.swift in Sources */,
 				FA9702DA22D6102C0052AB15 /* FilteringOperations.swift in Sources */,
+				FA2D07DA22DB327600556520 /* PersistOperation.swift in Sources */,
 				FAB788A9227479F700FA0708 /* News.swift in Sources */,
 				FAB4750122778D5300EE585C /* Indicator.swift in Sources */,
 				FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */,
 				FA96441322A1A1EF001212D9 /* UIViewController+Ext.swift in Sources */,
 				FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */,
 				FA9702DC22D617CD0052AB15 /* OperationManager.swift in Sources */,
+				FA2D07D822DB22ED00556520 /* ParseOperation.swift in Sources */,
 				FAB788A32271FF0400FA0708 /* NewsTextCell.swift in Sources */,
 				FABA3F792294101900F8D420 /* LoginVKController.swift in Sources */,
 				FAB788A72271FF5D00FA0708 /* NewsControlCell.swift in Sources */,
