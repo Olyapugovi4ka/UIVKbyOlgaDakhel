@@ -7,11 +7,49 @@
 //
 
 import Foundation
+import SwiftyJSON
+import RealmSwift
 
-struct News {
+
+struct NewsResponse {
+    let users:[User]
+    let groups:[Group]
+    let news:[News]
     
-    let user: User
-    let newsText: String
-    let newsPhoto: Photo?
-    //var newsStack: UIStackView
+    
+}
+
+@objcMembers
+class News: Object {
+    
+    dynamic var postId: Int = 0
+    dynamic var sourceId: Int = 0
+    dynamic var newsText: String?
+    dynamic var newsPhoto: Photo?
+    //dynamic var likeCount: Int = 0
+   // dynamic var commentsCount: Int = 0
+    
+    convenience init(_ json: JSON){
+        self.init()
+        print(json)
+        self.postId = json["post_id"].intValue
+        // print(self.postId)
+        self.sourceId = json["source_id"].intValue
+        //print(self.sourceId)
+        self.newsText = json["text"].stringValue
+        // print(self.newsText)
+        let attahments = json["attachments"]
+        let photo = attahments.arrayValue.filter { json -> Bool in
+            return json["type"] == "photo"
+            }.map { Photo($0["photo"])}
+        print(photo)
+        
+        //self.likeCount = json[]
+       // self.commentsCount = json[]
+    }
+        
+        
+    override static func primaryKey() -> String? {
+        return "postId"
+    }
 }

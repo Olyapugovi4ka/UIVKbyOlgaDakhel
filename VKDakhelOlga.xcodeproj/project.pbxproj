@@ -3,12 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7B9EC859EA8DDA6A7BCE3F84 /* Pods_VKDakhelOlga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83B282861BBDA4EA0DA635 /* Pods_VKDakhelOlga.framework */; };
 		FA117368228EFB7E0011F1E4 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA117367228EFB7E0011F1E4 /* Account.swift */; };
+		FA2D07D322DB177200556520 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D222DB177200556520 /* FetchData.swift */; };
+		FA2D07D622DB1A6A00556520 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D522DB1A6A00556520 /* AsyncOperation.swift */; };
+		FA2D07D822DB22ED00556520 /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D722DB22ED00556520 /* ParseOperation.swift */; };
+		FA2D07DA22DB327600556520 /* PersistOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D922DB327600556520 /* PersistOperation.swift */; };
 		FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A552285D04E0037461E /* CustomSegue.swift */; };
 		FA3F8A582285D5350037461E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A572285D5350037461E /* CustomNavigationController.swift */; };
 		FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */; };
@@ -17,6 +21,8 @@
 		FA96441322A1A1EF001212D9 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96441222A1A1EF001212D9 /* UIViewController+Ext.swift */; };
 		FA96441522A43049001212D9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA96441422A43049001212D9 /* RealmSwift.framework */; };
 		FA96441722A432E7001212D9 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA96441622A432E7001212D9 /* Realm.framework */; };
+		FA9702DA22D6102C0052AB15 /* FilteringOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9702D922D6102C0052AB15 /* FilteringOperations.swift */; };
+		FA9702DC22D617CD0052AB15 /* OperationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9702DB22D617CD0052AB15 /* OperationManager.swift */; };
 		FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA08089225D019E00D3FC47 /* GroupCell.swift */; };
 		FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */; };
 		FAA0808F225D24FB00D3FC47 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0808E225D24FB00D3FC47 /* Group.swift */; };
@@ -37,6 +43,8 @@
 		FABA3F792294101900F8D420 /* LoginVKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA3F782294101900F8D420 /* LoginVKController.swift */; };
 		FABA3F7C229410BC00F8D420 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABA3F7B229410BC00F8D420 /* WebKit.framework */; };
 		FABA3F7E22945B4000F8D420 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABA3F7D22945B4000F8D420 /* Alamofire.framework */; };
+		FAD1ADDC22E5C91B00E77EA0 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1ADDB22E5C91B00E77EA0 /* PhotoService.swift */; };
+		FAD1ADDE22E6113300E77EA0 /* DataReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1ADDD22E6113300E77EA0 /* DataReloadable.swift */; };
 		FAD3C2D422821916001E1504 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3C2D322821916001E1504 /* Animator.swift */; };
 		FAD3C2EB2284535E001E1504 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3C2EA2284535E001E1504 /* Photo.swift */; };
 		FADCF62D225BC4E600D65E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF62C225BC4E600D65E87 /* AppDelegate.swift */; };
@@ -57,6 +65,10 @@
 		42AC2330D77AAF4556A13558 /* Pods-VKDakhelOlga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKDakhelOlga.release.xcconfig"; path = "Target Support Files/Pods-VKDakhelOlga/Pods-VKDakhelOlga.release.xcconfig"; sourceTree = "<group>"; };
 		AB83B282861BBDA4EA0DA635 /* Pods_VKDakhelOlga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKDakhelOlga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA117367228EFB7E0011F1E4 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		FA2D07D222DB177200556520 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchData.swift; path = ../FetchData.swift; sourceTree = "<group>"; };
+		FA2D07D522DB1A6A00556520 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncOperation.swift; path = VKDakhelOlga/AsyncOperation.swift; sourceTree = SOURCE_ROOT; };
+		FA2D07D722DB22ED00556520 /* ParseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
+		FA2D07D922DB327600556520 /* PersistOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistOperation.swift; sourceTree = "<group>"; };
 		FA3F8A552285D04E0037461E /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		FA3F8A572285D5350037461E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
@@ -65,6 +77,8 @@
 		FA96441222A1A1EF001212D9 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		FA96441422A43049001212D9 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA96441622A432E7001212D9 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9702D922D6102C0052AB15 /* FilteringOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringOperations.swift; sourceTree = "<group>"; };
+		FA9702DB22D617CD0052AB15 /* OperationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationManager.swift; sourceTree = "<group>"; };
 		FAA08089225D019E00D3FC47 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		FAA0808B225D0CEA00D3FC47 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		FAA0808E225D24FB00D3FC47 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -85,6 +99,8 @@
 		FABA3F782294101900F8D420 /* LoginVKController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVKController.swift; sourceTree = "<group>"; };
 		FABA3F7B229410BC00F8D420 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FABA3F7D22945B4000F8D420 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD1ADDB22E5C91B00E77EA0 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		FAD1ADDD22E6113300E77EA0 /* DataReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReloadable.swift; sourceTree = "<group>"; };
 		FAD3C2D322821916001E1504 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		FAD3C2EA2284535E001E1504 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		FADCF629225BC4E600D65E87 /* VKDakhelOlga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKDakhelOlga.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +150,17 @@
 				FA117367228EFB7E0011F1E4 /* Account.swift */,
 			);
 			path = Sessions;
+			sourceTree = "<group>";
+		};
+		FA2D07D422DB188C00556520 /* Operarions */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D07D522DB1A6A00556520 /* AsyncOperation.swift */,
+				FA2D07D222DB177200556520 /* FetchData.swift */,
+				FA2D07D722DB22ED00556520 /* ParseOperation.swift */,
+				FA2D07D922DB327600556520 /* PersistOperation.swift */,
+			);
+			path = Operarions;
 			sourceTree = "<group>";
 		};
 		FA41E66D225BC7D0004E2856 /* Controllers */ = {
@@ -201,6 +228,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FAD1ADDA22E5C8E400E77EA0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA80334222B625E500E080D8 /* RealmProvider.swift */,
+				FAD1ADDD22E6113300E77EA0 /* DataReloadable.swift */,
+				FABA3F7622940F9700F8D420 /* NetworkingService.swift */,
+				FAD1ADDB22E5C91B00E77EA0 /* PhotoService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		FAD3C2D522842006001E1504 /* Big Photo */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,9 +260,9 @@
 			isa = PBXGroup;
 			children = (
 				FAB788A02271FEE500FA0708 /* NewsHeaderCell.swift */,
+				FAB788A22271FF0400FA0708 /* NewsTextCell.swift */,
 				FAB788A42271FF3F00FA0708 /* NewsImageCell.swift */,
 				FAB788A62271FF5D00FA0708 /* NewsControlCell.swift */,
-				FAB788A22271FF0400FA0708 /* NewsTextCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -268,6 +306,8 @@
 			children = (
 				FAD3C2E422842365001E1504 /* Controller */,
 				FAD3C2E5228423BC001E1504 /* Cell */,
+				FA9702D922D6102C0052AB15 /* FilteringOperations.swift */,
+				FA9702DB22D617CD0052AB15 /* OperationManager.swift */,
 			);
 			path = "Little Photo";
 			sourceTree = "<group>";
@@ -377,8 +417,8 @@
 			isa = PBXGroup;
 			children = (
 				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
-				FA80334222B625E500E080D8 /* RealmProvider.swift */,
-				FABA3F7622940F9700F8D420 /* NetworkingService.swift */,
+				FA2D07D422DB188C00556520 /* Operarions */,
+				FAD1ADDA22E5C8E400E77EA0 /* Services */,
 				FA117366228EFAF20011F1E4 /* Sessions */,
 				FAA08090225D25A500D3FC47 /* Model */,
 				FA41E66D225BC7D0004E2856 /* Controllers */,
@@ -486,24 +526,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VKDakhelOlga/Pods-VKDakhelOlga-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-VKDakhelOlga/Pods-VKDakhelOlga-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-VKDakhelOlga/Pods-VKDakhelOlga-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -525,18 +552,25 @@
 				FA117368228EFB7E0011F1E4 /* Account.swift in Sources */,
 				FADCF657225BC54400D65E87 /* MainScreenController.swift in Sources */,
 				FABA3F7722940F9700F8D420 /* NetworkingService.swift in Sources */,
+				FAD1ADDE22E6113300E77EA0 /* DataReloadable.swift in Sources */,
 				FA3F8A582285D5350037461E /* CustomNavigationController.swift in Sources */,
 				FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */,
 				FADCF654225BC54400D65E87 /* AddGroupController.swift in Sources */,
+				FA9702DA22D6102C0052AB15 /* FilteringOperations.swift in Sources */,
+				FA2D07DA22DB327600556520 /* PersistOperation.swift in Sources */,
 				FAB788A9227479F700FA0708 /* News.swift in Sources */,
 				FAB4750122778D5300EE585C /* Indicator.swift in Sources */,
+				FAD1ADDC22E5C91B00E77EA0 /* PhotoService.swift in Sources */,
 				FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */,
 				FA96441322A1A1EF001212D9 /* UIViewController+Ext.swift in Sources */,
 				FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */,
+				FA9702DC22D617CD0052AB15 /* OperationManager.swift in Sources */,
+				FA2D07D822DB22ED00556520 /* ParseOperation.swift in Sources */,
 				FAB788A32271FF0400FA0708 /* NewsTextCell.swift in Sources */,
 				FABA3F792294101900F8D420 /* LoginVKController.swift in Sources */,
 				FAB788A72271FF5D00FA0708 /* NewsControlCell.swift in Sources */,
 				FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */,
+				FA2D07D622DB1A6A00556520 /* AsyncOperation.swift in Sources */,
 				FAAAE1A72264F4190009A984 /* ShadowView.swift in Sources */,
 				FAD3C2D422821916001E1504 /* Animator.swift in Sources */,
 				FA80334322B625E500E080D8 /* RealmProvider.swift in Sources */,
@@ -550,6 +584,7 @@
 				FAA0808F225D24FB00D3FC47 /* Group.swift in Sources */,
 				FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */,
 				FADCF62D225BC4E600D65E87 /* AppDelegate.swift in Sources */,
+				FA2D07D322DB177200556520 /* FetchData.swift in Sources */,
 				FAB788A12271FEE500FA0708 /* NewsHeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

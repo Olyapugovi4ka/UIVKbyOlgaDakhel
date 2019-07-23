@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewsImageCell: UITableViewCell {
     
@@ -14,21 +15,13 @@ class NewsImageCell: UITableViewCell {
     
     @IBOutlet weak var newsImage: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-         //newsImage.frame.width = 
+    public func configer (with photo: Photo) {
+//        let countOfLikes = String(photo.numberOfLikes)
+//        likeControl.likesCount.text = countOfLikes
         
+        let imageString = photo.name
+        let imageUrl = URL(string: imageString)
+        newsImage.kf.setImage(with: imageUrl)
         
     }
-
 }

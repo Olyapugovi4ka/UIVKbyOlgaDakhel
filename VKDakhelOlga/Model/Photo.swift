@@ -23,6 +23,7 @@ class Photo: Object{
     //MARK: - Initialisation
     convenience init(_ json: JSON){
         self.init()
+        print(json)
         self.photoId = json["id"].intValue
         self.userId = json["owner_id"].intValue
         self.name = json["sizes"][3]["url"].stringValue
