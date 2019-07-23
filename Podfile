@@ -11,5 +11,6 @@ target 'VKDakhelOlga' do
   pod 'Kingfisher', '~> 5.5.0'
   pod 'SwiftyJSON', '~> 5.0.0'
   pod 'RealmSwift', '~> 3.17.0'
+  pod "PromiseKit", "~> 6.8"
 
 end

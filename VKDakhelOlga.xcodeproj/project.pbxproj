@@ -43,6 +43,8 @@
 		FABA3F792294101900F8D420 /* LoginVKController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA3F782294101900F8D420 /* LoginVKController.swift */; };
 		FABA3F7C229410BC00F8D420 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABA3F7B229410BC00F8D420 /* WebKit.framework */; };
 		FABA3F7E22945B4000F8D420 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABA3F7D22945B4000F8D420 /* Alamofire.framework */; };
+		FAD1ADDC22E5C91B00E77EA0 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1ADDB22E5C91B00E77EA0 /* PhotoService.swift */; };
+		FAD1ADDE22E6113300E77EA0 /* DataReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1ADDD22E6113300E77EA0 /* DataReloadable.swift */; };
 		FAD3C2D422821916001E1504 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3C2D322821916001E1504 /* Animator.swift */; };
 		FAD3C2EB2284535E001E1504 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3C2EA2284535E001E1504 /* Photo.swift */; };
 		FADCF62D225BC4E600D65E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF62C225BC4E600D65E87 /* AppDelegate.swift */; };
@@ -97,6 +99,8 @@
 		FABA3F782294101900F8D420 /* LoginVKController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVKController.swift; sourceTree = "<group>"; };
 		FABA3F7B229410BC00F8D420 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FABA3F7D22945B4000F8D420 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD1ADDB22E5C91B00E77EA0 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		FAD1ADDD22E6113300E77EA0 /* DataReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReloadable.swift; sourceTree = "<group>"; };
 		FAD3C2D322821916001E1504 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		FAD3C2EA2284535E001E1504 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		FADCF629225BC4E600D65E87 /* VKDakhelOlga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKDakhelOlga.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +152,7 @@
 			path = Sessions;
 			sourceTree = "<group>";
 		};
-		FA2D07D422DB188C00556520 /* New Group */ = {
+		FA2D07D422DB188C00556520 /* Operarions */ = {
 			isa = PBXGroup;
 			children = (
 				FA2D07D522DB1A6A00556520 /* AsyncOperation.swift */,
@@ -156,7 +160,7 @@
 				FA2D07D722DB22ED00556520 /* ParseOperation.swift */,
 				FA2D07D922DB327600556520 /* PersistOperation.swift */,
 			);
-			path = "New Group";
+			path = Operarions;
 			sourceTree = "<group>";
 		};
 		FA41E66D225BC7D0004E2856 /* Controllers */ = {
@@ -222,6 +226,17 @@
 				AB83B282861BBDA4EA0DA635 /* Pods_VKDakhelOlga.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAD1ADDA22E5C8E400E77EA0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA80334222B625E500E080D8 /* RealmProvider.swift */,
+				FAD1ADDD22E6113300E77EA0 /* DataReloadable.swift */,
+				FABA3F7622940F9700F8D420 /* NetworkingService.swift */,
+				FAD1ADDB22E5C91B00E77EA0 /* PhotoService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FAD3C2D522842006001E1504 /* Big Photo */ = {
@@ -402,9 +417,8 @@
 			isa = PBXGroup;
 			children = (
 				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
-				FA2D07D422DB188C00556520 /* New Group */,
-				FA80334222B625E500E080D8 /* RealmProvider.swift */,
-				FABA3F7622940F9700F8D420 /* NetworkingService.swift */,
+				FA2D07D422DB188C00556520 /* Operarions */,
+				FAD1ADDA22E5C8E400E77EA0 /* Services */,
 				FA117366228EFAF20011F1E4 /* Sessions */,
 				FAA08090225D25A500D3FC47 /* Model */,
 				FA41E66D225BC7D0004E2856 /* Controllers */,
@@ -538,6 +552,7 @@
 				FA117368228EFB7E0011F1E4 /* Account.swift in Sources */,
 				FADCF657225BC54400D65E87 /* MainScreenController.swift in Sources */,
 				FABA3F7722940F9700F8D420 /* NetworkingService.swift in Sources */,
+				FAD1ADDE22E6113300E77EA0 /* DataReloadable.swift in Sources */,
 				FA3F8A582285D5350037461E /* CustomNavigationController.swift in Sources */,
 				FAA0808A225D019E00D3FC47 /* GroupCell.swift in Sources */,
 				FADCF654225BC54400D65E87 /* AddGroupController.swift in Sources */,
@@ -545,6 +560,7 @@
 				FA2D07DA22DB327600556520 /* PersistOperation.swift in Sources */,
 				FAB788A9227479F700FA0708 /* News.swift in Sources */,
 				FAB4750122778D5300EE585C /* Indicator.swift in Sources */,
+				FAD1ADDC22E5C91B00E77EA0 /* PhotoService.swift in Sources */,
 				FAA0808C225D0CEA00D3FC47 /* PhotoCell.swift in Sources */,
 				FA96441322A1A1EF001212D9 /* UIViewController+Ext.swift in Sources */,
 				FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */,

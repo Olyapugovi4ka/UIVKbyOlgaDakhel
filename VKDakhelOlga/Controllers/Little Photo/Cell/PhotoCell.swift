@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 
 class PhotoCell: UICollectionViewCell {
     private var delegate: GoTo!
@@ -18,13 +18,20 @@ class PhotoCell: UICollectionViewCell {
     @IBOutlet var likeControl: LikeControl!
         
     
-    public func configer (with photo: Photo) {
+    public func configer (with photo: Photo, by photoService: PhotoService) {
         let countOfLikes = String(photo.numberOfLikes)
         likeControl.likesCount.text = countOfLikes
         
         let imageString = photo.name
-        let imageUrl = URL(string: imageString)
-        photoInPhotoCell.kf.setImage(with: imageUrl)
+        //let imageUrl = URL(string: imageString)
+        //photoInPhotoCell.kf.setImage(with: imageUrl)
+         photoService.photo(with: imageString).done { [weak self] image in
+            guard let self = self else { return }
+            self.photoInPhotoCell.image = image
+            }.catch { error in
+                print(error)
+        
+        }
         
     }
     

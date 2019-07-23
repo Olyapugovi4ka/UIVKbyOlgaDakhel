@@ -26,6 +26,8 @@ class FriendsPhotoController: UICollectionViewController {
     private var notificationToken: NotificationToken?
     private var filteringOperations = OperationsManager(name: "Filtering Operations")
     private var photos = [IndexPath:UIImage]()
+    
+    private let photoService = PhotoService()
         
 
  //MARK: Controller Lifecycle
@@ -85,8 +87,9 @@ class FriendsPhotoController: UICollectionViewController {
             cell.photoInPhotoCell.image = filteredImage
         } else {
             let newPhoto = photosInFriendsPhotoController[indexPath.item]
-            let url = URL(string: newPhoto.name)
-            cell.photoInPhotoCell.kf.setImage(with: url)
+            cell.configer(with: newPhoto, by: photoService)
+//            let url = URL(string: newPhoto.name)
+//            cell.photoInPhotoCell.kf.setImage(with: url)
         }
         return cell
     }
