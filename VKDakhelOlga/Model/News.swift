@@ -38,11 +38,11 @@ class News: Object {
         //print(self.sourceId)
         self.newsText = json["text"].stringValue
         // print(self.newsText)
-        let attahments = json["attachments"]
-        let photo = attahments.arrayValue.filter { json -> Bool in
+        let attahments = json["attachments"][].arrayValue
+        let photo = attahments.filter { json -> Bool in
             return json["type"] == "photo"
             }.map { Photo($0["photo"])}
-        print(photo)
+        print(photo.count)
         
         //self.likeCount = json[]
        // self.commentsCount = json[]
