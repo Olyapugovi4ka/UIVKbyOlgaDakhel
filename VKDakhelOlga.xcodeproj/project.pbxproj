@@ -57,7 +57,7 @@
 		FADCF658225BC54400D65E87 /* MyFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF647225BC54400D65E87 /* MyFriendsController.swift */; };
 		FADCF659225BC54400D65E87 /* MyGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADCF648225BC54400D65E87 /* MyGroupsController.swift */; };
 		FADCF65E225BC54400D65E87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADCF64F225BC54400D65E87 /* Main.storyboard */; };
-		FAF4C14E22982497006BF734 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4C14D22982497006BF734 /* SwiftyJSON.framework */; };
+		FAF4C14E22982497006BF734 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4C14D22982497006BF734 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */

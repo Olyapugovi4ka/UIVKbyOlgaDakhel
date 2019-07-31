@@ -148,5 +148,19 @@ class NetworkingService{
             }
             
         }
+        
+    }
+    
+    func friendsRequest() -> DataRequest {
+        let token = Account.shared.token!
+        
+        let path = "/method/friends.get"
+        let params: Parameters = [
+            "access_token" : token,
+            "fields": "nickname, photo_200_orig",
+            "extended": 1,
+            "v": "5.95"]
+        
+        return NetworkingService.session.request(baseUrl + path, method: .get, parameters: params)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class PersistDataOperation: Operation {
     
@@ -15,10 +16,10 @@ class PersistDataOperation: Operation {
             .filter({ $0 is ParseDataOperation})
             .first as? ParseDataOperation else { return }
         
-        do {
-            try RealmProvider.save(items: parseOperation.users)
-        }catch {
-            print("No data for saving")
-        }
+//        do {
+        try! RealmProvider.save(items: parseOperation.users)
+//        }catch {
+//            print("No data for saving")
+//        }
     }
 }

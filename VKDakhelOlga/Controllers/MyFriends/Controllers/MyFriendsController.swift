@@ -25,6 +25,9 @@ class MyFriendsController: UITableViewController {
     //MARK: - Array fo users, after using SearchBar
     fileprivate var searchedUsers = [User]()
     
+    //MARK: - Creation of queue for operations
+    let queue = OperationQueue()
+    
     //MARK: - Outlet for SerchBar
     @IBOutlet var searchBar: UISearchBar! {
         didSet {
@@ -39,31 +42,48 @@ class MyFriendsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let fetchDataOperation = FetchDataOperation(request: DataRequest)
-//        let parseOperation = ParseDataOperation()
-//        parseOperation.addDependency(fetchDataOperation)
-//        let persistOperation = PersistDataOperation()
-//        persistOperation.addDependency(parseOperation)
+        let request = networkingService.friendsRequest()
+        let fetchDataOperation = FetchDataOperation(request: request)
+        //queue.addOperation(fetchDataOperation)
         
+        let parseOperation = ParseDataOperation()
+        parseOperation.addDependency(fetchDataOperation)
+        //queue.addOperation(parseOperation)
+        
+        
+        let persistOperation = PersistDataOperation()
+        persistOperation.addDependency(parseOperation)
+       // queue.addOperation(persistOperation)
+        
+        queue.addOperations([fetchDataOperation, parseOperation, persistOperation], waitUntilFinished: false)
+        self.firstLettersSectionTitles = self.sortUsers(self.users)
+        self.tableView.reloadData()
         
       //  MARK: - Server request
-        networkingService.loadFriends { [weak self] responce in
-            guard let self = self else { return }
-            switch responce {
-            case .success(let users):
-                try! RealmProvider.save(items: users)
-                //self.users = users
-                self.firstLettersSectionTitles = self.sortUsers(self.users)
-                self.tableView.reloadData()
-            case .failure(let error):
-                self.show(error)
-            }
-        }
+//        networkingService.loadFriends { [weak self] responce in
+//            guard let self = self else { return }
+//            switch responce {
+//            case .success(let users):
+//                try! RealmProvider.save(items: users)
+//                //self.users = users
+//                self.firstLettersSectionTitles = self.sortUsers(self.users)
+//                self.tableView.reloadData()
+//            case .failure(let error):
+//                self.show(error)
+//            }
+//        }
 
         notificationToken = users.observe{ [weak self]  change in
             switch change {
             case .initial:
-                self?.tableView.reloadData()
+                guard  let searchText = self?.searchBar.text else { return }
+                if searchText.isEmpty {
+                    self?.searchedUsers = Array(self!.users)
+                    self?.firstLettersSectionTitles = (self?.sortUsers(self!.users))!
+                    self?.tableView.reloadData()
+                    return
+                }
+
             case . update:
                 self?.tableView.reloadData()
             case .error(let error):
@@ -231,7 +251,7 @@ extension MyFriendsController: UISearchBarDelegate {
             tableView.reloadData()
             return
         }
-        let filteredUsers = self.users.filter("name CONTAINS[cd]'\(searchText)")
+        let filteredUsers = self.users.filter("userName CONTAINS[cd] %@",searchText)
         firstLettersSectionTitles = sortUsers(filteredUsers)
         tableView.reloadData()
     }

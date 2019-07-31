@@ -19,8 +19,10 @@ class ParseDataOperation : Operation {
             .first as? FetchDataOperation,
             let data = dataOperation.data else { return print ("No data loaded")}
         let json = try! JSON(data: data)
-        let users:[User] = json["response"]["items"].arrayValue.map { User($0) }
+        let outputUsers:[User] = json["response"]["items"].arrayValue.map { User($0) }
+        users = outputUsers
         
     }
     
 }
+
