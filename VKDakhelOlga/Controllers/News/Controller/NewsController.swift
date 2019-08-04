@@ -10,6 +10,13 @@ import UIKit
 import RealmSwift
 
 class NewsController: UITableViewController {
+    
+    //MARK: - Private
+    private var imageHeights = [IndexPath:CGFloat]()
+   
+    var maxWidth: CGFloat {
+            return self.view.bounds.width
+    }
    
     //MARK: - Service for requests
     let networkingService = NetworkingService(token: Account.shared.token ?? "")
@@ -20,6 +27,7 @@ class NewsController: UITableViewController {
     let news: Results<News> = try! RealmProvider.get(News.self)
     let group: Results<Group> = try! RealmProvider.get(Group.self)
     let user: Results<User> = try! RealmProvider.get(User.self)
+//    let newsResponse = NewsResponse(users: self.user, groups: self.group,news: self.news)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +43,18 @@ class NewsController: UITableViewController {
                 case .success(let newsResponse):
                     do {
                         let news = newsResponse.news
+                        
+                        
+                        for (index,item) in newsResponse.news.enumerated() {
+                            let indexPath = IndexPath(item: index, section: 0)
+                            guard let aspectRatio = item.newsPhoto?.aspectRatio else { continue }
+                            
+                            DispatchQueue.main.async {
+                                let imageHeight = CGFloat(aspectRatio) * self.maxWidth
+                                self.imageHeights[indexPath] = imageHeight
+                            }
+                            
+                        }
                         try RealmProvider.save(items: news)
                         let groups = newsResponse.groups
                         try RealmProvider.save(items: groups)
@@ -60,6 +80,8 @@ class NewsController: UITableViewController {
             }
         }
     }
+    
+    
 
     // MARK: - Table view data source
     
@@ -80,7 +102,7 @@ class NewsController: UITableViewController {
         switch indexPath.row{
         //MARK: First row
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsHeaderCell", for: indexPath) as! NewsHeaderCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsHeaderCell", for: indexPath) as? NewsHeaderCell else { return UITableViewCell()}
             let sourceId = news[indexPath.section].sourceId
             do {
                 if sourceId > 0 {
@@ -117,12 +139,9 @@ class NewsController: UITableViewController {
             //MARK: Third row
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsImageCell", for: indexPath) as! NewsImageCell
-//            if let imageString = news[indexPath.section].newsPhoto?.name,
-//                let imageUrl = URL(string: imageString ){
-//                    cell.newsImage.image = UIImage(named: image)
-//            }
+
             if let photo = news[indexPath.section].newsPhoto {
-            cell.configer(with: photo)
+                cell.configer(with: photo)
             }
             return cell
             //MARK: Forth row
@@ -137,15 +156,20 @@ class NewsController: UITableViewController {
     
 }
 //MARK: - size of NewsTextCell
-//extension NewsController{
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTextCell", for: indexPath) as! NewsTextCell
-//        var height = cell.textField.bounds.height
-//        if cell.textField.text.isEmpty{
-//            height = 0
-//        }
-//        return height
-//    }
-//
-//}
+extension NewsController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        switch indexPath.row {
+            //        case 1:
+        //            return
+        case 2:
+            return imageHeights[indexPath] ?? 0
+        default:
+            return UITableView.automaticDimension
+        }
+        
+    }
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}

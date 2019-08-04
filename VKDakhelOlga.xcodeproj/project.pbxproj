@@ -16,7 +16,6 @@
 		FA3F8A562285D04E0037461E /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A552285D04E0037461E /* CustomSegue.swift */; };
 		FA3F8A582285D5350037461E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8A572285D5350037461E /* CustomNavigationController.swift */; };
 		FA41E670225BCE45004E2856 /* MyFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */; };
-		FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA74AB89226B404D00CAFDF5 /* GradientView.swift */; };
 		FA80334322B625E500E080D8 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80334222B625E500E080D8 /* RealmProvider.swift */; };
 		FA96441322A1A1EF001212D9 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96441222A1A1EF001212D9 /* UIViewController+Ext.swift */; };
 		FA96441522A43049001212D9 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA96441422A43049001212D9 /* RealmSwift.framework */; };
@@ -72,7 +71,6 @@
 		FA3F8A552285D04E0037461E /* CustomSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		FA3F8A572285D5350037461E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FA41E66F225BCE45004E2856 /* MyFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
-		FA74AB89226B404D00CAFDF5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FA80334222B625E500E080D8 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		FA96441222A1A1EF001212D9 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		FA96441422A43049001212D9 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +206,6 @@
 				FAD3C2D322821916001E1504 /* Animator.swift */,
 				FAAAE1A62264F4190009A984 /* ShadowView.swift */,
 				FAAAE1A92265F8F90009A984 /* LikeControl.swift */,
-				FA74AB89226B404D00CAFDF5 /* GradientView.swift */,
 				FAB47502227AF66900EE585C /* LoadingDotsView.swift */,
 				FAB4750022778D5300EE585C /* Indicator.swift */,
 			);
@@ -569,7 +566,6 @@
 				FAB788A32271FF0400FA0708 /* NewsTextCell.swift in Sources */,
 				FABA3F792294101900F8D420 /* LoginVKController.swift in Sources */,
 				FAB788A72271FF5D00FA0708 /* NewsControlCell.swift in Sources */,
-				FA74AB8A226B404D00CAFDF5 /* GradientView.swift in Sources */,
 				FA2D07D622DB1A6A00556520 /* AsyncOperation.swift in Sources */,
 				FAAAE1A72264F4190009A984 /* ShadowView.swift in Sources */,
 				FAD3C2D422821916001E1504 /* Animator.swift in Sources */,

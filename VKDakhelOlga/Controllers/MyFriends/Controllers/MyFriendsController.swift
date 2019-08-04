@@ -83,8 +83,14 @@ class MyFriendsController: UITableViewController {
                     self?.tableView.reloadData()
                     return
                 }
-
             case . update:
+                guard  let searchText = self?.searchBar.text else { return }
+                if searchText.isEmpty {
+                    self?.searchedUsers = Array(self!.users)
+                    self?.firstLettersSectionTitles = (self?.sortUsers(self!.users))!
+                    self?.tableView.reloadData()
+                    return
+                }
                 self?.tableView.reloadData()
             case .error(let error):
                 self?.show(error)
@@ -112,7 +118,7 @@ class MyFriendsController: UITableViewController {
     private func sortUsers(_ users: Results<User>) -> [String] {
         
         firstLettersSectionTitles = []
-       // allFriendsDictionary = [:]
+        // allFriendsDictionary = [:]
         
         for user in users {
             let userNameKey = String(user.userName.prefix(1))
@@ -120,7 +126,7 @@ class MyFriendsController: UITableViewController {
                 firstLettersSectionTitles.append(userNameKey)
             }
             
-           //firstLettersSectionTitles = [String](allFriendsDictionary.keys)
+            //firstLettersSectionTitles = [String](allFriendsDictionary.keys)
        
         }
         //firstLettersSectionTitles = [String](allFriendsDictionary.keys)

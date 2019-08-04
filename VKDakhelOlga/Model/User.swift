@@ -17,11 +17,12 @@ class User: Object{
     dynamic var userId: Int = 0
     dynamic var userName:String = ""
     dynamic var avatarName: String = ""
-     var photos = List<Photo>()
+    
+    var photos = List<Photo>()
     
     //MARK: - Initialisation
-   convenience init(_ json: JSON){
-    self.init()
+    convenience init(_ json: JSON){
+        self.init()
         self.userId = json["id"].intValue
         self.userName = (json["first_name"].stringValue + " " + json["last_name"].stringValue)
         self.avatarName = json["photo_200_orig"].stringValue
