@@ -26,29 +26,41 @@ class News: Object {
     dynamic var sourceId: Int = 0
     dynamic var newsText: String?
     dynamic var newsPhoto: Photo?
-    //dynamic var likeCount: Int = 0
-   // dynamic var commentsCount: Int = 0
+    dynamic var likeCount: Int = 0
+    dynamic var commentsCount: Int = 0
     
     convenience init(_ json: JSON){
         self.init()
-        print(json)
+       // print(json)
         self.postId = json["post_id"].intValue
-        // print(self.postId)
         self.sourceId = json["source_id"].intValue
-        //print(self.sourceId)
         self.newsText = json["text"].stringValue
-        // print(self.newsText)
-        let attahments = json["attachments"][].arrayValue
-        let photo = attahments.filter { json -> Bool in
-            return json["type"] == "photo"
-            }.map { Photo($0["photo"])}
-        print(photo.count)
+        let attachments = json["attachments"][0]["photo"]
+        print(attachments)
+        let photo = Photo.convert(attachments)
+        self.newsPhoto = photo
+       // let photo = attachments[0]
+       // print(photo)
+        //self.newsPhoto = json["attachments"][0]["photo"].arrayValue.map {Photo ($0)}
+//            .filter { json -> Bool in
+//            return json["type"].stringValue == "photo" }
+            //.map { Photo($0["photo"])}
+        //["type"].stringValue
+    //    print(attachments)
+//        guard let photo = attachments.filter { json in
+//            return
+//        }
+//        self.newsPhoto = attahments.arrayValue
+//            .filter { json -> Bool in
+//            return json["type"] == "photo"}
+//        .["photo"].arrayValue.map { Photo($0)}
+        //print(self.newsPhoto?.count)
         
-        //self.likeCount = json[]
-       // self.commentsCount = json[]
+        self.likeCount = json["likes"]["count"].intValue
+        self.commentsCount = json["coments"]["count"].intValue
     }
-        
-        
+    
+    
     override static func primaryKey() -> String? {
         return "postId"
     }

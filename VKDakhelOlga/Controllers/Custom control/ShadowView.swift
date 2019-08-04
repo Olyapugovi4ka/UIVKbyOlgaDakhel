@@ -8,10 +8,10 @@
 
 import UIKit
 
-@IBDesignable class ShadowView: UIView{
-    @IBInspectable var shadowColor: UIColor = .green
-    @IBInspectable var shadowRadius: CGFloat = 7
-    @IBInspectable var shadowOpacity: Float = 0.75
+class ShadowView: UIView{
+    var shadowColor: UIColor = .green
+    var shadowRadius: CGFloat = 7
+    var shadowOpacity: Float = 0.75
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,7 +35,7 @@ import UIKit
     
     override func layoutSubviews() {
         super.layoutSubviews()
-       
+        
         self.layer.cornerRadius = bounds.height/2
     }
 }
@@ -43,7 +43,7 @@ import UIKit
 class ClippedView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
+        
         setupView()
     }
     
@@ -64,13 +64,13 @@ class ClippedView: UIImageView {
 
 class AvatarView: UIView {
     
-    @IBInspectable var shadowColor: UIColor = .green
-    @IBInspectable var shadowRadius: CGFloat = 7
-    @IBInspectable var shadowOpacity: Float = 0.75
-     var avatarImage: UIImage = UIImage(named: "art")! {
+    var shadowColor: UIColor = .green
+    var shadowRadius: CGFloat = 7
+    var shadowOpacity: Float = 0.75
+    var avatarImage: UIImage = UIImage(named: "art")! {
         didSet {
-           clippedImageView.image = avatarImage
-       }
+            clippedImageView.image = avatarImage
+        }
     }
     let shadowView = ShadowView()
     let clippedImageView = ClippedView(frame: .zero)
