@@ -10,6 +10,8 @@ import UIKit
 import WebKit
 
 class LoginVKController: UIViewController {
+    
+   // weak var coordinator: MainCoordinator?
 
     @IBOutlet var webView: WKWebView! {
         didSet {
@@ -17,6 +19,7 @@ class LoginVKController: UIViewController {
         }
     }
     
+    //MARK: Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +29,7 @@ class LoginVKController: UIViewController {
         components.path = "/authorize"
         components.queryItems = [
         URLQueryItem(name: "client_id", value: "6991747"),
-        URLQueryItem(name: "scope", value: "271383"),
+        URLQueryItem(name: "scope", value: "offline,friends,photos,groups,wall,email,video,messages"),
         URLQueryItem(name: "display", value: "mobile"),
         URLQueryItem(name: "redirect_url", value: "https://oauth.vk.com/blank.html"),
         URLQueryItem(name: "response_type", value: "token"),
@@ -38,46 +41,51 @@ class LoginVKController: UIViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
         let identifier = "ShowMainScreen"
-        
-        
+
+    
     }
     
-
-
 }
 extension LoginVKController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = navigationResponse.response.url,
-        url.path == "/blank.html",
+            url.path == "/blank.html",
             let fragment = url.fragment else {decisionHandler(.allow); return}
+        
+        //MARK: - Parsing response dictionary
         let params = fragment
-        .components(separatedBy: "&")
+            .components(separatedBy: "&")
             .map { $0.components(separatedBy: "=")}
             .reduce([String:String]()) {result, param in
-                    var dict = result
-                    let key = param[0]
-                    let value = param[1]
-                    dict[key] = value
-                    return dict
-                    
-                }
-                print(params)
+                var dict = result
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+                return dict
+                
+        }
+        print(params)
+        
+        //MARK: - Fetching token and userId
         guard let token = params["access_token"],
             let userIdString = params["user_id"],
-        let userId = Int(userIdString) else {
+            let userId = Int(userIdString) else {
                 decisionHandler(.allow)
-            return
+                return
         }
-        
+       
         //MARK: Add datas in singletone
         Account.shared.token = token
         Account.shared.userId = userId
         
         performSegue(withIdentifier: "ShowMainScreen", sender: nil)
+       // coordinator?.showNews()
         
         decisionHandler(.cancel)
         
     }
+    
+    
 }

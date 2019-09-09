@@ -22,7 +22,8 @@ class Photo: Object{
     @objc dynamic var numberOfLikes: Int = 0
     @objc dynamic var height: Double = 0
     @objc dynamic var width: Double = 0
-    var aspectRatio: Double {
+    var aspectRatio: Double? {
+        guard height != 0 else { return nil }
         return Double(width)/Double(height)
     }
     

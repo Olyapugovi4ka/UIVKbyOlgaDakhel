@@ -9,6 +9,7 @@
 import Foundation
 
 open class AsyncOperation: Operation {
+    
     public enum State: String {
         case ready, executing, finished
         
@@ -29,9 +30,9 @@ open class AsyncOperation: Operation {
     }
 }
 
-
 extension AsyncOperation {
-    // Operation overrides
+    
+    //MARK: - Operation overrides
     override open var isReady: Bool {
         return super.isReady && state == .ready
     }

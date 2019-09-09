@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: - Extension for error
 extension UIViewController {
 func show(_ error: Error) {
 let alertVC = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)

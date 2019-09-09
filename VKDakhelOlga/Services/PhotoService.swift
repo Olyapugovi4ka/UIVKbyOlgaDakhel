@@ -15,7 +15,7 @@ class PhotoService {
     private let cacheLifeTime: TimeInterval = 60*60*24*7
     
     private static let pathName: String = {
-       let pathName = "images"
+        let pathName = "images"
         guard let cacheDir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return pathName }
         
         let url = cacheDir.appendingPathComponent(pathName, isDirectory: true)
@@ -42,7 +42,7 @@ class PhotoService {
     
     private func getImageFromCache (urlString:String) -> UIImage? {
         guard let filename = getFilePath(urlString: urlString),
-        let info = try? FileManager.default.attributesOfItem(atPath: filename),
+            let info = try? FileManager.default.attributesOfItem(atPath: filename),
             let modificationDate = info[FileAttributeKey.modificationDate] as? Date else {return nil }
         let lifeTime = Date().timeIntervalSince(modificationDate)
         guard lifeTime <= cacheLifeTime,
@@ -64,14 +64,13 @@ class PhotoService {
                 DispatchQueue.main.async {
                     self.images[urlString] = newImage
                 }
-          
                 
                 self.saveImageToCache(urlString: urlString, image: newImage)
-                return newImage
-                
-            }
+                return newImage                
+        }
         
     }
+    
     //MARK: - Public API
     public func photo (with urlString: String) -> Promise<UIImage> {
         return Promise<UIImage> { resolver in

@@ -25,7 +25,7 @@ class AddGroupController: UITableViewController {
     private lazy var databaseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("recommendations.realm")
     public lazy var configuration = Realm.Configuration(fileURL: databaseURL, deleteRealmIfMigrationNeeded: true, objectTypes: [Group.self])
     
-    // MARK: Array of Users(under models)
+    // MARK: - Array of groups from realm
     private lazy var groups = try? RealmProvider.get(Group.self, configuration: configuration)
     
     //MARK: - Notification token
@@ -34,21 +34,28 @@ class AddGroupController: UITableViewController {
     // MARK: SearchBar
     private var isSearching = false
     private var filteredGroups = [Group]()
-  //  private var filteredGroups = [Group]()
-    
+
     //MARK: Controller Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        //MARK: User's tap
+        let tapGR = UITapGestureRecognizer( target: self, action: #selector(hideKeyBoard))
+        tableView.addGestureRecognizer(tapGR)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        notificationToken?.invalidate()
+    //MARK: How to hide keyboard
+    @objc private func hideKeyBoard() {
+        tableView.endEditing(true)
     }
     
-    
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//        
+//        notificationToken?.invalidate()
+//    }
+//    
+//    
     //MARK: Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -62,6 +69,7 @@ class AddGroupController: UITableViewController {
     
     //MARK: Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell,
         let group = isSearching ? filteredGroups[indexPath.row] : groups?[indexPath.row] else { fatalError("Cell cannot be dequeued") }
         cell.configer(with: group)

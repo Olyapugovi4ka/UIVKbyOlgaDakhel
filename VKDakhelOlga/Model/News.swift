@@ -15,6 +15,7 @@ struct NewsResponse {
     let users:[User]
     let groups:[Group]
     let news:[News]
+    let nextFrom:String
     
     
 }
@@ -22,16 +23,23 @@ struct NewsResponse {
 @objcMembers
 class News: Object {
     
-    dynamic var postId: Int = 0
+    //MARK: - Properties
+    dynamic var postId: Int = -1
     dynamic var sourceId: Int = 0
     dynamic var newsText: String?
     dynamic var newsPhoto: Photo?
-    dynamic var likeCount: Int = 0
-    dynamic var commentsCount: Int = 0
+   // dynamic var date: Date?
+      dynamic var date: Double = 0.0
     
+    dynamic var likeCount: Int = 0
+    dynamic var userLikes:Int = 0
+    dynamic var commentsCount: Int = 0
+    dynamic var repostsCount: Int = 0
+    
+    //MARK: - Initialisation
     convenience init(_ json: JSON){
         self.init()
-       // print(json)
+        print(json)
         self.postId = json["post_id"].intValue
         self.sourceId = json["source_id"].intValue
         self.newsText = json["text"].stringValue
@@ -39,25 +47,15 @@ class News: Object {
         print(attachments)
         let photo = Photo.convert(attachments)
         self.newsPhoto = photo
-       // let photo = attachments[0]
-       // print(photo)
-        //self.newsPhoto = json["attachments"][0]["photo"].arrayValue.map {Photo ($0)}
-//            .filter { json -> Bool in
-//            return json["type"].stringValue == "photo" }
-            //.map { Photo($0["photo"])}
-        //["type"].stringValue
-    //    print(attachments)
-//        guard let photo = attachments.filter { json in
-//            return
-//        }
-//        self.newsPhoto = attahments.arrayValue
-//            .filter { json -> Bool in
-//            return json["type"] == "photo"}
-//        .["photo"].arrayValue.map { Photo($0)}
-        //print(self.newsPhoto?.count)
+//        let dateDouble = json["date"].doubleValue
+//        self.date = Date(timeIntervalSince1970: dateDouble)
+//        
+        self.date = json["date"].doubleValue
         
         self.likeCount = json["likes"]["count"].intValue
-        self.commentsCount = json["coments"]["count"].intValue
+        self.userLikes = json["likes"]["user_likes"].intValue
+        self.commentsCount = json["comments"]["count"].intValue
+        self.repostsCount = json["reposts"]["count"].intValue
     }
     
     

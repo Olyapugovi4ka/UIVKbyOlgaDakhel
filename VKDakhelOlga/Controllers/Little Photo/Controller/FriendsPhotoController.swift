@@ -25,8 +25,9 @@ class FriendsPhotoController: UICollectionViewController {
     //MARK: - Observer
     private var notificationToken: NotificationToken?
     private var filteringOperations = OperationsManager(name: "Filtering Operations")
-    private var photos = [IndexPath:UIImage]()
     
+    //MARK: - For cashing of photos
+    private var photos = [IndexPath:UIImage]()
     private let photoService = PhotoService()
         
 
@@ -45,6 +46,12 @@ class FriendsPhotoController: UICollectionViewController {
                 print(error.localizedDescription)
             }
         }
+        
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         //MARK: - Observer
         notificationToken = photosInFriendsPhotoController.observe { [weak self] change in
@@ -66,6 +73,7 @@ class FriendsPhotoController: UICollectionViewController {
         
         notificationToken?.invalidate()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -88,24 +96,20 @@ class FriendsPhotoController: UICollectionViewController {
         } else {
             let newPhoto = photosInFriendsPhotoController[indexPath.item]
             cell.configer(with: newPhoto, by: photoService)
-//            let url = URL(string: newPhoto.name)
-//            cell.photoInPhotoCell.kf.setImage(with: url)
         }
         return cell
     }
+    
+    //MARK: - For likeControl selector
+    @objc func cellLikePressed(_ sender: LikeControl){
+        print("The cell liked status set to: \(sender.isLiked).")
+    }
+    
     
     private func startFiltration(for image: UIImage, at indexPath: IndexPath) {
         guard filteringOperations.operationsInProgress[indexPath] == nil,
             photos[indexPath] == nil else { return }
         let sepiaOperation = SepiaFilterOperation(image)
-//        sepiaOperation.completionBlock = {[weak self] in
-//            guard let self = self,
-//                !sepiaOperation.isCancelled else { return }
-//            self.photos[indexPath] = sepiaOperation.image
-//            DispatchQueue.main.async {
-//                self.collectionView.reloadItems(at: [indexPath])
-//          }
-//        }
         let vignetteOperation = VignetteFilterOperation()
         vignetteOperation.addDependency(sepiaOperation)
         vignetteOperation.completionBlock = {[weak self] in
@@ -120,21 +124,24 @@ class FriendsPhotoController: UICollectionViewController {
         filteringOperations.operationsInProgress[indexPath] = sepiaOperation
         filteringOperations.filteringQ.addOperations([sepiaOperation,vignetteOperation], waitUntilFinished: false)
     }
-    //MARK: Private
-    @objc func cellLikePressed(_ sender: LikeControl){
-        print("The cell liked status set to: \(sender.isLiked).")
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowBigPhoto",
-            let bigPhotoViewController = segue.destination as? BigPhotoController,
-            let index = collectionView.indexPathsForSelectedItems?.first?.item {
-            bigPhotoViewController.photoId = index
-            //bigPhotoViewController.photosInBigPhotoController = photosInFriendsPhotoController
+        if segue.identifier == "ShowBigPhoto"{
+            if let indexPath = self.collectionView.indexPathsForSelectedItems?.first{
+                let bigPhotoViewController = segue.destination as! BigPhotoController
+                let photoId = photosInFriendsPhotoController[indexPath.item].photoId
+                bigPhotoViewController.userId = self.userId
+                bigPhotoViewController.photoId = photoId
+                bigPhotoViewController.actualIndex = indexPath.section
+                
+            }
+            
         }
     }
 }
+
 extension FriendsPhotoController {
+    
     fileprivate func filterImageOnScreen() {
         let allCurrentoperationsIndexPaths = Set(filteringOperations.operationsInProgress.keys)
         let visibleIndexPath = Set(collectionView.indexPathsForVisibleItems)
@@ -157,13 +164,16 @@ extension FriendsPhotoController {
             }
         }
     }
+    
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         filteringOperations.filteringQ.isSuspended = true
     }
+    
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         filterImageOnScreen()
         filteringOperations.filteringQ.isSuspended = false
     }
+    
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             filterImageOnScreen()
@@ -171,6 +181,7 @@ extension FriendsPhotoController {
         }
     }
 }
+
 //MARK: - size of cell
 extension FriendsPhotoController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{

@@ -13,24 +13,6 @@ class NewsTextCell: UITableViewCell {
       static let reusedId = "NewsTextCell"
 
     @IBOutlet weak var textField: UITextView!
-    
-//    var news: News? {
-//        didSet {
-//            if let text = news?.newsText {
-//                textField.text = text
-//            }
-//        }
-//    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }
+

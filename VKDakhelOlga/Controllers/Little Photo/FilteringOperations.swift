@@ -13,7 +13,7 @@ protocol FilteredImageProvider{
 }
 
 class SepiaFilterOperation: Operation, FilteredImageProvider {
-   
+    
     var outputImage: UIImage? {
         if imageState == .filtered {
             return image
@@ -79,7 +79,7 @@ class VignetteFilterOperation: Operation{
         guard let dependency = dependencies
             .filter ({ $0 is FilteredImageProvider})
             .first as? FilteredImageProvider,
-        let image = dependency.outputImage else { return }
+            let image = dependency.outputImage else { return }
         
         if let filteredImage = applyVignetteFilter(to: image){
             self.image = filteredImage

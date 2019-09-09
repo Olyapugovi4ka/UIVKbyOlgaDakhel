@@ -64,10 +64,10 @@ class ClippedView: UIImageView {
 
 class AvatarView: UIView {
     
-    var shadowColor: UIColor = .green
+    var shadowColor: UIColor = .gray
     var shadowRadius: CGFloat = 7
     var shadowOpacity: Float = 0.75
-    var avatarImage: UIImage = UIImage(named: "art")! {
+    var avatarImage: UIImage = UIImage() {
         didSet {
             clippedImageView.image = avatarImage
         }

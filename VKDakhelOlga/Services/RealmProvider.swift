@@ -21,11 +21,13 @@ class RealmProvider {
             realm.add(items, update: update)
         }
     }
+    
     static func get<T: Object>(_ type: T.Type,
                                configuration: Realm.Configuration = deleteIfMigration) throws -> Results<T> {
         let realm = try Realm(configuration: configuration)
         return realm.objects(type)
     }
+    
     static func delete<T: Object>(items: T,
                                   configuration: Realm.Configuration = deleteIfMigration,
                                   update: Realm.UpdatePolicy = .modified) throws{

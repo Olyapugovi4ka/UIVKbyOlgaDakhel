@@ -14,7 +14,7 @@ import RealmSwift
 class Group: Object {
     
     //MARK: - Properties
-    dynamic var id: Int = 0
+    dynamic var id: Int = -1
     dynamic var name: String = ""
     dynamic  var avatarName: String?
     

@@ -13,7 +13,6 @@ class GroupCell: UITableViewCell {
     
     static let reuseId = "GroupCell"
     
-    //MARK: Outlets
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupImage: AvatarView!
     

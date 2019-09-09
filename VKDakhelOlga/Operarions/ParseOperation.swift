@@ -23,6 +23,6 @@ class ParseDataOperation : Operation {
         users = outputUsers
         
     }
-    
+
 }
 

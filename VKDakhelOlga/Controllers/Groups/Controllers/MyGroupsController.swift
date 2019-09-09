@@ -49,6 +49,11 @@ class MyGroupsController: UITableViewController {
                 self.show(error)
             }
         }
+    }
+    
+    //MARK: - Creating notification token
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         notificationToken = filteredGroups.observe { change in
             switch change {
@@ -69,14 +74,14 @@ class MyGroupsController: UITableViewController {
         notificationToken?.invalidate()
     }
     
-    //MARK: Count of rows
+    //MARK: - Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
       return filteredGroups.count
     
     }
     
-    //MARK: Cell
+    //MARK: - Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else {fatalError("Cell cannot be dequeued")}
         let group = filteredGroups[indexPath.row]
@@ -84,7 +89,7 @@ class MyGroupsController: UITableViewController {
         return cell
     }
     
-    //MARK: For deleting
+    //MARK: - For deleting
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -92,42 +97,22 @@ class MyGroupsController: UITableViewController {
             try! RealmProvider.delete(items: group)
         }
     }
-    
-    
 }
 
-//MARK: SearchBar
+//MARK: - SearchBar
 extension MyGroupsController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       
+        
         if searchText.isEmpty {
             filteredGroups = groups
             tableView.reloadData()
             return
         }
+        
         let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("name CONTAINS[c]'\(searchText)")
         filteredGroups = searchingGroups
         tableView.reloadData()
     }
     
 }
-// MARK: Navigation
-
-//MARK: Adding new group
-//    @IBAction func addGroup(segue: UIStoryboardSegue) {
-//
-//        if let addGroupController = segue.source as? AddGroupController,
-//            let indexPath = addGroupController.tableView.indexPathForSelectedRow {
-//            let newGroup = addGroupController.groups[indexPath.row]
-//            guard !groups.contains(where: { (Group) -> Bool in
-//                return Group.name == newGroup.name
-//            }) else {return}
-//            self.groups.append(newGroup)
-//            filteredGroups = groups
-//            tableView.reloadData()
-//        }
-//
-// }
-
-//}

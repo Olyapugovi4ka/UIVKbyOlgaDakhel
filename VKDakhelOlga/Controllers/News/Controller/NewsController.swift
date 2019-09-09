@@ -11,9 +11,12 @@ import RealmSwift
 
 class NewsController: UITableViewController {
     
-    //MARK: - Private
-    private var imageHeights = [IndexPath:CGFloat]()
+    //MARK: - Properties
+    
+    //MARK: - For NewsTextCell
+    var textIsEmpty: Bool = true
    
+    //MARK: - For NewsImageCell
     var maxWidth: CGFloat {
             return self.view.bounds.width
     }
@@ -27,14 +30,16 @@ class NewsController: UITableViewController {
     let news: Results<News> = try! RealmProvider.get(News.self)
     let group: Results<Group> = try! RealmProvider.get(Group.self)
     let user: Results<User> = try! RealmProvider.get(User.self)
-//    let newsResponse = NewsResponse(users: self.user, groups: self.group,news: self.news)
-    
+    let nextFrom: String = ""
+
+    //MARK: - Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //MARK: - Server request
-        networkingService.loadNews {[weak self] responce in
-            //MARK: - creating a queue
+        networkingService.loadNews(startFrom: nextFrom) {[weak self] responce in
+            
+            //MARK: - Creating a queue for fetching and parsing
             let queue = DispatchQueue.global(qos: .userInitiated)
             queue.async {
                 
@@ -42,19 +47,7 @@ class NewsController: UITableViewController {
                 switch responce {
                 case .success(let newsResponse):
                     do {
-                        let news = newsResponse.news
-                        
-                        
-                        for (index,item) in newsResponse.news.enumerated() {
-                            let indexPath = IndexPath(item: index, section: 0)
-                            guard let aspectRatio = item.newsPhoto?.aspectRatio else { continue }
-                            
-                            DispatchQueue.main.async {
-                                let imageHeight = CGFloat(aspectRatio) * self.maxWidth
-                                self.imageHeights[indexPath] = imageHeight
-                            }
-                            
-                        }
+                        let news = newsResponse.news.sorted(by: { $0.date < $1.date})
                         try RealmProvider.save(items: news)
                         let groups = newsResponse.groups
                         try RealmProvider.save(items: groups)
@@ -72,7 +65,8 @@ class NewsController: UITableViewController {
         notificationToken = news.observe { change in
             switch change {
             case .initial:
-                self.tableView.reloadData()
+                break
+                //self.tableView.reloadData()
             case .update:
                 self.tableView.reloadData()
             case .error(let error):
@@ -81,17 +75,15 @@ class NewsController: UITableViewController {
         }
     }
     
-    
-
     // MARK: - Table view data source
     
-    //MARK: Count of sections
+    //MARK: - Count of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return news.count
     }
 
-    //MARK: Count of rows
+    //MARK: - Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         return 4
@@ -100,7 +92,8 @@ class NewsController: UITableViewController {
     //MARK: Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row{
-        //MARK: First row
+            
+        //MARK: - NewsHeaderCell for avatar and name
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsHeaderCell", for: indexPath) as? NewsHeaderCell else { return UITableViewCell()}
             let sourceId = news[indexPath.section].sourceId
@@ -125,18 +118,17 @@ class NewsController: UITableViewController {
             }
         
             return cell
-        //MARK: Second row
+            
+        //MARK: - NewsTextCell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTextCell", for: indexPath) as! NewsTextCell
-             let text = news[indexPath.section].newsText
-            
-            //MARK: - returning to main queue
-            DispatchQueue.main.async {
+            if let text = news[indexPath.section].newsText{
                 cell.textField.text = text
-            }
             
+            }
             return cell
-            //MARK: Third row
+            
+            //MARK: - NewsImageCell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsImageCell", for: indexPath) as! NewsImageCell
 
@@ -144,31 +136,61 @@ class NewsController: UITableViewController {
                 cell.configer(with: photo)
             }
             return cell
-            //MARK: Forth row
+            
+            //MARK: - NewsControlCell for likes, reposts and comments
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewsControlCell", for: indexPath) as! NewsControlCell
+            let likeCount = news[indexPath.section].likeCount
+            let userLikes = news[indexPath.section].userLikes
+            cell.configer(with: userLikes)
+            let commentsCount = news[indexPath.section].commentsCount
+            let repostsCount = news[indexPath.section].repostsCount
+            
+            DispatchQueue.main.async {
+                cell.likeLabel.text = String(likeCount)
+                cell.commentLabel.text = String(commentsCount)
+                cell.repostLabel.text = String(repostsCount)
+            }
             return cell
-            //MARK: Other cases
+            
         default:
             return UITableViewCell()
         }
     }
     
 }
+
 //MARK: - size of NewsTextCell
 extension NewsController {
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         switch indexPath.row {
-            //        case 1:
-        //            return
+            
+        case 1:
+            if let text = news[indexPath.section].newsText,
+                !text.isEmpty {
+                return UITableView.automaticDimension
+            } else { return 0 }
+            
         case 2:
-            return imageHeights[indexPath] ?? 0
+            guard let photo = news[indexPath.section].newsPhoto,
+                let aspectRatio = photo.aspectRatio else { return 1 }
+            if photo.photoId == 0 {
+                return 1
+            } else {
+                return tableView.bounds.width / CGFloat(aspectRatio)
+            }
+            
+        case 3:
+            return 35
+            
         default:
             return UITableView.automaticDimension
         }
         
     }
+    
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/AppDelegate.swift"
-            timestampString = "586626773.792961"
+            timestampString = "588538384.9363869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"
@@ -515,60 +515,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.793797"
+            timestampString = "588176844.473315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
             endingLineNumber = "136"
-            landmarkName = "MyFriendsController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.794551"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "MyFriendsController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.795295"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "MyFriendsController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.795956"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "tableView(_:titleForHeaderInSection:)"
+            landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -579,7 +531,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.796762"
+            timestampString = "588176844.474884"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "numberOfSections(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "588176844.4760621"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "numberOfSections(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "588176844.4770941"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "sectionIndexTitles(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
+            timestampString = "588176844.478229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
@@ -600,24 +600,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
             endingLineNumber = "42"
-            landmarkName = "awakeFromNib()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VKDakhelOlga/Controllers/Little Photo/Controller/FriendsPhotoController.swift"
-            timestampString = "586600391.4243571"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -627,7 +611,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.797645"
+            timestampString = "588176844.4868799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "179"
@@ -643,13 +627,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.798703"
+            timestampString = "588176844.488343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
             endingLineNumber = "188"
-            landmarkName = "tableView(_:commit:forRowAt:)"
-            landmarkType = "7">
+            landmarkName = "MyFriendsController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -659,29 +643,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.799413"
+            timestampString = "588176844.489447"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "189"
             endingLineNumber = "189"
-            landmarkName = "tableView(_:commit:forRowAt:)"
-            landmarkType = "7">
+            landmarkName = "MyFriendsController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.800233"
+            timestampString = "588176844.495391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "190"
             endingLineNumber = "190"
-            landmarkName = "tableView(_:commit:forRowAt:)"
-            landmarkType = "7">
+            landmarkName = "MyFriendsController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -691,7 +675,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.801158"
+            timestampString = "588176844.496742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
@@ -707,7 +691,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.8018709"
+            timestampString = "588176844.498033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
@@ -723,7 +707,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.802591"
+            timestampString = "588176844.499361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
@@ -739,7 +723,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/MyFriends/Controllers/MyFriendsController.swift"
-            timestampString = "586626773.803441"
+            timestampString = "588176844.502528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
@@ -760,8 +744,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "MyGroupsController"
-            landmarkType = "21">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -776,8 +760,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "searchBar(_:textDidChange:)"
-            landmarkType = "7">
+            landmarkName = "MyGroupsController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -787,13 +771,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VKDakhelOlga/Controllers/News/Controller/NewsController.swift"
-            timestampString = "586626773.804286"
+            timestampString = "589284629.701128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Controllers/Groups/Controllers/AddGroupController.swift"
+            timestampString = "588538384.940881"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "AddGroupController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

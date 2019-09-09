@@ -96,8 +96,7 @@ class MyFriendsController: UITableViewController {
                 self?.show(error)
             }
         }
-//        firstLettersSectionTitles = []
-//        allFriendsDictionary = [:]
+        
     }
     
    //MARK: - Controller Lifecycle
@@ -118,7 +117,6 @@ class MyFriendsController: UITableViewController {
     private func sortUsers(_ users: Results<User>) -> [String] {
         
         firstLettersSectionTitles = []
-        // allFriendsDictionary = [:]
         
         for user in users {
             let userNameKey = String(user.userName.prefix(1))
@@ -126,10 +124,7 @@ class MyFriendsController: UITableViewController {
                 firstLettersSectionTitles.append(userNameKey)
             }
             
-            //firstLettersSectionTitles = [String](allFriendsDictionary.keys)
-       
         }
-        //firstLettersSectionTitles = [String](allFriendsDictionary.keys)
         return  firstLettersSectionTitles.sorted(by: {$0 < $1})
     }
     
@@ -139,7 +134,7 @@ class MyFriendsController: UITableViewController {
         return firstLettersSectionTitles.count
         
     }
-    //MARK: -Count of rows
+    //MARK: - Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let userNameKey = String(firstLettersSectionTitles[section])

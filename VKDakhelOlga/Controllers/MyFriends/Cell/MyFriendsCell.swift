@@ -13,12 +13,11 @@ class MyFriendsCell: UITableViewCell {
     
     static let reuseId = "MyFriendCell"
     
-    //MARK: Outlets
     @IBOutlet weak var avatarView: AvatarView!
     @IBOutlet weak var userLabel: UILabel!
     
     public func configer ( with user: User) {
-    
+        
         userLabel.text = user.userName
         
         let imageString = user.avatarName

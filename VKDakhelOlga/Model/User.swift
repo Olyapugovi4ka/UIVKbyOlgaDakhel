@@ -14,7 +14,7 @@ import RealmSwift
 class User: Object{
     
     //MARK: - Properties
-    dynamic var userId: Int = 0
+    dynamic var userId: Int = -1
     dynamic var userName:String = ""
     dynamic var avatarName: String = ""
     

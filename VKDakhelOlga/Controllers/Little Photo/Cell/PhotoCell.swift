@@ -7,17 +7,15 @@
 //
 
 import UIKit
-//import Kingfisher
+import Kingfisher
 
 class PhotoCell: UICollectionViewCell {
-    private var delegate: GoTo!
     
     static let reuseId = "PhotoCell"
     
     @IBOutlet var photoInPhotoCell: UIImageView!
     @IBOutlet var likeControl: LikeControl!
-        
-    
+  
     public func configer (with photo: Photo, by photoService: PhotoService) {
         let countOfLikes = String(photo.numberOfLikes)
         likeControl.likesCount.text = countOfLikes
@@ -25,14 +23,14 @@ class PhotoCell: UICollectionViewCell {
         let imageString = photo.name
         //let imageUrl = URL(string: imageString)
         //photoInPhotoCell.kf.setImage(with: imageUrl)
-         photoService.photo(with: imageString).done { [weak self] image in
+        
+        //MARK: - Using my own cash service
+        photoService.photo(with: imageString).done { [weak self] image in
             guard let self = self else { return }
             self.photoInPhotoCell.image = image
             }.catch { error in
                 print(error)
-        
         }
-        
     }
     
     override func awakeFromNib() {
@@ -44,8 +42,9 @@ class PhotoCell: UICollectionViewCell {
 
     }
     
+    //MARK: - For tapGR selector
     @objc func photoTapped() {
-    
+        
        let animation = CASpringAnimation(keyPath: "transform.scale")
         animation.fromValue = 0.7
         animation.toValue = 1
@@ -54,17 +53,8 @@ class PhotoCell: UICollectionViewCell {
         animation.duration = 2
         animation.beginTime = CACurrentMediaTime()
         animation.fillMode = CAMediaTimingFillMode.backwards
-     
-    
-        
+ 
         self.photoInPhotoCell.layer.add(animation, forKey: nil)
-        
     }
-        
-    
-
-
 }
-protocol GoTo {
-    func goTo()
-}
+
