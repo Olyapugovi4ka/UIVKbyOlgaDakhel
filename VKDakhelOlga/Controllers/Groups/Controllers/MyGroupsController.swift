@@ -110,7 +110,7 @@ extension MyGroupsController: UISearchBarDelegate {
             return
         }
         
-        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("name CONTAINS[c]'\(searchText)")
+        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("userName CONTAINS[cd] %@",searchText)
         filteredGroups = searchingGroups
         tableView.reloadData()
     }

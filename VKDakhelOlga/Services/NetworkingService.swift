@@ -139,24 +139,25 @@ class NetworkingService{
                 var users = [User]()
                 var groups = [Group]()
                 var nextFrom = ""
-                let newsResponse = NewsResponse(users: users, groups: groups, news: news, nextFrom: nextFrom)
+                
                 let dispatchGroup = DispatchGroup()
                 DispatchQueue.global().async(group: dispatchGroup) {
-                
-                 news = json["response"]["items"].arrayValue.map {News($0)}
+                    
+                    news = json["response"]["items"].arrayValue.map {News($0)}
                 }
                 DispatchQueue.global().async(group: dispatchGroup) {
-                groups = json["response"]["groups"].arrayValue.map {Group($0)}
+                    groups = json["response"]["groups"].arrayValue.map {Group($0)}
                 }
                 DispatchQueue.global().async(group: dispatchGroup) {
                     users = json["response"]["profiles"].arrayValue.map{User($0)}
                 }
                 DispatchQueue.global().async(group: dispatchGroup) {
-                   nextFrom = json["response"]["next_from"].stringValue
+                    nextFrom = json["response"]["next_from"].stringValue
                 }
                 
                 dispatchGroup.notify(queue: .main){
-                completion(.success (newsResponse))
+                    let newsResponse = NewsResponse(users: users, groups: groups, news: news, nextFrom: nextFrom)
+                    completion(.success (newsResponse))
                 }
             case.failure(let error):
                 print(error.localizedDescription)

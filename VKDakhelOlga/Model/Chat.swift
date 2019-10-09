@@ -32,17 +32,17 @@ struct Chat {
 struct Message: MessageType {
     var sender: SenderType {
         let id = authorId
-        //if id > 0 {
-        if let user = try! Realm().object(ofType: User.self, forPrimaryKey: id) {
-            let name = "\(user.userName)"
+        if id < 0 {
+        if let group = try! Realm().object(ofType: Group.self, forPrimaryKey: -id) {
+            let name = "\(group.name)"
             return Sender(id: String(id), displayName: name)
         }
-//        } else if id < 0 {
-//            let group = try! Realm().object(ofType: Group.self, forPrimaryKey: -id) {
-//                let name = "\(group.name)"
-//                return Sender(id: String(id), displayName: name)
-//            }
-       // }
+        } else {
+            if let user  = try! Realm().object(ofType: User.self, forPrimaryKey: id) {
+                let name = "\(user.userName)"
+                 return Sender(id: String(id), displayName: name)
+            }
+        }
         
         return Sender(id: String(id), displayName: "Unknown")
     }

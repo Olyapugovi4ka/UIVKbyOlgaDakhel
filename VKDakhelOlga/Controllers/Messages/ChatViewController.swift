@@ -30,8 +30,10 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
         
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
-            self.networkingService.receiveUpdates(for: self.chatId) { result in
+        
+       // Account.shared.longPoll.ts = 2
+        
+           networkingService.receiveUpdates(for: self.chatId) { result in
                 switch result {
                 case .failure(let error):
                     self.show(error)
@@ -40,15 +42,17 @@ class ChatViewController: MessagesViewController {
                         guard  message.id != lastMessage.id else { return }
                         self.messages.append(message)
                         let section = IndexSet(integer: self.messages.count - 1)
-                        self.messagesCollectionView.insertSections(section)
-                        self.messagesCollectionView.scrollToBottom(animated: true)
+                        DispatchQueue.main.async {
+                            self.messagesCollectionView.insertSections(section)
+                            self.messagesCollectionView.scrollToBottom(animated: true)
+                        }
                     }
 
 
 
                 }
             }
-        }
+        
         
         
     }

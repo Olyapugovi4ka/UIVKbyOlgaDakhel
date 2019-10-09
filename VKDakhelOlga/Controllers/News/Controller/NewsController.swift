@@ -65,8 +65,7 @@ class NewsController: UITableViewController {
         notificationToken = news.observe { change in
             switch change {
             case .initial:
-                break
-                //self.tableView.reloadData()
+                self.tableView.reloadData()
             case .update:
                 self.tableView.reloadData()
             case .error(let error):
