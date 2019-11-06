@@ -12,10 +12,11 @@ import RealmSwift
 class MyGroupsController: UITableViewController {
  
     //MARK: - Service for requests
-    let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    private var vkAdapter = VKAdapter()
+   // let networkingService = NetworkingService(token: Account.shared.token ?? "")
     
     //MARK: - Observer
-    var notificationToken: NotificationToken?
+    private var notificationToken: NotificationToken?
     
     // MARK: SearchBar
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -25,46 +26,53 @@ class MyGroupsController: UITableViewController {
     }
     
      // MARK: Array of Groups(under models)
-    private var groups: Results<Group> = try! RealmProvider.get(Group.self)
     
+    //private var groups: Results<Group> = try! RealmProvider.get(Group.self)
+    private var groups:[AdaptGroup] = []
     
-    // MARK: Arrat of filterd groups for SearchBar
-    private var filteredGroups: Results<Group> = try! RealmProvider.get(Group.self)
-    
+    // MARK: Array of filterd groups for SearchBar
+
+    //private var filteredGroups: Results<Group> = try! RealmProvider.get(Group.self)
+    private var filteredGroups:[AdaptGroup] = []
     
     //MARK: - Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MARK: - request with adapter
+        vkAdapter.getGroups{ [weak self] groups in
+            self?.groups = groups
+            self?.tableView.reloadData()
+        }
         //MARK:SearchBar
         filteredGroups = groups
         
         //MARK: - Server request
-        networkingService.loadGroups {[weak self] responce in
-            guard let self = self else { return }
-            switch responce {
-            case .success(let groups):
-                try! RealmProvider.save(items: groups)
-            case .failure(let error):
-                self.show(error)
-            }
-        }
+//        networkingService.loadGroups {[weak self] responce in
+//            guard let self = self else { return }
+//            switch responce {
+//            case .success(let groups):
+//                try! RealmProvider.save(items: groups)
+//            case .failure(let error):
+//                self.show(error)
+//            }
+//        }
     }
     
     //MARK: - Creating notification token
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        notificationToken = filteredGroups.observe { change in
-            switch change {
-            case .initial:
-                self.tableView.reloadData()
-            case .update:
-                self.tableView.reloadData()
-            case .error(let error):
-                self.show(error)
-            }
-        }
+//        notificationToken = filteredGroups.observe { change in
+//            switch change {
+//            case .initial:
+//                self.tableView.reloadData()
+//            case .update:
+//                self.tableView.reloadData()
+//            case .error(let error):
+//                self.show(error)
+//            }
+//        }
     }
     
     // MARK: Invalidation of notification token
@@ -94,7 +102,7 @@ class MyGroupsController: UITableViewController {
         
         if editingStyle == .delete {
             let group = filteredGroups[indexPath.row]
-            try! RealmProvider.delete(items: group)
+           // try! RealmProvider.delete(items: group)
         }
     }
 }
@@ -110,8 +118,8 @@ extension MyGroupsController: UISearchBarDelegate {
             return
         }
         
-        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("userName CONTAINS[cd] %@",searchText)
-        filteredGroups = searchingGroups
+        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("name CONTAINS[cd] %@",searchText)
+       // filteredGroups = searchingGroups
         tableView.reloadData()
     }
     

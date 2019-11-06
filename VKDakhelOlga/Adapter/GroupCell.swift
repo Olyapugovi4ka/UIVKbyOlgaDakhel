@@ -16,7 +16,7 @@ class GroupCell: UITableViewCell {
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupImage: AvatarView!
     
-    public func configer (with group: Group) {
+    public func configer (with group: AdaptGroup) {
         
         groupNameLabel.text = group.name
         
