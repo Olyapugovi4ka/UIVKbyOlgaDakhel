@@ -10,6 +10,10 @@ import UIKit
 import RealmSwift
 
 class MyGroupsController: UITableViewController {
+    
+    private let groupCellModelFactory = GroupCellModelFactory()
+    private var groupCellModels:[GroupCellModel] = []
+    
  
     //MARK: - Service for requests
     private var vkAdapter = VKAdapter()
@@ -42,10 +46,12 @@ class MyGroupsController: UITableViewController {
         //MARK: - request with adapter
         vkAdapter.getGroups{ [weak self] groups in
             self?.groups = groups
+            
             self?.tableView.reloadData()
         }
         //MARK:SearchBar
         filteredGroups = groups
+        groupCellModels = groupCellModelFactory.constructViewModels(from: filteredGroups)
         
         //MARK: - Server request
 //        networkingService.loadGroups {[weak self] responce in
@@ -85,15 +91,15 @@ class MyGroupsController: UITableViewController {
     //MARK: - Count of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-      return filteredGroups.count
+      return groupCellModels.count
     
     }
     
     //MARK: - Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else {fatalError("Cell cannot be dequeued")}
-        let group = filteredGroups[indexPath.row]
-       cell.configer(with: group)
+        //let group = filteredGroups[indexPath.row]
+        cell.configer(with: groupCellModels[indexPath.row])
         return cell
     }
     
@@ -102,6 +108,7 @@ class MyGroupsController: UITableViewController {
         
         if editingStyle == .delete {
             let group = filteredGroups[indexPath.row]
+            self.vkAdapter.delete(group)
            // try! RealmProvider.delete(items: group)
         }
     }
@@ -117,8 +124,10 @@ extension MyGroupsController: UISearchBarDelegate {
             tableView.reloadData()
             return
         }
-        
-        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("name CONTAINS[cd] %@",searchText)
+        self.vkAdapter.loadSearchGroups(text: searchText) { (groups) in
+            filteredGroups = groups
+        }
+//        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("name CONTAINS[cd] %@",searchText)
        // filteredGroups = searchingGroups
         tableView.reloadData()
     }

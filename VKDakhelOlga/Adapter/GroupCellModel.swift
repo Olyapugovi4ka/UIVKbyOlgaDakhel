@@ -6,4 +6,10 @@
 //  Copyright © 2019 MacBook. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct GroupCellModel {
+    let groupNameText: String
+    let groupIconURL: URL?
+    
+}

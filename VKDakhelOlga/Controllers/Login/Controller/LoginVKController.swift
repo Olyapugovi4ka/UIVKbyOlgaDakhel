@@ -42,7 +42,7 @@ class LoginVKController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        let identifier = "ShowMainScreen"
+       // let identifier = "ShowMainScreen"
 
     
     }

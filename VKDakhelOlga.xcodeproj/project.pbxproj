@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C11084D237021E500A825A5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11084C237021E500A825A5 /* UIColor+Extension.swift */; };
+		5C11084F2370271300A825A5 /* UIColor+Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11084E2370271300A825A5 /* UIColor+Pattern.swift */; };
+		5C11085B2370396400A825A5 /* AdaptGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11085A2370396400A825A5 /* AdaptGroup.swift */; };
+		5C11085E23705EEF00A825A5 /* VKAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11085D23705EEF00A825A5 /* VKAdapter.swift */; };
+		5C24C7B22372CCF200D0A4FF /* GroupCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24C7B12372CCF200D0A4FF /* GroupCellModel.swift */; };
+		5C24C7B52372CE0600D0A4FF /* GroupCellModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24C7B42372CE0600D0A4FF /* GroupCellModelFactory.swift */; };
 		7B9EC859EA8DDA6A7BCE3F84 /* Pods_VKDakhelOlga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83B282861BBDA4EA0DA635 /* Pods_VKDakhelOlga.framework */; };
 		FA117368228EFB7E0011F1E4 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA117367228EFB7E0011F1E4 /* Account.swift */; };
 		FA2D07D322DB177200556520 /* FetchDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D07D222DB177200556520 /* FetchDataOperation.swift */; };
@@ -70,6 +76,12 @@
 /* Begin PBXFileReference section */
 		21FA2082255EE22570BD91AC /* Pods-VKDakhelOlga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKDakhelOlga.debug.xcconfig"; path = "Target Support Files/Pods-VKDakhelOlga/Pods-VKDakhelOlga.debug.xcconfig"; sourceTree = "<group>"; };
 		42AC2330D77AAF4556A13558 /* Pods-VKDakhelOlga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKDakhelOlga.release.xcconfig"; path = "Target Support Files/Pods-VKDakhelOlga/Pods-VKDakhelOlga.release.xcconfig"; sourceTree = "<group>"; };
+		5C11084C237021E500A825A5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5C11084E2370271300A825A5 /* UIColor+Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Pattern.swift"; sourceTree = "<group>"; };
+		5C11085A2370396400A825A5 /* AdaptGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptGroup.swift; sourceTree = "<group>"; };
+		5C11085D23705EEF00A825A5 /* VKAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAdapter.swift; sourceTree = "<group>"; };
+		5C24C7B12372CCF200D0A4FF /* GroupCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellModel.swift; sourceTree = "<group>"; };
+		5C24C7B42372CE0600D0A4FF /* GroupCellModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellModelFactory.swift; sourceTree = "<group>"; };
 		AB83B282861BBDA4EA0DA635 /* Pods_VKDakhelOlga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKDakhelOlga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA117367228EFB7E0011F1E4 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		FA2D07D222DB177200556520 /* FetchDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FetchDataOperation.swift; path = ../FetchDataOperation.swift; sourceTree = "<group>"; };
@@ -151,6 +163,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C1108582370390D00A825A5 /* RealmModels */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2EA2284535E001E1504 /* Photo.swift */,
+				FAB09E412312DDFC004A8FF2 /* Chat.swift */,
+				FAA08091225D285100D3FC47 /* User.swift */,
+				FAA0808E225D24FB00D3FC47 /* Group.swift */,
+				FAB788A8227479F600FA0708 /* News.swift */,
+			);
+			path = RealmModels;
+			sourceTree = "<group>";
+		};
+		5C1108592370394C00A825A5 /* AdaptModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AdaptModels;
+			sourceTree = "<group>";
+		};
+		5C11085C2370399800A825A5 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				5C11085D23705EEF00A825A5 /* VKAdapter.swift */,
+				FADCF648225BC54400D65E87 /* MyGroupsController.swift */,
+				FAA08089225D019E00D3FC47 /* GroupCell.swift */,
+				FABA3F7622940F9700F8D420 /* NetworkingService.swift */,
+				5C11085A2370396400A825A5 /* AdaptGroup.swift */,
+				5C24C7B12372CCF200D0A4FF /* GroupCellModel.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		5C24C7B32372CDA800D0A4FF /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				5C24C7B42372CE0600D0A4FF /* GroupCellModelFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		CD98CD827DC5477D604D3D61 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,11 +260,8 @@
 		FAA08090225D25A500D3FC47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FAD3C2EA2284535E001E1504 /* Photo.swift */,
-				FAB09E412312DDFC004A8FF2 /* Chat.swift */,
-				FAA08091225D285100D3FC47 /* User.swift */,
-				FAA0808E225D24FB00D3FC47 /* Group.swift */,
-				FAB788A8227479F600FA0708 /* News.swift */,
+				5C1108592370394C00A825A5 /* AdaptModels */,
+				5C1108582370390D00A825A5 /* RealmModels */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,7 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				FA80334222B625E500E080D8 /* RealmProvider.swift */,
-				FABA3F7622940F9700F8D420 /* NetworkingService.swift */,
 				FAD1ADDB22E5C91B00E77EA0 /* PhotoService.swift */,
 			);
 			path = Services;
@@ -362,7 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				FADCF643225BC54400D65E87 /* AddGroupController.swift */,
-				FADCF648225BC54400D65E87 /* MyGroupsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -387,7 +434,6 @@
 		FAD3C2E322842317001E1504 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FAA08089225D019E00D3FC47 /* GroupCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -462,6 +508,10 @@
 		FADCF62B225BC4E600D65E87 /* VKDakhelOlga */ = {
 			isa = PBXGroup;
 			children = (
+				5C11084C237021E500A825A5 /* UIColor+Extension.swift */,
+				5C11084E2370271300A825A5 /* UIColor+Pattern.swift */,
+				5C24C7B32372CDA800D0A4FF /* Factory */,
+				5C11085C2370399800A825A5 /* Adapter */,
 				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
 				FABBA6142313F1960081A343 /* Coordinator */,
 				FA2D07D422DB188C00556520 /* Operarions */,
@@ -592,6 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD3C2EB2284535E001E1504 /* Photo.swift in Sources */,
+				5C24C7B22372CCF200D0A4FF /* GroupCellModel.swift in Sources */,
 				FAB47507227B1C9C00EE585C /* BigPhotoController.swift in Sources */,
 				FADCF655225BC54400D65E87 /* FriendsPhotoController.swift in Sources */,
 				FAA08092225D285100D3FC47 /* User.swift in Sources */,
@@ -616,20 +667,25 @@
 				FA2D07D822DB22ED00556520 /* ParseOperation.swift in Sources */,
 				FAB788A32271FF0400FA0708 /* NewsTextCell.swift in Sources */,
 				FABA3F792294101900F8D420 /* LoginVKController.swift in Sources */,
+				5C11085E23705EEF00A825A5 /* VKAdapter.swift in Sources */,
 				FAB788A72271FF5D00FA0708 /* NewsControlCell.swift in Sources */,
 				FAB09E492312EA94004A8FF2 /* AllChatsTableViewController.swift in Sources */,
 				FA2D07D622DB1A6A00556520 /* AsyncOperation.swift in Sources */,
 				FAAAE1A72264F4190009A984 /* ShadowView.swift in Sources */,
 				FAD3C2D422821916001E1504 /* Animator.swift in Sources */,
+				5C24C7B52372CE0600D0A4FF /* GroupCellModelFactory.swift in Sources */,
 				FAB09E422312DDFC004A8FF2 /* Chat.swift in Sources */,
 				FA80334322B625E500E080D8 /* RealmProvider.swift in Sources */,
+				5C11085B2370396400A825A5 /* AdaptGroup.swift in Sources */,
 				FABBA6182313F4250081A343 /* Coordinator.swift in Sources */,
 				FABBA6132313ECC40081A343 /* MainCoordinator.swift in Sources */,
 				FAB788A52271FF3F00FA0708 /* NewsImageCell.swift in Sources */,
 				FAAAE1AA2265F8F90009A984 /* LikeControl.swift in Sources */,
 				FADCF653225BC54400D65E87 /* AddFriendController.swift in Sources */,
 				FADCF659225BC54400D65E87 /* MyGroupsController.swift in Sources */,
+				5C11084F2370271300A825A5 /* UIColor+Pattern.swift in Sources */,
 				FADCF656225BC54400D65E87 /* LoginController.swift in Sources */,
+				5C11084D237021E500A825A5 /* UIColor+Extension.swift in Sources */,
 				FADCF658225BC54400D65E87 /* MyFriendsController.swift in Sources */,
 				FAB09E4E2312EC78004A8FF2 /* ChatCell.swift in Sources */,
 				FAB47503227AF66900EE585C /* LoadingDotsView.swift in Sources */,

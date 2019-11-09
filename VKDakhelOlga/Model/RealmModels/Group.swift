@@ -18,6 +18,7 @@ class Group: Object {
     dynamic var name: String = ""
     dynamic  var avatarName: String?
     
+    
     //MARK: - Initialisation
     convenience init(_ json:JSON){
         self.init()

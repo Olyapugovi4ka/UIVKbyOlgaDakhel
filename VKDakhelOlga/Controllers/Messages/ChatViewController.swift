@@ -76,9 +76,9 @@ class ChatViewController: MessagesViewController {
 extension ChatViewController: MessagesDisplayDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         if isMy(message ) {
-            return UIColor.blue
+            return UIColor.vkBlue
         } else {
-            return UIColor.lightGray
+            return UIColor.vkGray
         }
     }
     

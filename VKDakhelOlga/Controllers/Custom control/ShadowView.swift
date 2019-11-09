@@ -9,7 +9,7 @@
 import UIKit
 
 class ShadowView: UIView{
-    var shadowColor: UIColor = .green
+    var shadowColor: UIColor = .vkGreen
     var shadowRadius: CGFloat = 7
     var shadowOpacity: Float = 0.75
     
@@ -26,7 +26,7 @@ class ShadowView: UIView{
     }
     
     private func setupView(){
-        backgroundColor = .white
+        backgroundColor = .vkWhite
         layer.shadowColor = shadowColor.cgColor
         layer.shadowRadius = shadowRadius
         layer.shadowOpacity = shadowOpacity
@@ -64,7 +64,7 @@ class ClippedView: UIImageView {
 
 class AvatarView: UIView {
     
-    var shadowColor: UIColor = .gray
+    var shadowColor: UIColor = .vkGray
     var shadowRadius: CGFloat = 7
     var shadowOpacity: Float = 0.75
     var avatarImage: UIImage = UIImage() {

@@ -28,11 +28,11 @@ let dotView0 = UIView()
         addSubview(dotView0)
         addSubview(dotView1)
         addSubview(dotView2)
-        dotView0.backgroundColor = .lightGray
+        dotView0.backgroundColor = .vkGray
         dotView0.clipsToBounds = true
-        dotView1.backgroundColor = .lightGray
+        dotView1.backgroundColor = .vkGray
         dotView1.clipsToBounds = true
-        dotView2.backgroundColor = .lightGray
+        dotView2.backgroundColor = .vkGray
         dotView2.clipsToBounds = true
     }
     override func layoutSubviews() {

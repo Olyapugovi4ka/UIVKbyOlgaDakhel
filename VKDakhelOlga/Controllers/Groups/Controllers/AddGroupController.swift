@@ -72,7 +72,7 @@ class AddGroupController: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell,
         let group = isSearching ? filteredGroups[indexPath.row] : groups?[indexPath.row] else { fatalError("Cell cannot be dequeued") }
-        cell.configer(with: group)
+       // cell.configer(with: group)
         return cell
     }
     

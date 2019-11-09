@@ -85,7 +85,7 @@ class BigPhotoController: UIViewController {
         
        
         activeImageView.kf.setImage(with: imageUrl)
-       // activeImageView.backgroundColor = UIColor.lightGray
+      
         
     
     }
@@ -109,7 +109,7 @@ class BigPhotoController: UIViewController {
             let photoName = self.photosInBigPhotoController[self.actualIndex].name
             let photoUrl = URL(string:photoName)
             self.activeImageView.kf.setImage(with: photoUrl)
-           // self.activeImageView.backgroundColor = UIColor.lightGray
+          
             self.activeImageView.transform = .identity
         }
     }
@@ -131,7 +131,7 @@ class BigPhotoController: UIViewController {
             let photoName = self.photosInBigPhotoController[self.actualIndex].name
             let photoUrl = URL(string:photoName)
             self.activeImageView.kf.setImage(with: photoUrl)
-            //self.activeImageView.backgroundColor = UIColor.lightGray
+            
             self.activeImageView.transform = .identity
         }
     }

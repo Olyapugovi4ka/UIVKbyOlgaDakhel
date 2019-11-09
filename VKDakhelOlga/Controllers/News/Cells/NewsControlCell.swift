@@ -22,7 +22,7 @@ class NewsControlCell: UITableViewCell {
     public func configer (with userLikes: Int) {
         if userLikes == 1 {
             likeButton.imageView?.image = UIImage(named: "heart_filled")
-            likeLabel.textColor = .red
+            likeLabel.textColor = .vkRed
         } else {
             likeButton.imageView?.image = UIImage(named: "heart_empty")
         }

@@ -16,14 +16,11 @@ class GroupCell: UITableViewCell {
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupImage: AvatarView!
     
-    public func configer (with group: AdaptGroup) {
+    public func configer (with groupModel: GroupCellModel) {
         
-        groupNameLabel.text = group.name
+        groupNameLabel.text = groupModel.groupNameText
+        groupImage.clippedImageView.kf.setImage(with: groupModel.groupIconURL)
         
-        if let imageString = group.avatarName,
-            let imageUrl = URL(string: imageString){
-            groupImage.clippedImageView.kf.setImage(with: imageUrl)
-        }        
     }
 }
 
