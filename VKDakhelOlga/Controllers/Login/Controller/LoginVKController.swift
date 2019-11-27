@@ -66,7 +66,6 @@ extension LoginVKController: WKNavigationDelegate{
                 return dict
                 
         }
-        print(params)
         
         //MARK: - Fetching token and userId
         guard let token = params["access_token"],

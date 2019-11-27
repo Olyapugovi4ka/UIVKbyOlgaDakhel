@@ -22,7 +22,8 @@ class NewsController: UITableViewController {
     }
    
     //MARK: - Service for requests
-    let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    //MARK: - proxy
+    private let proxy = NetworkingServiceProxy()
     
     //MARK: - Observer
     var notificationToken: NotificationToken?
@@ -37,7 +38,7 @@ class NewsController: UITableViewController {
         super.viewDidLoad()
         
         //MARK: - Server request
-        networkingService.loadNews(startFrom: nextFrom) {[weak self] responce in
+        proxy.loadNews(startFrom: nextFrom) {[weak self] responce in
             
             //MARK: - Creating a queue for fetching and parsing
             let queue = DispatchQueue.global(qos: .userInitiated)

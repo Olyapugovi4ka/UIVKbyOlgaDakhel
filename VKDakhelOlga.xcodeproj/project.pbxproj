@@ -11,6 +11,7 @@
 		5C11084F2370271300A825A5 /* UIColor+Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11084E2370271300A825A5 /* UIColor+Pattern.swift */; };
 		5C11085B2370396400A825A5 /* AdaptGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11085A2370396400A825A5 /* AdaptGroup.swift */; };
 		5C11085E23705EEF00A825A5 /* VKAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C11085D23705EEF00A825A5 /* VKAdapter.swift */; };
+		5C129041238D2D0000A52F96 /* NetworkingServiceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C129040238D2D0000A52F96 /* NetworkingServiceProxy.swift */; };
 		5C24C7B22372CCF200D0A4FF /* GroupCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24C7B12372CCF200D0A4FF /* GroupCellModel.swift */; };
 		5C24C7B52372CE0600D0A4FF /* GroupCellModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C24C7B42372CE0600D0A4FF /* GroupCellModelFactory.swift */; };
 		7B9EC859EA8DDA6A7BCE3F84 /* Pods_VKDakhelOlga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB83B282861BBDA4EA0DA635 /* Pods_VKDakhelOlga.framework */; };
@@ -80,6 +81,7 @@
 		5C11084E2370271300A825A5 /* UIColor+Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Pattern.swift"; sourceTree = "<group>"; };
 		5C11085A2370396400A825A5 /* AdaptGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptGroup.swift; sourceTree = "<group>"; };
 		5C11085D23705EEF00A825A5 /* VKAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAdapter.swift; sourceTree = "<group>"; };
+		5C129040238D2D0000A52F96 /* NetworkingServiceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingServiceProxy.swift; sourceTree = "<group>"; };
 		5C24C7B12372CCF200D0A4FF /* GroupCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellModel.swift; sourceTree = "<group>"; };
 		5C24C7B42372CE0600D0A4FF /* GroupCellModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellModelFactory.swift; sourceTree = "<group>"; };
 		AB83B282861BBDA4EA0DA635 /* Pods_VKDakhelOlga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKDakhelOlga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 		5C1108592370394C00A825A5 /* AdaptModels */ = {
 			isa = PBXGroup;
 			children = (
+				5C11085A2370396400A825A5 /* AdaptGroup.swift */,
 			);
 			path = AdaptModels;
 			sourceTree = "<group>";
@@ -186,13 +189,17 @@
 			isa = PBXGroup;
 			children = (
 				5C11085D23705EEF00A825A5 /* VKAdapter.swift */,
-				FADCF648225BC54400D65E87 /* MyGroupsController.swift */,
-				FAA08089225D019E00D3FC47 /* GroupCell.swift */,
-				FABA3F7622940F9700F8D420 /* NetworkingService.swift */,
-				5C11085A2370396400A825A5 /* AdaptGroup.swift */,
-				5C24C7B12372CCF200D0A4FF /* GroupCellModel.swift */,
+				5C1108592370394C00A825A5 /* AdaptModels */,
 			);
 			path = Adapter;
+			sourceTree = "<group>";
+		};
+		5C12903F238D2CB000A52F96 /* Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				5C129040238D2D0000A52F96 /* NetworkingServiceProxy.swift */,
+			);
+			path = Proxy;
 			sourceTree = "<group>";
 		};
 		5C24C7B32372CDA800D0A4FF /* Factory */ = {
@@ -260,7 +267,6 @@
 		FAA08090225D25A500D3FC47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5C1108592370394C00A825A5 /* AdaptModels */,
 				5C1108582370390D00A825A5 /* RealmModels */,
 			);
 			path = Model;
@@ -276,6 +282,8 @@
 				FAAAE1A92265F8F90009A984 /* LikeControl.swift */,
 				FAB47502227AF66900EE585C /* LoadingDotsView.swift */,
 				FAB4750022778D5300EE585C /* Indicator.swift */,
+				5C11084E2370271300A825A5 /* UIColor+Pattern.swift */,
+				5C11084C237021E500A825A5 /* UIColor+Extension.swift */,
 			);
 			path = "Custom control";
 			sourceTree = "<group>";
@@ -327,6 +335,8 @@
 		FAD1ADDA22E5C8E400E77EA0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FABA3F7622940F9700F8D420 /* NetworkingService.swift */,
+				5C12903F238D2CB000A52F96 /* Proxy */,
 				FA80334222B625E500E080D8 /* RealmProvider.swift */,
 				FAD1ADDB22E5C91B00E77EA0 /* PhotoService.swift */,
 			);
@@ -409,6 +419,7 @@
 		FAD3C2E022842295001E1504 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FADCF648225BC54400D65E87 /* MyGroupsController.swift */,
 				FADCF643225BC54400D65E87 /* AddGroupController.swift */,
 			);
 			path = Controllers;
@@ -434,6 +445,8 @@
 		FAD3C2E322842317001E1504 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				5C24C7B12372CCF200D0A4FF /* GroupCellModel.swift */,
+				FAA08089225D019E00D3FC47 /* GroupCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -508,17 +521,15 @@
 		FADCF62B225BC4E600D65E87 /* VKDakhelOlga */ = {
 			isa = PBXGroup;
 			children = (
-				5C11084C237021E500A825A5 /* UIColor+Extension.swift */,
-				5C11084E2370271300A825A5 /* UIColor+Pattern.swift */,
+				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
 				5C24C7B32372CDA800D0A4FF /* Factory */,
 				5C11085C2370399800A825A5 /* Adapter */,
-				FADCF62C225BC4E600D65E87 /* AppDelegate.swift */,
 				FABBA6142313F1960081A343 /* Coordinator */,
 				FA2D07D422DB188C00556520 /* Operarions */,
-				FAD1ADDA22E5C8E400E77EA0 /* Services */,
 				FA117366228EFAF20011F1E4 /* Sessions */,
 				FAA08090225D25A500D3FC47 /* Model */,
 				FA41E66D225BC7D0004E2856 /* Controllers */,
+				FAD1ADDA22E5C8E400E77EA0 /* Services */,
 				FA41E66E225BC7ED004E2856 /* View */,
 				FADCF638225BC4E700D65E87 /* Info.plist */,
 			);
@@ -645,6 +656,7 @@
 				5C24C7B22372CCF200D0A4FF /* GroupCellModel.swift in Sources */,
 				FAB47507227B1C9C00EE585C /* BigPhotoController.swift in Sources */,
 				FADCF655225BC54400D65E87 /* FriendsPhotoController.swift in Sources */,
+				5C129041238D2D0000A52F96 /* NetworkingServiceProxy.swift in Sources */,
 				FAA08092225D285100D3FC47 /* User.swift in Sources */,
 				FAB7889F2271FADD00FA0708 /* NewsController.swift in Sources */,
 				FA117368228EFB7E0011F1E4 /* Account.swift in Sources */,

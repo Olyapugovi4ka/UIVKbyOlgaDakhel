@@ -11,6 +11,7 @@ import RealmSwift
 
 class MyGroupsController: UITableViewController {
     
+    //MARK: - pattern fabrica
     private let groupCellModelFactory = GroupCellModelFactory()
     private var groupCellModels:[GroupCellModel] = []
     
@@ -30,13 +31,9 @@ class MyGroupsController: UITableViewController {
     }
     
      // MARK: Array of Groups(under models)
-    
-    //private var groups: Results<Group> = try! RealmProvider.get(Group.self)
     private var groups:[AdaptGroup] = []
     
     // MARK: Array of filterd groups for SearchBar
-
-    //private var filteredGroups: Results<Group> = try! RealmProvider.get(Group.self)
     private var filteredGroups:[AdaptGroup] = []
     
     //MARK: - Controller Lifecycle
@@ -52,33 +49,12 @@ class MyGroupsController: UITableViewController {
         //MARK:SearchBar
         filteredGroups = groups
         groupCellModels = groupCellModelFactory.constructViewModels(from: filteredGroups)
-        
-        //MARK: - Server request
-//        networkingService.loadGroups {[weak self] responce in
-//            guard let self = self else { return }
-//            switch responce {
-//            case .success(let groups):
-//                try! RealmProvider.save(items: groups)
-//            case .failure(let error):
-//                self.show(error)
-//            }
-//        }
     }
     
     //MARK: - Creating notification token
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        notificationToken = filteredGroups.observe { change in
-//            switch change {
-//            case .initial:
-//                self.tableView.reloadData()
-//            case .update:
-//                self.tableView.reloadData()
-//            case .error(let error):
-//                self.show(error)
-//            }
-//        }
     }
     
     // MARK: Invalidation of notification token
@@ -98,7 +74,6 @@ class MyGroupsController: UITableViewController {
     //MARK: - Cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupCell.reuseId, for: indexPath) as? GroupCell else {fatalError("Cell cannot be dequeued")}
-        //let group = filteredGroups[indexPath.row]
         cell.configer(with: groupCellModels[indexPath.row])
         return cell
     }
@@ -116,20 +91,21 @@ class MyGroupsController: UITableViewController {
 
 //MARK: - SearchBar
 extension MyGroupsController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText.isEmpty {
-            filteredGroups = groups
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            
+            if searchText.isEmpty {
+                filteredGroups = groups
+                tableView.reloadData()
+                return
+            }
+            self.vkAdapter.loadSearchGroups(text: searchText) { (groups) in
+                filteredGroups = groups
+            }
+            //        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("name CONTAINS[cd] %@",searchText)
+            // filteredGroups = searchingGroups
             tableView.reloadData()
-            return
         }
-        self.vkAdapter.loadSearchGroups(text: searchText) { (groups) in
-            filteredGroups = groups
-        }
-//        let searchingGroups: Results<Group> = try! RealmProvider.get(Group.self).filter("name CONTAINS[cd] %@",searchText)
-       // filteredGroups = searchingGroups
-        tableView.reloadData()
+        
     }
-    
-}
+

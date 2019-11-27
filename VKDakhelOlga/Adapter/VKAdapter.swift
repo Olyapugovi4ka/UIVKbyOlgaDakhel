@@ -12,16 +12,18 @@ import  SwiftyJSON
 import RealmSwift
 
 class VKAdapter {
-    private let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    //private let networkingService = NetworkingService(token: Account.shared.token ?? "")
     
     //MARK: - Observer
       private var notificationToken: NotificationToken?
+    //MARK: - proxy
+    private let proxy = NetworkingServiceProxy()
     
     func getGroups(completion: @escaping ([AdaptGroup]) -> Void){
         let groups: Results<Group> = try! RealmProvider.get(Group.self)
         //var filteredGroups: Results<Group> = try! RealmProvider.get(Group.self)
         //filteredGroups = groups
-        networkingService.loadGroups { responce in
+        proxy.loadGroups { responce in
             switch responce {
             case .success(let groups):
                 try! RealmProvider.save(items: groups)

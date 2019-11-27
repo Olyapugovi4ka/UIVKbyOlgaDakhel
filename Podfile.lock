@@ -33,7 +33,7 @@ DEPENDENCIES:
   - SwiftyJSON (~> 5.0.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - InputBarAccessoryView
     - Kingfisher
@@ -55,6 +55,6 @@ SPEC CHECKSUMS:
   RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 9c7ba56284408289bcca01f789789ffb345becac
+PODFILE CHECKSUM: 05976a775035154cc35ba577437edb1ec4ea5052
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.8.4

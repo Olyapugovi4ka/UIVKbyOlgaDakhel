@@ -23,7 +23,10 @@ class BigPhotoController: UIViewController {
     public var photoId: Int = 0
     public lazy var photosInBigPhotoController :Results<Photo> = try! RealmProvider.get(Photo.self).filter("userId == %@", userId)
     
-    private let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    //MARK: - proxy
+    private let proxy = NetworkingServiceProxy()
+    
+    //MARK: - observer
     private var notificationToken: NotificationToken?
    
     //MARK: - animation
@@ -45,7 +48,7 @@ class BigPhotoController: UIViewController {
       
         
         //MARK: - Request - photos of user
-        networkingService.loadPhotos(userId) { response in
+        proxy.loadPhotos(userId) { response in
             switch response {
             case.success(let photos):
                 try? RealmProvider.save(items: photos)

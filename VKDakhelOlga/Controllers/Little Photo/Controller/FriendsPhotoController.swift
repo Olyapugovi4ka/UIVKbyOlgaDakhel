@@ -17,8 +17,8 @@ class FriendsPhotoController: UICollectionViewController {
     public var userId : Int = 0
     
     //MARK: - Service for requests
-    private let networkingService = NetworkingService(token: Account.shared.token ?? "")
-    
+    //private let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    private let proxy = NetworkingServiceProxy()
     //MARK: Array of photos
     public lazy var  photosInFriendsPhotoController : Results<Photo> = try! RealmProvider.get(Photo.self).filter("userId == %@", userId)
     
@@ -38,7 +38,7 @@ class FriendsPhotoController: UICollectionViewController {
         title = friendName
         
         //MARK: - Request - photos of user
-        networkingService.loadPhotos(userId) { response in
+        proxy.loadPhotos(userId) { response in
             switch response {
             case.success(let photos):
                 try? RealmProvider.save(items: photos)

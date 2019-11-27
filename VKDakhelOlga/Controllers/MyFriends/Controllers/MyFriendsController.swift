@@ -14,6 +14,7 @@ class MyFriendsController: UITableViewController {
     
     //MARK: - Service for requests
     let networkingService = NetworkingService(token: Account.shared.token ?? "")
+    let proxy = NetworkingServiceProxy()
     
     // MARK: - Array of Users(under models)
     public var users: Results<User> = try! RealmProvider.get(User.self)
@@ -42,7 +43,8 @@ class MyFriendsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let request = networkingService.friendsRequest()
+//        let request = networkingService.friendsRequest()
+        let request = proxy.friendsRequest()
         let fetchDataOperation = FetchDataOperation(request: request)
         //queue.addOperation(fetchDataOperation)
         

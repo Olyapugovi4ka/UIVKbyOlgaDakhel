@@ -18,7 +18,6 @@ struct Chat {
     
     //MARK: - Initialisation
     init (_ json: JSON){
-       // print(json)
         self.id = json["conversation"]["peer"]["id"].intValue
         if  let urlString = json["conversation"]["chat_settings"]["photo"]["photo_50"].string {
             self.avatarUrl = URL(string: urlString)

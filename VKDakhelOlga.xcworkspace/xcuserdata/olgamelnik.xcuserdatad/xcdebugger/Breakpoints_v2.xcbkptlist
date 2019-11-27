@@ -18,6 +18,38 @@
             endingLineNumber = "43"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2061A9D2-D9C6-4BB3-BF85-28122AD8507D - 36588098eeb81651"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKDakhelOlga.MyGroupsController.viewDidLoad() -&gt; ()"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/olgamelnik/Desktop/MyRepositories/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/Groups/Controllers/MyGroupsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "111">
+               </Location>
+               <Location
+                  uuid = "2061A9D2-D9C6-4BB3-BF85-28122AD8507D - 882316f7e6c56120"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;VKDakhelOlga.AdaptGroup&gt;) -&gt; () in VKDakhelOlga.MyGroupsController.viewDidLoad() -&gt; ()"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/olgamelnik/Desktop/MyRepositories/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/Groups/Controllers/MyGroupsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,58 +62,10 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "getGroups(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "39608D09-0F8E-44A2-90CC-A4A297FD36E7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "getGroups(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "39608D09-0F8E-44A2-90CC-A4A297FD36E7 - b59ee54ad0211b30"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VKDakhelOlga.VKAdapter.getGroups(completion: (Swift.Array&lt;VKDakhelOlga.AdaptGroup&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "VKDakhelOlga"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/olgamelnik/Desktop/MyRepositories/UIVKbyOlgaDakhel/VKDakhelOlga/Adapter/VKAdapter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "455">
-               </Location>
-               <Location
-                  uuid = "39608D09-0F8E-44A2-90CC-A4A297FD36E7 - 4e1d358abebf99b5"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;VKDakhelOlga.Group&gt;, Swift.Error&gt;) -&gt; () in VKDakhelOlga.VKAdapter.getGroups(completion: (Swift.Array&lt;VKDakhelOlga.AdaptGroup&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "VKDakhelOlga"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/olgamelnik/Desktop/MyRepositories/UIVKbyOlgaDakhel/VKDakhelOlga/Adapter/VKAdapter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "170">
-               </Location>
-            </Locations>
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "VKAdapter"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,8 +78,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "getGroups(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -112,7 +96,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
             endingLineNumber = "96"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -146,6 +130,38 @@
             endingLineNumber = "44"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "223BA4BC-AD08-4034-A8D9-726FDFC47A24 - 36588098eeb81651"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VKDakhelOlga.MyGroupsController.viewDidLoad() -&gt; ()"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/olgamelnik/Desktop/MyRepositories/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/Groups/Controllers/MyGroupsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "111">
+               </Location>
+               <Location
+                  uuid = "223BA4BC-AD08-4034-A8D9-726FDFC47A24 - 882316f7e6c56120"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;VKDakhelOlga.AdaptGroup&gt;) -&gt; () in VKDakhelOlga.MyGroupsController.viewDidLoad() -&gt; ()"
+                  moduleName = "VKDakhelOlga"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/olgamelnik/Desktop/MyRepositories/UIVKbyOlgaDakhel/VKDakhelOlga/Controllers/Groups/Controllers/MyGroupsController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -158,8 +174,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "getGroups(completion:)"
             landmarkType = "7">
             <Locations>
@@ -206,8 +222,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "getGroups(completion:)"
             landmarkType = "7">
             <Locations>
@@ -254,8 +270,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "getGroups(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +286,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "getGroups(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,8 +302,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "getGroups(completion:)"
             landmarkType = "7">
             <Locations>
@@ -334,10 +350,10 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "delete(_:)"
-            landmarkType = "7">
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "VKAdapter"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -350,8 +366,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "delete(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -366,8 +382,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "delete(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +414,8 @@
             filePath = "VKDakhelOlga/Adapter/VKAdapter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "delete(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -418,6 +434,86 @@
             endingLineNumber = "13"
             landmarkName = "GroupCellModel"
             landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "454C2F6F-CB8A-4B91-BE23-F0937778DBC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Proxy/NetworkingServiceProxy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "loadPhotos(_:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2041496E-10D1-4AA2-B025-F1159F69FEEC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Proxy/NetworkingServiceProxy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "loadSearchGroups(query:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "726E3717-55B3-4363-8285-53EDADB5F414"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Proxy/NetworkingServiceProxy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "loadGroups(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B04FEE38-FD76-4B48-8BF8-4DD8818B4C18"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Proxy/NetworkingServiceProxy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "loadFriends(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "90D091D7-2A03-40AF-8833-503E055B1727"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VKDakhelOlga/Proxy/NetworkingServiceProxy.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "friendsRequest()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

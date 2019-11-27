@@ -10,8 +10,20 @@ import Foundation
 import Alamofire
 import  SwiftyJSON
 
-class NetworkingService{
-    
+protocol NetworkingServiceProtocol {
+    func loadGroups(completion: @escaping (Swift.Result<[Group], Error>) -> Void)
+    func loadFriends(completion: @escaping (Swift.Result<[User],Error>) -> Void)
+    func loadPhotos(_ userId: Int, completion: ((Swift.Result <[Photo], Error>) -> Void)?)
+    func loadSearchGroups (query queryString: String, completion: @escaping (Swift.Result <[Group], Error>) -> Void)
+    func loadNews(startFrom: String ,completion: @escaping (Swift.Result<NewsResponse,Error>)-> Void)
+    func friendsRequest() -> DataRequest
+    func getConversations (completion: @escaping (Swift.Result <[Chat],Error>)-> Void)
+    func getMessages(chatId: Int, completion: @escaping (Swift.Result<[Message],Error>)-> Void)
+}
+
+
+class NetworkingService : NetworkingServiceProtocol{
+
     //MARK: - Session
     static let session: SessionManager = {
         let config = URLSessionConfiguration.default
@@ -167,17 +179,17 @@ class NetworkingService{
         
     }
     
-    //MARK: - Request for operations
+   // MARK: - Request for operations
     func friendsRequest() -> DataRequest {
         let token = Account.shared.token!
-        
+
         let path = "/method/friends.get"
         let params: Parameters = [
             "access_token" : token,
             "fields": "nickname, photo_200_orig",
             "extended": 1,
             "v": vkVersion ]
-        
+
         return NetworkingService.session.request(baseUrl + path, method: .get, parameters: params)
     }
     
@@ -194,22 +206,18 @@ class NetworkingService{
             switch response.result {
             case.success(let value):
                 let json = JSON(value)
-                print(json)
                 var chats = [Chat]()
                 
                 let dispatchGroup = DispatchGroup()
                 DispatchQueue.global().async(group: dispatchGroup) {
                     chats = json["response"]["items"].arrayValue.map { Chat($0) }
                 }
-                print(chats)
                 DispatchQueue.global().async(group: dispatchGroup) {
                     let users = json["response"]["profiles"].arrayValue.map { User($0) }
-                    print(users)
                     let _ = try? RealmProvider.save(items: users)
                 }
                 DispatchQueue.global().async(group: dispatchGroup) {
                     let groups = json["response"]["groups"].arrayValue.map { Group($0) }
-                    print(groups)
                     let _ = try? RealmProvider.save(items: groups)
                 }
                 dispatchGroup.notify(queue: .main){
@@ -314,7 +322,6 @@ class NetworkingService{
                     .filter { $0[3].intValue == chatId }
                     .map ({ $0[1].intValue })
                 messageIds.forEach { self.getMessage(by: $0, completion: completion) }
-                 print(messageIds)  
             case.failure:
                 break
     }

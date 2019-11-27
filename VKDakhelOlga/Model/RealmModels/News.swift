@@ -39,17 +39,12 @@ class News: Object {
     //MARK: - Initialisation
     convenience init(_ json: JSON){
         self.init()
-        print(json)
         self.postId = json["post_id"].intValue
         self.sourceId = json["source_id"].intValue
         self.newsText = json["text"].stringValue
         let attachments = json["attachments"][0]["photo"]
-        print(attachments)
         let photo = Photo.convert(attachments)
-        self.newsPhoto = photo
-//        let dateDouble = json["date"].doubleValue
-//        self.date = Date(timeIntervalSince1970: dateDouble)
-//        
+        self.newsPhoto = photo       
         self.date = json["date"].doubleValue
         
         self.likeCount = json["likes"]["count"].intValue

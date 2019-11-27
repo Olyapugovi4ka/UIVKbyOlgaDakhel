@@ -60,7 +60,7 @@ class AllChatsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        defer {
+        do {
             tableView.deselectRow(at: indexPath, animated: true)
             
             let chatVC = ChatViewController()
